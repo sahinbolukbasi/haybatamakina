@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Başvurusu - Haybata Makina | Kariyer Fırsatları</title>
+    <meta name="description" content="Haybata Makina kariyer fırsatları. CNC operatörü, paslanmaz kaynakçı, satış mühendisi ve kalite kontrol uzmanı pozisyonlarına başvurun.">
+    <meta name="keywords" content="haybata makina iş ilanları, kariyer, CNC operatörü, kaynakçı iş ilanı">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.haybatamakina.com/is-basvurusu">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">H</div>
+            <div>HAYBATA <span>MAKİNA</span><small>PASLANMAZ ÇELİK</small></div>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="urunler.html">Ürünler</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="duyurular.html">Duyurular</a>
+            <a href="is-basvurusu.html" class="active">İş Başvurusu</a>
+            <a href="iletisim.html" class="nav-cta">İletişim</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü Aç/Kapat">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Kariyer Fırsatları</h1>
+    <p>Haybata Makina ailesine katılın, birlikte büyüyelim</p>
+</div>
+
+<div class="breadcrumb">
+    <div class="breadcrumb-inner">
+        <a href="index.html">Ana Sayfa</a>
+        <span class="separator"> / </span>
+        <span class="current">İş Başvurusu</span>
+    </div>
+</div>
+
+<section class="section">
+    <div class="application-grid">
+        <div>
+            <div class="section-tag">Açık Pozisyonlar</div>
+            <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 2rem;">Aktif <span class="highlight">İlanlarımız</span></h2>
+            <div class="job-list" id="jobList"></div>
+        </div>
+        <div>
+            <div class="section-tag">Başvuru Formu</div>
+            <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 2rem;">Hemen <span class="highlight">Başvurun</span></h2>
+            <form class="contact-form fade-in-right" id="jobForm" style="position: sticky; top: 100px;">
+                <div class="form-group">
+                    <label for="applicantName">Adınız Soyadınız</label>
+                    <input type="text" id="applicantName" name="name" placeholder="Adınız ve soyadınız" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantEmail">E-posta Adresiniz</label>
+                    <input type="email" id="applicantEmail" name="email" placeholder="ornek@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantPhone">Telefon</label>
+                    <input type="tel" id="applicantPhone" name="phone" placeholder="0555 555 55 55" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantJob">Başvurulan Pozisyon</label>
+                    <select id="applicantJob" name="position" required>
+                        <option value="">Pozisyon seçiniz</option>
+                        <option value="CNC Operatörü">CNC Operatörü</option>
+                        <option value="Paslanmaz Kaynakçı">Paslanmaz Kaynakçı</option>
+                        <option value="Satış Mühendisi">Satış Mühendisi</option>
+                        <option value="Kalite Kontrol Uzmanı">Kalite Kontrol Uzmanı</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="applicantMessage">Kendinizi Tanıtın</label>
+                    <textarea id="applicantMessage" name="message" placeholder="Deneyimleriniz ve yetenekleriniz hakkında kısaca bilgi verin..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="fas fa-paper-plane"></i> Başvuruyu Gönder
+                </button>
+                <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem; text-align: center;">
+                    <i class="fas fa-info-circle"></i> Başvurunuz incelendikten sonra sizinle iletişime geçilecektir.
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>HAYBATA <span>MAKİNA</span></h3>
+            <p>Paslanmaz çelik ürünleri sektöründe 30 yılı aşkın tecrübe ile kaliteli üretim, uygun fiyat ve müşteri memnuniyeti odaklı hizmet vermekteyiz.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Hızlı Linkler</h4>
+            <div class="footer-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="urunler.html">Ürünler</a>
+                <a href="hakkimizda.html">Hakkımızda</a>
+                <a href="duyurular.html">Duyurular</a>
+                <a href="is-basvurusu.html">İş Başvurusu</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <div>
+            <h4>Ürün Grupları</h4>
+            <div class="footer-links">
+                <a href="urunler.html#kelepce">Paslanmaz Kelepçe</a>
+                <a href="urunler.html#vana">Paslanmaz Vana</a>
+                <a href="urunler.html#menhol">Paslanmaz Menhol</a>
+                <a href="urunler.html#flans">Paslanmaz Flanş</a>
+                <a href="urunler.html#fittings">Kaynaklı Fittings</a>
+                <a href="urunler.html#ozel">Özel Ürünler</a>
+            </div>
+        </div>
+        <div>
+            <h4>İletişim</h4>
+            <div class="footer-links">
+                <a href="tel:02126712577"><i class="fas fa-phone" style="margin-right: 8px;"></i>0212 671 25 77</a>
+                <a href="mailto:satis@haybatamakina.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>satis@haybatamakina.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>İkitelli OSB, Başakşehir / İstanbul</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2025 Haybata Makina. Tüm hakları saklıdır.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> by Haybata</span>
+    </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Yukarı Çık">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<div class="toast" id="toast">
+    <span class="toast-icon"><i class="fas fa-check-circle"></i></span>
+    <span id="toastMessage">Başvurunuz başarıyla alınmıştır!</span>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
