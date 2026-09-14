@@ -2,11 +2,10 @@ backend:
   name: github
   repo: sahinbolukbasi/haybatamakina
   branch: main
+  base_url: https://api.github.com
 
 media_folder: "images/uploads"
 public_folder: "images/uploads"
-
-locale: "tr"
 
 collections:
   # 1. Genel Şirket & İletişim Bilgileri
