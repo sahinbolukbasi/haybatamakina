@@ -8,7 +8,7 @@ media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 collections:
-  # 1. Genel Şirket & İletişim Bilgileri
+  # 1. Genel Şirket, İletişim & Kurumsal Ayarlar (File-based Collection)
   - name: "settings"
     label: "Site & İletişim Ayarları"
     delete: false
@@ -36,7 +36,19 @@ collections:
           - { label: "Misyon & Değerlerimiz", name: "values", widget: "text" }
           - { label: "Vizyon & Hedefimiz", name: "goal", widget: "text" }
 
-  # 2. Projeler & Sanayi Kazanları
+      - name: "references_info"
+        label: "Sanayi Referansları"
+        file: "data/references.json"
+        fields:
+          - label: "Referans Listesi"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Firma / Kurum Adı", name: "name", widget: "string" }
+              - { label: "Sektör", name: "sector", widget: "string" }
+              - { label: "Yapılan İş / Ekipman", name: "desc", widget: "string" }
+
+  # 2. Projeler & Sanayi Kazanları (Folder-based Collection)
   - name: "projects"
     label: "Projeler & Kazan İmalatları"
     folder: "data/projects"
@@ -60,18 +72,3 @@ collections:
       - { label: "Kazan / Proje Görseli", name: "image", widget: "image" }
       - { label: "Kısa Özet Açıklama", name: "summary", widget: "text" }
       - { label: "Öne Çıkan Özellikler", name: "highlights", widget: "list", field: { label: "Özellik Maddesi", name: "item", widget: "string" } }
-
-  # 3. Müşteri & Sanayi Referansları
-  - name: "references"
-    label: "Sanayi Referansları"
-    file: "data/references.json"
-    editor:
-      preview: false
-    fields:
-      - label: "Referans Listesi"
-        name: "items"
-        widget: "list"
-        fields:
-          - { label: "Firma / Kurum Adı", name: "name", widget: "string" }
-          - { label: "Sektör", name: "sector", widget: "string" }
-          - { label: "Yapılan İş / Ekipman", name: "desc", widget: "string" }
