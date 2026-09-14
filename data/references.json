@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "name": "Entegre Tekstil Sanayi", "sector": "Tekstil & Boya", "desc": "Buhar Kazanı & Kollektör Sistemleri" },
+    { "name": "Mega Kimya & Reçine", "sector": "Petrokimya", "desc": "Kızgın Yağ Kazanı & Reaktör Projeleri" },
+    { "name": "Anadolu Gıda & İçecek", "sector": "Gıda Sanayi", "desc": "Paslanmaz Tank & Saf Buhar Hatları" },
+    { "name": "Marmara Ambalaj & Karton", "sector": "Kağıt Sanayi", "desc": "10 Ton Buhar Kazanı & Kondens Sistemi" },
+    { "name": "Ege Modern Jeotermal Sera", "sector": "Tarım & Isıtma", "desc": "Yüksek Basınçlı Kaynar Su Kazanları" },
+    { "name": "Otomotiv Yan Sanayi A.Ş.", "sector": "Otomotiv", "desc": "Endüstriyel Isıtma ve Akışkan Tesisatı" }
+  ]
+}
