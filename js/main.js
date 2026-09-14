@@ -356,6 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const specsEntries = item.specs ? Object.entries(item.specs).slice(0, 2) : [];
                 const specsChipsHtml = specsEntries.map(([k, v]) => `<span class="spec-chip"><strong>${k}:</strong> ${v}</span>`).join('');
 
+                const detailUrl = `urun-detay.html?sub=${item.subId}&prod=${item.productIndex}`;
+
+                card.style.cursor = 'pointer';
                 card.innerHTML = `
                     <div class="tree-product-img-wrap">
                         <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas fa-industry\\'></i></div>'">
@@ -363,17 +366,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="tree-product-body">
                         <div class="tree-product-category">${item.subName}</div>
-                        <h3 class="tree-product-title">${item.name}</h3>
+                        <h3 class="tree-product-title"><a href="${detailUrl}" style="color:inherit;text-decoration:none;">${item.name}</a></h3>
                         <p class="tree-product-desc">${item.description || ''}</p>
                         <div class="tree-product-specs-chips">
                             ${specsChipsHtml}
                         </div>
-                        <a href="urun-detay.html?sub=${item.subId}&prod=${item.productIndex}" class="tree-product-btn">
+                        <a href="${detailUrl}" class="tree-product-btn">
                             <span>Teknik Detay & Fiyat İncele</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 `;
+
+                // Kartın herhangi bir yerine (yazıya, fotoğrafa veya gövdeye) tıklandığında sayfaya git
+                card.addEventListener('click', (e) => {
+                    // Eğer doğrudan bir alt linke tıklanmadıysa yönlendir
+                    if (!e.target.closest('a')) {
+                        window.location.href = detailUrl;
+                    }
+                });
+
                 treeProductsGrid.appendChild(card);
             });
         }
