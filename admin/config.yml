@@ -7,34 +7,57 @@ media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 collections:
-  # 1. Genel Şirket, İletişim & Kurumsal Ayarlar (File-based Collection)
-  - name: "settings"
-    label: "Site & İletişim Ayarları"
+  # =========================================================
+  # 1. TÜM SİTE AYARLARI, METİNLER VE KURUMSAL BİLGİLER
+  # =========================================================
+  - name: "pages"
+    label: "Site Sayfaları & Genel Ayarlar"
     delete: false
     editor:
       preview: false
     files:
+      # A) Ana Sayfa Vitrin & İstatistikler
+      - name: "home_page"
+        label: "Ana Sayfa Vitrin & Sloganlar"
+        file: "data/home.json"
+        fields:
+          - { label: "Ana Slogan / Başlık", name: "heroTitle", widget: "string" }
+          - { label: "Alt Açıklama Metni", name: "heroSubtitle", widget: "text" }
+          - { label: "Üst Rozet Metni", name: "heroBadge", widget: "string" }
+          - { label: "Öne Çıkanlar Başlığı", name: "featuredProductsTitle", widget: "string" }
+          - { label: "Öne Çıkanlar Alt Açıklama", name: "featuredProductsSubtitle", widget: "string" }
+          - label: "Ana Sayfa İstatistik Sayaçları"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Sayı / Değer (Örn: 30+, %99)", name: "number", widget: "string" }
+              - { label: "Etiket (Örn: Yıllık Tecrübe)", name: "label", widget: "string" }
+              - { label: "Kısa Alt Not", name: "desc", widget: "string" }
+
+      # B) Şirket İletişim & Sosyal Medya
       - name: "contact_info"
-        label: "İletişim & Firma Bilgileri"
+        label: "İletişim & Şirket Bilgileri"
         file: "data/contact.json"
         fields:
-          - { label: "Firma Ünvanı", name: "companyName", widget: "string", default: "Haybata Makina San. ve Tic. Ltd. Şti." }
-          - { label: "Telefon Numarası", name: "phone", widget: "string", default: "0212 671 25 77" }
-          - { label: "Faks Numarası", name: "fax", widget: "string", default: "0212 671 25 78" }
-          - { label: "WhatsApp Numarası (Örn: 902126712577)", name: "whatsapp", widget: "string", default: "902126712577" }
-          - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string", default: "satis@haybatamakina.com" }
-          - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string", default: "bilgi@haybatamakina.com" }
-          - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text", default: "İkitelli Organize Sanayi Bölgesi, Bağcılar Güngören Sanayi Bölgesi Blok:11 No:19, Başakşehir / İSTANBUL" }
-          - { label: "Çalışma Saatleri", name: "hours", widget: "string", default: "Hafta içi: 08:00 - 18:00 | Cumartesi: 09:00 - 14:00" }
+          - { label: "Firma Ünvanı", name: "companyName", widget: "string" }
+          - { label: "Telefon Numarası", name: "phone", widget: "string" }
+          - { label: "Faks Numarası", name: "fax", widget: "string" }
+          - { label: "WhatsApp Numarası (Örn: 902126712577)", name: "whatsapp", widget: "string" }
+          - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
+          - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string" }
+          - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }
+          - { label: "Çalışma Saatleri", name: "hours", widget: "string" }
 
+      # C) Hakkımızda & Kurumsal Metinler
       - name: "about_info"
         label: "Hakkımızda & Kurumsal Metinler"
         file: "data/about.json"
         fields:
-          - { label: "Giriş / Özet Metni", name: "intro", widget: "text" }
+          - { label: "Hakkımızda Giriş Metni", name: "intro", widget: "text" }
           - { label: "Misyon & Değerlerimiz", name: "values", widget: "text" }
-          - { label: "Vizyon & Hedefimiz", name: "goal", widget: "text" }
+          - { label: "Vizyon & Gelecek Hedefimiz", name: "goal", widget: "text" }
 
+      # D) Sanayi Referansları
       - name: "references_info"
         label: "Sanayi Referansları"
         file: "data/references.json"
@@ -47,7 +70,18 @@ collections:
               - { label: "Sektör", name: "sector", widget: "string" }
               - { label: "Yapılan İş / Ekipman", name: "desc", widget: "string" }
 
-  # 2. Projeler & Sanayi Kazanları (Folder-based Collection)
+      # E) SEO & Arama Motoru Ayarları
+      - name: "seo_info"
+        label: "SEO & Google Arama Ayarları"
+        file: "data/seo.json"
+        fields:
+          - { label: "Site Başlığı (Title)", name: "siteTitle", widget: "string" }
+          - { label: "Google Açıklaması (Meta Description)", name: "defaultDescription", widget: "text" }
+          - { label: "Anahtar Kelimeler (Virgülle ayırın)", name: "keywords", widget: "text" }
+
+  # =========================================================
+  # 2. PROJELER & REFERANS KAZAN İMALATLARI
+  # =========================================================
   - name: "projects"
     label: "Projeler & Kazan İmalatları"
     folder: "data/projects"
