@@ -3,31 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ürün Detayı - Haybata Makina</title>
-    <meta name="description" content="Paslanmaz çelik ürün detayları ve teknik özellikler.">
+    <title>Ürün Detayı & Teknik Çizelge | Haybata Makina - Buhar Kazanları ve Paslanmaz Çelik</title>
+    <meta name="description" content="Sanayi tipi kazanlar ve paslanmaz çelik ürün detayları, çalışma basınçları, malzeme normları (AISI 304 / 316L) ve teknik özellikleri.">
+    <meta name="keywords" content="ürün detayı, paslanmaz vana özellikleri, sanayi tipi buhar kazanı teknik çizelge, paslanmaz kelepçe ölçüleri, flanş basınç sınıfları, haybata makina">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.haybatamakina.com/urun-detay">
+    <meta name="geo.region" content="TR-34">
+    <meta name="geo.placename" content="İstanbul, Başakşehir, İkitelli">
+    
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://www.haybatamakina.com/urun-detay.html">
+    <meta property="og:title" content="Ürün Detayı & Teknik Çizelge - Haybata Makina">
+    <meta property="og:description" content="Endüstriyel tesisler için yüksek standartlı kazan ve paslanmaz çelik ekipman detayları.">
+    <meta property="og:image" content="https://www.haybatamakina.com/images/projeler/buhar-kazani.jpg">
+    <meta property="og:site_name" content="Haybata Makina">
+    <meta property="og:locale" content="tr_TR">
+
+    <link rel="canonical" href="https://www.haybatamakina.com/urun-detay.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://www.haybatamakina.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Ürünler",
+                "item": "https://www.haybatamakina.com/urunler.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ürün Detayı",
+                "item": "https://www.haybatamakina.com/urun-detay.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 
+<!-- Navigation -->
 <nav class="navbar" id="navbar">
     <div class="navbar-inner">
         <a href="index.html" class="nav-logo">
             <div class="logo-icon">H</div>
-            <div>HAYBATA <span>MAKİNA</span><small>PASLANMAZ ÇELİK</small></div>
+            <div>HAYBATA <span>MAKİNA</span><small>KAZAN & PASLANMAZ SİSTEMLER</small></div>
         </a>
         <div class="nav-links" id="navLinks">
             <a href="index.html">Ana Sayfa</a>
-            <a href="urunler.html">Ürünler</a>
+            <a href="urunler.html" class="active">Ürünler</a>
+            <a href="projeler.html">Projeler & Kazanlar</a>
             <a href="hakkimizda.html">Hakkımızda</a>
-            <a href="duyurular.html">Duyurular</a>
-            <a href="is-basvurusu.html">İş Başvurusu</a>
-            <a href="iletisim.html" class="nav-cta">İletişim</a>
+            <a href="iletisim.html" class="nav-cta">İletişim & Teklif Al</a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Menüyü Aç/Kapat">
             <span></span><span></span><span></span>
@@ -36,79 +75,119 @@
 </nav>
 
 <div class="product-detail-hero">
-    <h1>Ürün Kategorisi</h1>
-    <p>Ürün detayları ve teknik özellikler</p>
+    <h1 id="productHeroTitle">Ürün Detayı</h1>
+    <p id="productHeroDesc">Teknik özellikler, çalışma basınçları ve malzeme standartları</p>
 </div>
 
+<!-- Breadcrumb -->
 <div class="breadcrumb">
-    <div class="breadcrumb-inner">
-        <a href="index.html">Ana Sayfa</a>
+    <div class="breadcrumb-inner" id="productBreadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
         <span class="separator"> / </span>
         <a href="urunler.html">Ürünler</a>
         <span class="separator"> / </span>
-        <span class="current">Ürün Detayı</span>
+        <span class="current" id="productBreadcrumbCurrent">Ürün Detayı</span>
     </div>
 </div>
 
-<div class="product-detail-content">
+<div class="product-detail-content" id="productDetailContainer">
     <div class="product-detail-gallery">
-        <div class="main-image">
+        <div class="main-image" id="productDetailImageWrap">
             <i class="fas fa-industry" style="font-size: 5rem; color: var(--steel-light);"></i>
         </div>
     </div>
     <div class="product-detail-info">
-        <h2 id="productDetailTitle">Ürün Kategorisi</h2>
-        <p class="description" id="productDetailDesc">Ürün açıklaması burada yer alacaktır.</p>
-        <div class="product-specs">
-            <h3>Teknik Özellikler</h3>
-            <div class="specs-list">
-                <div class="spec-item"><strong>Malzeme</strong><span>AISI 304 / 316</span></div>
-                <div class="spec-item"><strong>Kalite</strong><span>Standartlara uygun</span></div>
+        <div id="productDetailCategoryBadge" style="font-size: 0.85rem; color: var(--accent-dark); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">
+            Kategori
+        </div>
+        <h2 id="productDetailTitle" style="font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 1rem; line-height: 1.3;">
+            Ürün Başlığı
+        </h2>
+        <p class="description" id="productDetailDesc" style="color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1rem;">
+            Ürün açıklaması burada yer alacaktır.
+        </p>
+        
+        <div class="product-specs" id="productDetailSpecsWrap">
+            <h3>Teknik Özellikler & Standartlar</h3>
+            <div class="specs-list" id="productSpecsList">
+                <div class="spec-item"><strong>Malzeme</strong><span>AISI 304 / 316 / P265GH</span></div>
+                <div class="spec-item"><strong>Kalite Standardı</strong><span>EN 12953 / PED 2014/68/EU</span></div>
             </div>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+            <a href="#" id="productWaQuoteBtn" target="_blank" class="btn" style="background: #25D366; color: #ffffff; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Bu Ürün İçin WhatsApp'tan Teklif Al
+            </a>
+            <a href="iletisim.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-envelope"></i> İletişim Formu ile Fiyat İste
+            </a>
         </div>
     </div>
 </div>
 
+<!-- İlgili Ürünler & Çağrı Bölümü -->
 <section class="section-light" style="padding: 4rem 2rem;">
-    <div class="section" style="padding: 0; text-align: center;">
-        <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 1rem;">Bu ürünle ilgileniyor musunuz?</h3>
-        <p style="color: var(--text-light); margin-bottom: 2rem;">Uzman ekibimiz size en uygun çözümü sunmak için hazır.</p>
-        <a href="iletisim.html" class="btn btn-primary"><i class="fas fa-phone"></i> Hemen Teklif Alın</a>
+    <div class="section" style="padding: 0; text-align: center; max-width: 800px; margin: 0 auto;">
+        <h3 style="font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 1rem;">Özel Ölçü veya Projelendirme mi Gerekiyor?</h3>
+        <p style="color: var(--text-light); margin-bottom: 2rem; line-height: 1.7;">
+            Mühendislik ekibimiz; tesisinizin debi, sıcaklık, basınç ve kimyasal ortam koşullarına göre özel sanayi tipi kazan imalatı ve paslanmaz hat projelendirmesi gerçekleştirmektedir.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="projeler.html" class="btn btn-outline" style="border-color: var(--primary-dark); color: var(--primary-dark);">
+                <i class="fas fa-eye"></i> Örnek Projelerimizi İnceleyin
+            </a>
+            <a href="iletisim.html" class="btn btn-primary">
+                <i class="fas fa-phone"></i> Mühendislerimizle Görüşün
+            </a>
+        </div>
     </div>
 </section>
+
+<!-- Sol Alt Köşe WhatsApp Butonu -->
+<a href="https://wa.me/902126712577?text=Merhaba%20Haybata%20Makina%2C%20sanayi%20tipi%20kazan%20imalat%C4%B1%20ve%20paslanmaz%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." 
+   class="whatsapp-float-btn" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="WhatsApp ile İletişime Geçin">
+    <div class="wa-icon-wrapper">
+        <div class="wa-pulse-ring"></div>
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    <span class="wa-label">WhatsApp Destek</span>
+</a>
 
 <footer class="footer">
     <div class="footer-grid">
         <div class="footer-brand">
             <h3>HAYBATA <span>MAKİNA</span></h3>
-            <p>Paslanmaz çelik ürünleri sektöründe 30 yılı aşkın tecrübe ile kaliteli üretim, uygun fiyat ve müşteri memnuniyeti odaklı hizmet vermekteyiz.</p>
+            <p>Sanayi tipi kazan imalatı ve paslanmaz çelik tesis ekipmanları sektöründe 30 yılı aşkın tecrübe ile kaliteli üretim, mühendislik çözümleri ve müşteri memnuniyeti odaklı hizmet veriyoruz.</p>
             <div class="footer-social">
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/902126712577" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
         <div>
             <h4>Hızlı Linkler</h4>
             <div class="footer-links">
                 <a href="index.html">Ana Sayfa</a>
-                <a href="urunler.html">Ürünler</a>
+                <a href="urunler.html">Ürünler Kataloğu</a>
+                <a href="projeler.html">Projeler & Kazanlar</a>
                 <a href="hakkimizda.html">Hakkımızda</a>
-                <a href="duyurular.html">Duyurular</a>
-                <a href="is-basvurusu.html">İş Başvurusu</a>
-                <a href="iletisim.html">İletişim</a>
+                <a href="iletisim.html">İletişim & Teklif Al</a>
             </div>
         </div>
         <div>
-            <h4>Ürün Grupları</h4>
+            <h4>Kazan & Ürün Grupları</h4>
             <div class="footer-links">
-                <a href="urunler.html#kelepce">Paslanmaz Kelepçe</a>
-                <a href="urunler.html#vana">Paslanmaz Vana</a>
-                <a href="urunler.html#menhol">Paslanmaz Menhol</a>
-                <a href="urunler.html#flans">Paslanmaz Flanş</a>
-                <a href="urunler.html#fittings">Kaynaklı Fittings</a>
-                <a href="urunler.html#ozel">Özel Ürünler</a>
+                <a href="urunler.html?sub=buhar-kazanlari">Endüstriyel Buhar Kazanları</a>
+                <a href="urunler.html?sub=kizgin-yag-kazanlari">Kızgın Yağ Kazanları</a>
+                <a href="urunler.html?sub=kuresel-vanalar">Paslanmaz Vana Grubu</a>
+                <a href="urunler.html?sub=kaynakli-fittings">Kaynaklı Fittings</a>
+                <a href="urunler.html?sub=endustriyel-flanslar">Paslanmaz Flanşlar</a>
+                <a href="urunler.html?sub=menhol-kapaklari">Basınçlı Menhol Kapakları</a>
             </div>
         </div>
         <div>
@@ -116,19 +195,24 @@
             <div class="footer-links">
                 <a href="tel:02126712577"><i class="fas fa-phone" style="margin-right: 8px;"></i>0212 671 25 77</a>
                 <a href="mailto:satis@haybatamakina.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>satis@haybatamakina.com</a>
-                <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>İkitelli OSB, Başakşehir / İstanbul</a>
+                <a href="iletisim.html"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>İkitelli OSB, Başakşehir / İstanbul</a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <span>&copy; 2025 Haybata Makina. Tüm hakları saklıdır.</span>
-        <span>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> by Haybata</span>
+        <span>Sanayi Tipi Kazan ve Paslanmaz Çelik Sistemleri</span>
     </div>
 </footer>
 
 <button class="scroll-top" id="scrollTop" aria-label="Yukarı Çık">
     <i class="fas fa-arrow-up"></i>
 </button>
+
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle toast-icon"></i>
+    <span id="toastMessage"></span>
+</div>
 
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>

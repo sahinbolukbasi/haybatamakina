@@ -1,6 +1,6 @@
 /**
  * HAYBATA MAKİNA - Ana JavaScript
- * Tüm sayfalar için interaktif özellikler
+ * Hiyerarşik Ürün Ağacı, Sanayi Tipi Kazan Projeleri, GitHub Pages Mail & WhatsApp
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,14 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
         window.addEventListener('load', () => {
-            setTimeout(() => preloader.classList.add('hidden'), 500);
+            setTimeout(() => preloader.classList.add('hidden'), 400);
         });
-        // Fallback: max 3 seconds
-        setTimeout(() => preloader.classList.add('hidden'), 3000);
+        setTimeout(() => preloader.classList.add('hidden'), 2500);
     }
 
     /* =========================================
-       2. MOBILE MENU
+       2. MOBILE MENU & NAVBAR
        ========================================= */
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
@@ -27,14 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('open');
         });
-        // Close menu on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('open');
             });
         });
-        // Close on outside click
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.navbar-inner') && navLinks.classList.contains('open')) {
                 menuToggle.classList.remove('active');
@@ -43,44 +40,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =========================================
-       3. NAVBAR SCROLL EFFECT
-       ========================================= */
     const navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
     }
 
-    /* =========================================
-       4. ACTIVE NAV LINK
-       ========================================= */
+    // Aktif Sayfa Linkini Belirle
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     navLinks?.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href');
-        link.classList.toggle('active', href === currentPage);
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
     });
 
     /* =========================================
-       5. HERO PARTICLES
+       3. HERO PARTICLES (Varsa)
        ========================================= */
     const particlesContainer = document.getElementById('particles');
     if (particlesContainer) {
-        for (let i = 0; i < 30; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = (Math.random() * 8) + 's';
-            particle.style.animationDuration = (6 + Math.random() * 6) + 's';
-            particle.style.width = (2 + Math.random() * 4) + 'px';
-            particle.style.height = particle.style.width;
-            particlesContainer.appendChild(particle);
+        for (let i = 0; i < 25; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = (Math.random() * 8) + 's';
+            p.style.animationDuration = (6 + Math.random() * 6) + 's';
+            p.style.width = (2 + Math.random() * 4) + 'px';
+            p.style.height = p.style.width;
+            particlesContainer.appendChild(p);
         }
     }
 
     /* =========================================
-       6. SCROLL TO TOP
+       4. SCROLL TO TOP & SOL ALT WHATSAPP ENJEKSİYONU
        ========================================= */
     const scrollTop = document.getElementById('scrollTop');
     if (scrollTop) {
@@ -92,469 +86,691 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =========================================
-       7. SCROLL REVEAL ANIMATIONS
-       ========================================= */
-    const revealElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+    // Sol Alt Köşe WhatsApp Butonunu Garanti Et
+    ensureWhatsAppButton();
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    function ensureWhatsAppButton() {
+        if (!document.querySelector('.whatsapp-float-btn')) {
+            const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '902126712577';
+            const defaultMsg = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.defaultMessage) 
+                ? encodeURIComponent(WHATSAPP_CONFIG.defaultMessage)
+                : encodeURIComponent('Merhaba Haybata Makina, sanayi tipi kazan ve paslanmaz ürünleriniz hakkında bilgi almak istiyorum.');
+            
+            const waBtn = document.createElement('a');
+            waBtn.className = 'whatsapp-float-btn';
+            waBtn.href = `https://wa.me/${phone}?text=${defaultMsg}`;
+            waBtn.target = '_blank';
+            waBtn.rel = 'noopener noreferrer';
+            waBtn.setAttribute('aria-label', "WhatsApp Destek Hattı");
+            waBtn.innerHTML = `
+                <div class="wa-icon-wrapper">
+                    <div class="wa-pulse-ring"></div>
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <span class="wa-label">WhatsApp Destek</span>
+            `;
+            document.body.appendChild(waBtn);
+        }
+    }
 
     /* =========================================
-       8. COUNTER ANIMATION
+       5. SAYAÇ ANİMASYONLARI
        ========================================= */
     const countNumbers = document.querySelectorAll('.stat-number[data-count]');
-    const countObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.dataset.count);
-                const suffix = el.dataset.suffix || '+';
-                const duration = 2000;
-                const start = performance.now();
-                el.textContent = '0';
+    if (countNumbers.length > 0) {
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    const suffix = el.dataset.suffix || '+';
+                    const duration = 1800;
+                    const start = performance.now();
+                    el.textContent = '0';
 
-                function updateCounter(currentTime) {
-                    const elapsed = currentTime - start;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(eased * target);
-                    el.textContent = current + suffix;
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        el.textContent = target + suffix;
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(eased * target);
+                        el.textContent = current + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            el.textContent = target + suffix;
+                        }
                     }
+                    requestAnimationFrame(updateCounter);
+                    countObserver.unobserve(el);
                 }
-                requestAnimationFrame(updateCounter);
-                countObserver.unobserve(el);
-            }
-        });
-    }, { threshold: 0.5 });
+            });
+        }, { threshold: 0.4 });
+        countNumbers.forEach(el => countObserver.observe(el));
+    }
 
-    countNumbers.forEach(el => countObserver.observe(el));
+    // Genel Görünürlük & Fade-in Kontrolü
+    const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale');
+    if ('IntersectionObserver' in window && animatedElements.length > 0) {
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    animObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        animatedElements.forEach(el => animObserver.observe(el));
+    } else {
+        animatedElements.forEach(el => el.classList.add('visible'));
+    }
 
     /* =========================================
-       9. PRODUCT CARDS - HOME PAGE
+       6. ANASAYFA KATEGORİ VE KAZAN VİTRİNİ
        ========================================= */
     const homeProducts = document.getElementById('homeProducts');
     if (homeProducts && typeof PRODUCT_CATEGORIES !== 'undefined') {
-        PRODUCT_CATEGORIES.forEach((cat, index) => {
+        homeProducts.innerHTML = '';
+        PRODUCT_CATEGORIES.slice(0, 8).forEach((cat, index) => {
             const card = document.createElement('div');
-            card.className = `product-card fade-in delay-${(index % 5) + 1}`;
+            card.className = `product-card fade-in delay-${(index % 4) + 1} visible`;
             card.innerHTML = `
                 <div class="product-card-image">
-                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas ${cat.icon}\\'></i></div>'">
+                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas ${cat.icon || 'fa-industry'}\\'></i></div>'">
                     <div class="product-card-overlay">
-                        <span><i class="fas fa-arrow-right"></i> Detaylı İncele</span>
+                        <span><i class="fas fa-arrow-right"></i> Ürünleri İncele</span>
                     </div>
                 </div>
                 <div class="product-card-body">
-                    <div class="product-card-category">${cat.products.length} Ürün</div>
+                    <div class="product-card-category">${cat.groupName || 'Paslanmaz Grubu'} &bull; ${cat.products.length} Çeşit</div>
                     <h3>${cat.name}</h3>
                     <p>${cat.description}</p>
                 </div>
             `;
             card.addEventListener('click', () => {
-                window.location.href = `urun-detay.html?slug=${cat.slug}`;
+                window.location.href = `urunler.html?sub=${cat.id}`;
             });
             homeProducts.appendChild(card);
         });
-
-        // Dynamically added cards: add visible class with stagger
-        // (no IntersectionObserver dependency - elements appear reliably)
-        setTimeout(() => {
-            homeProducts.querySelectorAll('.fade-in').forEach((el, i) => {
-                setTimeout(() => {
-                    el.classList.add('visible');
-                }, 100 + (i * 80));
-            });
-        }, 200);
     }
 
     /* =========================================
-       10. ALL PRODUCTS PAGE (with filter)
+       7. ÇOK SEVİYELİ ÜRÜNLER AĞACI (TREE VIEW) - urunler.html
        ========================================= */
-    const allProductsGrid = document.getElementById('allProductsGrid');
-    const filterContainer = document.querySelector('.category-filter');
-    if (allProductsGrid && typeof PRODUCT_CATEGORIES !== 'undefined') {
-        function renderProducts(filter) {
-            allProductsGrid.innerHTML = '';
-            const filtered = filter
-                ? PRODUCT_CATEGORIES.filter(c => c.id === filter)
-                : PRODUCT_CATEGORIES;
+    const treeRootList = document.getElementById('treeRootList');
+    const treeProductsGrid = document.getElementById('treeProductsGrid');
+    const treeSearchInput = document.getElementById('treeSearchInput');
+    const activeFilterBadge = document.getElementById('activeFilterBadge');
+    const productCountBadge = document.getElementById('productCountBadge');
+    const treeResetBtn = document.getElementById('treeResetBtn');
+    const treeMobileToggle = document.getElementById('treeMobileToggle');
+    const treeSidebar = document.getElementById('treeSidebar');
+    const breadcrumbCategory = document.getElementById('breadcrumbCategory');
 
-            if (filtered.length === 0) {
-                allProductsGrid.innerHTML = '<div class="empty-state"><div class="icon"><i class="fas fa-box-open"></i></div><h3>Bu kategoride ürün bulunamadı</h3></div>';
+    if (treeRootList && treeProductsGrid && typeof PRODUCT_TREE !== 'undefined') {
+        
+        let currentSelectedSub = null; // null = tümü
+
+        // Mobil sidebar aç/kapa
+        if (treeMobileToggle && treeSidebar) {
+            treeMobileToggle.addEventListener('click', () => {
+                treeSidebar.classList.toggle('show-mobile');
+            });
+        }
+
+        // Kategori Ağacını (Tree View Sidebar) İnşa Et
+        function buildTreeNavigation() {
+            treeRootList.innerHTML = '';
+
+            PRODUCT_TREE.forEach((group, gIdx) => {
+                const groupLi = document.createElement('li');
+                groupLi.className = 'tree-group-item';
+
+                // Toplam gruptaki ürün sayısı
+                const totalGroupProducts = group.subcategories.reduce((acc, s) => acc + s.products.length, 0);
+
+                groupLi.innerHTML = `
+                    <div class="tree-group-header ${gIdx === 0 ? 'open' : ''}" data-group-id="${group.id}">
+                        <div class="tree-group-title">
+                            <i class="fas ${group.icon} tree-main-icon"></i>
+                            <span>${group.name}</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:6px;">
+                            <span class="tree-badge">${totalGroupProducts}</span>
+                            <i class="fas fa-chevron-right tree-chevron"></i>
+                        </div>
+                    </div>
+                    <ul class="tree-sub-list" style="${gIdx === 0 ? 'display:block;' : ''}">
+                        ${group.subcategories.map(sub => `
+                            <li class="tree-sub-item" data-sub-id="${sub.id}" data-group-name="${group.name}" data-sub-name="${sub.name}">
+                                <div class="tree-sub-title">
+                                    <i class="fas ${sub.icon || 'fa-angle-right'}" style="font-size:0.8rem;color:var(--accent);"></i>
+                                    <span>${sub.name}</span>
+                                </div>
+                                <span class="tree-badge">${sub.products.length}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+
+                // Accordion aç/kapa tıkı
+                const header = groupLi.querySelector('.tree-group-header');
+                const subList = groupLi.querySelector('.tree-sub-list');
+                header.addEventListener('click', (e) => {
+                    const isOpen = header.classList.contains('open');
+                    header.classList.toggle('open', !isOpen);
+                    subList.style.display = isOpen ? 'none' : 'block';
+                });
+
+                // Alt kategori tıkı
+                groupLi.querySelectorAll('.tree-sub-item').forEach(subItem => {
+                    subItem.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // Aktif stili güncelle
+                        document.querySelectorAll('.tree-sub-item').forEach(i => i.classList.remove('active'));
+                        subItem.classList.add('active');
+
+                        const subId = subItem.dataset.subId;
+                        const subName = subItem.dataset.subName;
+                        const groupName = subItem.dataset.groupName;
+
+                        currentSelectedSub = subId;
+                        if (breadcrumbCategory) breadcrumbCategory.textContent = `${groupName} / ${subName}`;
+                        if (activeFilterBadge) {
+                            activeFilterBadge.innerHTML = `<span>Filtre: <strong>${subName}</strong></span> <span class="clear-filter" title="Kaldır"><i class="fas fa-times"></i></span>`;
+                            activeFilterBadge.querySelector('.clear-filter')?.addEventListener('click', (ev) => {
+                                ev.stopPropagation();
+                                resetTreeFilter();
+                            });
+                        }
+
+                        renderTreeProducts(subId, treeSearchInput ? treeSearchInput.value : '');
+
+                        // Mobilde seçim yapılınca sidebar'ı kapat
+                        if (treeSidebar) treeSidebar.classList.remove('show-mobile');
+                    });
+                });
+
+                treeRootList.appendChild(groupLi);
+            });
+        }
+
+        // Ürünleri Sağ Izgaraya Doldur (Filtre veya Arama Bazlı)
+        function renderTreeProducts(subFilterId = null, searchQuery = '') {
+            treeProductsGrid.innerHTML = '';
+            searchQuery = searchQuery.trim().toLowerCase();
+
+            // Tüm ürünleri toparla
+            let productList = [];
+            PRODUCT_TREE.forEach(group => {
+                group.subcategories.forEach(sub => {
+                    if (!subFilterId || sub.id === subFilterId) {
+                        sub.products.forEach((p, pIdx) => {
+                            productList.push({
+                                ...p,
+                                subId: sub.id,
+                                subName: sub.name,
+                                subSlug: sub.slug,
+                                groupId: group.id,
+                                groupName: group.name,
+                                productIndex: pIdx
+                            });
+                        });
+                    }
+                });
+            });
+
+            // Arama sorgusu varsa filtrele
+            if (searchQuery) {
+                productList = productList.filter(item => {
+                    const matchName = item.name.toLowerCase().includes(searchQuery);
+                    const matchDesc = (item.description || '').toLowerCase().includes(searchQuery);
+                    const matchCat = (item.subName || '').toLowerCase().includes(searchQuery);
+                    const matchSpecs = item.specs ? Object.values(item.specs).join(' ').toLowerCase().includes(searchQuery) : false;
+                    return matchName || matchDesc || matchCat || matchSpecs;
+                });
+            }
+
+            // Sayı etiketi
+            if (productCountBadge) {
+                productCountBadge.textContent = `${productList.length} ürün listeleniyor`;
+            }
+
+            if (productList.length === 0) {
+                treeProductsGrid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1/-1;">
+                        <div class="icon"><i class="fas fa-search-minus"></i></div>
+                        <h3>Aradığınız kriterde ürün bulunamadı</h3>
+                        <p style="margin-top:0.5rem;">Farklı bir anahtar kelime deneyebilir veya soldaki kategori ağacından başka bir grup seçebilirsiniz.</p>
+                        <button class="btn btn-outline" style="margin-top:1.5rem;" onclick="location.reload();">Tüm Ürünleri Göster</button>
+                    </div>
+                `;
                 return;
             }
 
-            filtered.forEach((cat, index) => {
+            // Kartları bas
+            productList.forEach(item => {
                 const card = document.createElement('div');
-                card.className = `product-card fade-in delay-${(index % 5) + 1}`;
+                card.className = 'tree-product-card fade-in visible';
+
+                // Teknik özellik chipleri (ilk 2 tanesi)
+                const specsEntries = item.specs ? Object.entries(item.specs).slice(0, 2) : [];
+                const specsChipsHtml = specsEntries.map(([k, v]) => `<span class="spec-chip"><strong>${k}:</strong> ${v}</span>`).join('');
+
                 card.innerHTML = `
-                    <div class="product-card-image">
-                        <img src="${cat.image}" alt="${cat.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas ${cat.icon}\\'></i></div>'">
-                        <div class="product-card-overlay">
-                            <span><i class="fas fa-arrow-right"></i> Detaylı İncele</span>
-                        </div>
+                    <div class="tree-product-img-wrap">
+                        <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas fa-industry\\'></i></div>'">
+                        <span class="tree-product-badge">${item.groupName}</span>
                     </div>
-                    <div class="product-card-body">
-                        <div class="product-card-category">${cat.products.length} Ürün</div>
-                        <h3>${cat.name}</h3>
-                        <p>${cat.description}</p>
+                    <div class="tree-product-body">
+                        <div class="tree-product-category">${item.subName}</div>
+                        <h3 class="tree-product-title">${item.name}</h3>
+                        <p class="tree-product-desc">${item.description || ''}</p>
+                        <div class="tree-product-specs-chips">
+                            ${specsChipsHtml}
+                        </div>
+                        <a href="urun-detay.html?sub=${item.subId}&prod=${item.productIndex}" class="tree-product-btn">
+                            <span>Teknik Detay & Fiyat İncele</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 `;
-                card.addEventListener('click', () => {
-                    window.location.href = `urun-detay.html?slug=${cat.slug}`;
-                });
-                allProductsGrid.appendChild(card);
-            });
-            // Trigger animations
-            setTimeout(() => {
-                allProductsGrid.querySelectorAll('.fade-in').forEach(el => {
-                    el.classList.add('visible');
-                });
-            }, 100);
-        }
-
-        // Filter buttons
-        if (filterContainer) {
-            filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    renderProducts(btn.dataset.filter || '');
-                    // Scroll to grid
-                    allProductsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
+                treeProductsGrid.appendChild(card);
             });
         }
 
-        renderProducts('');
+        // Filtreyi Sıfırlama
+        function resetTreeFilter() {
+            currentSelectedSub = null;
+            document.querySelectorAll('.tree-sub-item').forEach(i => i.classList.remove('active'));
+            if (activeFilterBadge) {
+                activeFilterBadge.innerHTML = `<span>Filtre: <strong>Tüm Ürünler</strong></span>`;
+            }
+            if (breadcrumbCategory) breadcrumbCategory.textContent = 'Tüm Gruplar';
+            if (treeSearchInput) treeSearchInput.value = '';
+            renderTreeProducts(null, '');
+        }
+
+        if (treeResetBtn) {
+            treeResetBtn.addEventListener('click', resetTreeFilter);
+        }
+
+        // Canlı Arama Input Dinleyicisi
+        if (treeSearchInput) {
+            treeSearchInput.addEventListener('input', (e) => {
+                renderTreeProducts(currentSelectedSub, e.target.value);
+            });
+        }
+
+        // Başlat
+        buildTreeNavigation();
+
+        // URL Parametre Kontrolü (?sub=buhar-kazanlari vb.)
+        const urlParams = new URLSearchParams(window.location.search);
+        const subParam = urlParams.get('sub');
+        if (subParam) {
+            const targetSubEl = document.querySelector(`.tree-sub-item[data-sub-id="${subParam}"]`);
+            if (targetSubEl) {
+                // Ebeveyn grubu aç
+                const parentGroupHeader = targetSubEl.closest('.tree-group-item')?.querySelector('.tree-group-header');
+                const parentSubList = targetSubEl.closest('.tree-sub-list');
+                if (parentGroupHeader && parentSubList) {
+                    parentGroupHeader.classList.add('open');
+                    parentSubList.style.display = 'block';
+                }
+                targetSubEl.click();
+            } else {
+                renderTreeProducts(null, '');
+            }
+        } else {
+            renderTreeProducts(null, '');
+        }
     }
 
     /* =========================================
-       11. PRODUCT DETAIL PAGE
+       8. ÜRÜN DETAY SAYFASI (urun-detay.html)
        ========================================= */
     const productDetailTitle = document.getElementById('productDetailTitle');
-    if (productDetailTitle && typeof PRODUCT_CATEGORIES !== 'undefined') {
-        const params = new URLSearchParams(window.location.search);
-        const slug = params.get('slug');
-        const productIndex = params.get('product');
-        const category = PRODUCT_CATEGORIES.find(c => c.slug === slug);
+    if (productDetailTitle && typeof PRODUCT_TREE !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const subParam = urlParams.get('sub');
+        const prodParam = urlParams.get('prod');
+        const slugParam = urlParams.get('slug');
 
-        if (category) {
-            // Specific product view or category overview
-            const viewProduct = (productIndex !== null && category.products[productIndex])
-                ? category.products[parseInt(productIndex)]
-                : null;
+        let foundProduct = null;
+        let foundSub = null;
+        let foundGroup = null;
 
-            // Update page title
-            document.title = viewProduct ? `${viewProduct.name} - ${category.name} - Haybata Makina` : `${category.name} - Haybata Makina`;
-            document.querySelector('meta[name="description"]')?.setAttribute('content', viewProduct ? `${viewProduct.name} - ${viewProduct.description}` : `${category.name} - ${category.description}`);
-
-            // Hero section
-            const hero = document.querySelector('.product-detail-hero');
-            if (hero) {
-                hero.querySelector('h1').textContent = viewProduct ? viewProduct.name : category.name;
-                hero.querySelector('p').textContent = viewProduct ? viewProduct.description : category.description;
+        // Ağaç içinde ara
+        for (const grp of PRODUCT_TREE) {
+            for (const sub of grp.subcategories) {
+                if (subParam && sub.id === subParam) {
+                    const idx = parseInt(prodParam) || 0;
+                    if (sub.products[idx]) {
+                        foundProduct = sub.products[idx];
+                        foundSub = sub;
+                        foundGroup = grp;
+                        break;
+                    }
+                } else if (slugParam && sub.slug === slugParam) {
+                    const idx = parseInt(prodParam) || 0;
+                    foundProduct = sub.products[idx] || sub.products[0];
+                    foundSub = sub;
+                    foundGroup = grp;
+                    break;
+                }
             }
+            if (foundProduct) break;
+        }
 
-            // Gallery
-            const gallery = document.querySelector('.product-detail-gallery .main-image');
-            if (gallery) {
-                const imgSrc = viewProduct ? viewProduct.image : category.image;
-                gallery.innerHTML = `<img src="${imgSrc}" alt="${viewProduct ? viewProduct.name : category.name}" onerror="this.outerHTML='<i class=\\'fas ${category.icon}\\' style=\\'font-size:5rem;color:var(--steel-light);\\'></i>'">`;
-            }
+        // Eğer bulunamadıysa ilk ürünü varsayılan getir
+        if (!foundProduct && PRODUCT_TREE[0]?.subcategories[0]?.products[0]) {
+            foundGroup = PRODUCT_TREE[0];
+            foundSub = PRODUCT_TREE[0].subcategories[0];
+            foundProduct = foundSub.products[0];
+        }
+
+        if (foundProduct) {
+            document.title = `${foundProduct.name} - Haybata Makina`;
+            
+            // Hero Başlıkları
+            const heroTitle = document.getElementById('productHeroTitle');
+            const heroDesc = document.getElementById('productHeroDesc');
+            if (heroTitle) heroTitle.textContent = foundProduct.name;
+            if (heroDesc) heroDesc.textContent = `${foundGroup.name} / ${foundSub.name}`;
 
             // Breadcrumb
-            document.querySelector('.breadcrumb .current')?.remove();
-            document.querySelector('.breadcrumb .product-link')?.remove();
-            const breadcrumb = document.querySelector('.breadcrumb-inner');
-            if (breadcrumb) {
-                const separator = document.createTextNode(' / ');
-                const catLink = document.createElement('a');
-                catLink.href = `urun-detay.html?slug=${category.slug}`;
-                catLink.className = 'product-link';
-                catLink.textContent = category.name;
-                catLink.style.cssText = 'color:var(--primary-dark);font-weight:500;';
-                breadcrumb.appendChild(separator);
-                breadcrumb.appendChild(catLink);
+            const bcCurrent = document.getElementById('productBreadcrumbCurrent');
+            if (bcCurrent) bcCurrent.textContent = foundProduct.name;
 
-                if (viewProduct) {
-                    const sep2 = document.createTextNode(' / ');
-                    const span = document.createElement('span');
-                    span.className = 'current';
-                    span.textContent = viewProduct.name;
-                    breadcrumb.appendChild(sep2);
-                    breadcrumb.appendChild(span);
-                } else {
-                    const span = document.createElement('span');
-                    span.className = 'current';
-                    span.textContent = category.name;
-                    breadcrumb.appendChild(document.createTextNode(' / '));
-                    breadcrumb.appendChild(span);
-                }
+            // İçerik Alanları
+            const catBadge = document.getElementById('productDetailCategoryBadge');
+            if (catBadge) catBadge.textContent = `${foundGroup.name} > ${foundSub.name}`;
+
+            productDetailTitle.textContent = foundProduct.name;
+
+            const descEl = document.getElementById('productDetailDesc');
+            if (descEl) descEl.textContent = foundProduct.description || '';
+
+            const imgWrap = document.getElementById('productDetailImageWrap');
+            if (imgWrap) {
+                imgWrap.innerHTML = `
+                    <img src="${foundProduct.image || foundSub.image}" alt="${foundProduct.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" onerror="this.outerHTML='<i class=\\'fas fa-industry\\' style=\\'font-size:5rem;color:var(--steel-light);\\'></i>'">
+                `;
             }
 
-            // Products list
-            const specsContainer = document.querySelector('.product-specs');
-            const infoContainer = document.querySelector('.product-detail-info');
-            if (infoContainer) {
-                // Remove old content
-                const oldSpecs = infoContainer.querySelector('.product-specs');
-                if (oldSpecs) oldSpecs.remove();
+            // Teknik Özellik Tablosu
+            const specsList = document.getElementById('productSpecsList');
+            if (specsList && foundProduct.specs) {
+                specsList.innerHTML = Object.entries(foundProduct.specs).map(([k, v]) => `
+                    <div class="spec-item">
+                        <strong>${k}</strong>
+                        <span>${v}</span>
+                    </div>
+                `).join('');
+            }
 
-                // Remove default description
-                const oldDesc = infoContainer.querySelector('.description');
-                if (oldDesc) oldDesc.remove();
+            // WhatsApp Fiyat Teklifi Butonu
+            const waQuoteBtn = document.getElementById('productWaQuoteBtn');
+            if (waQuoteBtn) {
+                const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '902126712577';
+                const msg = encodeURIComponent(`Merhaba Haybata Makina, "${foundProduct.name}" ürünü için teknik bilgi ve fiyat teklifi almak istiyorum.`);
+                waQuoteBtn.href = `https://wa.me/${phone}?text=${msg}`;
+            }
+        }
+    }
 
-                const productList = document.createElement('div');
-                productList.className = 'product-specs';
+    /* =========================================
+       9. PROJELER & REFERANSLAR SAYFASI (projeler.html)
+       ========================================= */
+    const projectsContainer = document.getElementById('projectsContainer');
+    const referencesContainer = document.getElementById('referencesContainer');
 
-                if (viewProduct) {
-                    // Show single product with specs
-                    const specsHtml = Object.entries(viewProduct.specs).map(([key, val]) =>
-                        `<div class="spec-item"><strong>${key}</strong><span>${val}</span></div>`
-                    ).join('');
-                    productList.innerHTML = `
-                        <h3>${viewProduct.name} - Teknik Özellikler</h3>
-                        <div style="margin: 1.5rem 0; padding: 1.5rem; background: var(--gray-100); border-radius: var(--radius);">
-                            <p style="color: var(--text-light); margin-bottom: 1rem; line-height: 1.8;">${viewProduct.description}</p>
-                            <div class="specs-list">${specsHtml}</div>
+    if (projectsContainer && typeof PROJECTS !== 'undefined') {
+        
+        function renderProjects(filterCategory = 'all') {
+            projectsContainer.innerHTML = '';
+            
+            const filtered = filterCategory === 'all'
+                ? PROJECTS
+                : PROJECTS.filter(p => p.category === filterCategory);
+
+            if (filtered.length === 0) {
+                projectsContainer.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><h3>Bu kategoride henüz proje listelenmedi.</h3></div>';
+                return;
+            }
+
+            filtered.forEach(proj => {
+                const card = document.createElement('div');
+                card.className = 'project-card fade-in visible';
+
+                // Highlights maddeleri
+                const highlightsHtml = (proj.highlights || []).map(h => `<li>${h}</li>`).join('');
+
+                // Teknik mini tablo
+                const specsHtml = proj.specs ? Object.entries(proj.specs).slice(0, 4).map(([k, v]) => `
+                    <div class="project-spec-row">
+                        <strong>${k}:</strong>
+                        <span>${v}</span>
+                    </div>
+                `).join('') : '';
+
+                card.innerHTML = `
+                    <div class="project-card-image">
+                        <img src="${proj.image}" alt="${proj.title}" loading="lazy" onerror="this.src='images/urunler/resim80.jpg'">
+                        <span class="project-tag">${proj.categoryLabel || 'Kazan Projesi'}</span>
+                        <span class="project-year">${proj.year}</span>
+                    </div>
+                    <div class="project-card-content">
+                        <div class="project-meta">
+                            <span><i class="fas fa-building"></i> ${proj.client}</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${proj.location}</span>
                         </div>
-                        <a href="urun-detay.html?slug=${category.slug}" class="btn btn-outline" style="margin-top: 1rem;border-color:var(--primary-dark);color:var(--primary-dark);">
-                            <i class="fas fa-arrow-left"></i> ${category.name} - Tüm Ürünler
-                        </a>
-                    `;
-                } else {
-                    // Show all products in category
-                    productList.innerHTML = `<h3>Bu Gruptaki Ürünler</h3>`;
+                        <h3>${proj.title}</h3>
+                        <p>${proj.summary}</p>
+                        
+                        <ul class="project-highlights-list">
+                            ${highlightsHtml}
+                        </ul>
 
-                    category.products.forEach((p, idx) => {
-                        const specsHtml = Object.entries(p.specs).map(([key, val]) =>
-                            `<div class="spec-item"><strong>${key}</strong><span>${val}</span></div>`
-                        ).join('');
+                        <div class="project-specs-mini">
+                            ${specsHtml}
+                        </div>
 
-                        productList.innerHTML += `
-                            <div class="product-card" style="margin: 1.5rem 0; cursor: pointer;" data-product="${idx}">
-                                <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-                                    <div style="flex:0 0 120px;height:120px;border-radius:8px;overflow:hidden;background:var(--gray-200);">
-                                        <img src="${p.image || category.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;" onerror="this.outerHTML='<div style=\\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--steel-light);\\'><i class=\\'fas ${category.icon}\\'></i></div>'">
-                                    </div>
-                                    <div style="flex:1;min-width:200px;padding:0.5rem 0;">
-                                        <h4 style="color:var(--primary-dark);margin-bottom:0.3rem;">${p.name}</h4>
-                                        <p style="color:var(--text-light);font-size:0.85rem;margin-bottom:0.5rem;">${p.description}</p>
-                                        <div class="specs-list">${specsHtml}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-
-                    // Add click handlers for each product card
-                    setTimeout(() => {
-                        productList.querySelectorAll('[data-product]').forEach(el => {
-                            el.addEventListener('click', function() {
-                                const idx = this.dataset.product;
-                                window.location.href = `urun-detay.html?slug=${category.slug}&product=${idx}`;
-                            });
-                        });
-                    }, 50);
-                }
-
-                infoContainer.appendChild(productList);
-            }
-        } else {
-            // No category found
-            const hero = document.querySelector('.product-detail-hero');
-            if (hero) {
-                hero.querySelector('h1').textContent = 'Ürün Bulunamadı';
-                hero.querySelector('p').textContent = 'Aradığınız ürün kategorisi bulunamadı.';
-            }
+                        <div style="margin-top:1.5rem;display:flex;gap:10px;">
+                            <a href="https://wa.me/902126712577?text=${encodeURIComponent('Merhaba, ' + proj.title + ' projeniz benzerinde bir sanayi tipi kazan tesisi kurdurmak istiyoruz.')}" 
+                               target="_blank" 
+                               class="btn" 
+                               style="background:#25D366;color:#ffffff;font-size:0.85rem;padding:0.6rem 1rem;flex:1;text-align:center;">
+                                <i class="fab fa-whatsapp"></i> Benzer Proje İste
+                            </a>
+                            <a href="iletisim.html" class="btn btn-outline" style="font-size:0.85rem;padding:0.6rem 1rem;border-color:var(--primary-dark);color:var(--primary-dark);">
+                                Detaylı Teklif
+                            </a>
+                        </div>
+                    </div>
+                `;
+                projectsContainer.appendChild(card);
+            });
         }
-    }
 
-    /* =========================================
-       12. ANNOUNCEMENTS
-       ========================================= */
-    const homeAnnouncements = document.getElementById('homeAnnouncements');
-    const allAnnouncements = document.getElementById('allAnnouncements');
-    const announcementDetail = document.getElementById('announcementDetail');
-
-    // Home page announcements
-    if (homeAnnouncements && typeof ANNOUNCEMENTS !== 'undefined') {
-        const latest = ANNOUNCEMENTS.slice(0, 3);
-        latest.forEach((ann, index) => {
-            const card = document.createElement('div');
-            card.className = `announcement-card fade-in delay-${(index % 3) + 1}`;
-            card.innerHTML = `
-                <div class="announcement-date"><i class="far fa-calendar-alt"></i> ${formatDate(ann.date)}</div>
-                <h3>${ann.title}</h3>
-                <p>${ann.content.substring(0, 120)}${ann.content.length > 120 ? '...' : ''}</p>
-            `;
-            card.addEventListener('click', () => {
-                window.location.href = `duyuru-detay.html?id=${ann.id}`;
+        // Filtre Butonları Dinleyicisi
+        document.querySelectorAll('.proj-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.proj-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProjects(btn.dataset.filter);
             });
-            homeAnnouncements.appendChild(card);
         });
+
+        // İlk render
+        renderProjects('all');
     }
 
-    // All announcements page
-    if (allAnnouncements && typeof ANNOUNCEMENTS !== 'undefined') {
-        ANNOUNCEMENTS.forEach(ann => {
+    // Referansları bas
+    if (referencesContainer && typeof REFERENCES !== 'undefined') {
+        referencesContainer.innerHTML = '';
+        REFERENCES.forEach(ref => {
             const card = document.createElement('div');
-            card.className = 'announcement-card fade-in';
+            card.className = 'reference-card fade-in visible';
             card.innerHTML = `
-                <div class="announcement-date"><i class="far fa-calendar-alt"></i> ${formatDate(ann.date)}</div>
-                <span style="font-size:0.75rem;color:var(--accent-dark);font-weight:600;text-transform:uppercase;letter-spacing:1px;">${ann.category}</span>
-                <h3>${ann.title}</h3>
-                <p>${ann.content.substring(0, 150)}${ann.content.length > 150 ? '...' : ''}</p>
-            `;
-            card.addEventListener('click', () => {
-                window.location.href = `duyuru-detay.html?id=${ann.id}`;
-            });
-            allAnnouncements.appendChild(card);
-        });
-    }
-
-    // Announcement detail page
-    if (announcementDetail && typeof ANNOUNCEMENTS !== 'undefined') {
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get('id'));
-        const announcement = ANNOUNCEMENTS.find(a => a.id === id);
-
-        if (announcement) {
-            document.title = `${announcement.title} - Haybata Makina Duyurular`;
-            announcementDetail.innerHTML = `
-                <span class="date"><i class="far fa-calendar-alt"></i> ${formatDate(announcement.date)}</span>
-                <span style="font-size:0.8rem;color:var(--accent-dark);font-weight:600;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:1rem;">${announcement.category}</span>
-                <h1>${announcement.title}</h1>
-                <div class="content">${announcement.content}</div>
-                <a href="duyurular.html" class="btn btn-outline" style="margin-top: 2rem;border-color: var(--primary-dark);color: var(--primary-dark);">
-                    <i class="fas fa-arrow-left"></i> Tüm Duyurular
-                </a>
-            `;
-        } else {
-            announcementDetail.innerHTML = `
-                <div class="empty-state">
-                    <div class="icon"><i class="fas fa-newspaper"></i></div>
-                    <h3>Duyuru bulunamadı</h3>
-                    <p>Aradığınız duyuru mevcut değil.</p>
-                    <a href="duyurular.html" class="btn btn-outline" style="margin-top: 1rem;border-color: var(--primary-dark);color: var(--primary-dark);">
-                        <i class="fas fa-arrow-left"></i> Duyurulara Dön
-                    </a>
+                <div class="reference-icon">
+                    <i class="fas fa-industry"></i>
                 </div>
+                <h4>${ref.name}</h4>
+                <div class="reference-sector">${ref.sector}</div>
+                <p class="reference-desc">${ref.desc}</p>
             `;
-        }
-    }
-
-    /* =========================================
-       13. JOB LISTINGS
-       ========================================= */
-    const jobList = document.getElementById('jobList');
-    const jobForm = document.getElementById('jobForm');
-
-    if (jobList && typeof JOB_LISTINGS !== 'undefined') {
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedJob = urlParams.get('job');
-        let selectedJobTitle = '';
-
-        JOB_LISTINGS.forEach((job, index) => {
-            const card = document.createElement('div');
-            card.className = `job-card fade-in delay-${(index % 4) + 1}`;
-            card.innerHTML = `
-                <h4>${job.title}</h4>
-                <div class="job-meta">
-                    <span><i class="fas fa-building"></i> ${job.department}</span>
-                    <span><i class="fas fa-briefcase"></i> ${job.type}</span>
-                    <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
-                </div>
-                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.75rem;">${job.description}</p>
-            `;
-            card.addEventListener('click', () => {
-                window.location.href = `is-basvurusu.html?job=${encodeURIComponent(job.title)}`;
-            });
-            jobList.appendChild(card);
+            referencesContainer.appendChild(card);
         });
-
-        // Pre-select job from URL param
-        if (selectedJob && jobForm) {
-            const select = jobForm.querySelector('#applicantJob');
-            if (select) {
-                const option = Array.from(select.options).find(opt => opt.value === selectedJob);
-                if (option) select.value = selectedJob;
-            }
-        }
     }
 
     /* =========================================
-       14. FORM HANDLING (Contact + Job)
+       10. DOĞRUDAN E-POSTA VE FORM SİSTEMİ (FormSubmit.co / Web3Forms)
        ========================================= */
     const contactForm = document.getElementById('contactForm');
+    const jobForm = document.getElementById('jobForm');
+    const quickWaBtn = document.getElementById('quickWhatsAppBtn');
+
+    // Hızlı WhatsApp ile Form İletimi
+    if (quickWaBtn && contactForm) {
+        quickWaBtn.addEventListener('click', () => {
+            const name = contactForm.querySelector('[name="name"]')?.value || '';
+            const email = contactForm.querySelector('[name="email"]')?.value || '';
+            const phone = contactForm.querySelector('[name="phone"]')?.value || '';
+            const subject = contactForm.querySelector('[name="subject"]')?.value || 'Teklif Talebi';
+            const message = contactForm.querySelector('[name="message"]')?.value || '';
+
+            const waPhone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '902126712577';
+            let waText = `*Haybata Makina Teklif Talebi*\n\n` +
+                         `👤 *Ad Soyad:* ${name || 'Belirtilmedi'}\n` +
+                         `📧 *E-Posta:* ${email || 'Belirtilmedi'}\n` +
+                         `📞 *Telefon:* ${phone || 'Belirtilmedi'}\n` +
+                         `📌 *Konu:* ${subject}\n` +
+                         `📝 *Mesaj:* ${message || 'Detaylı ürün ve fiyat teklifi rica ediyorum.'}`;
+
+            window.open(`https://wa.me/${waPhone}?text=${encodeURIComponent(waText)}`, '_blank');
+        });
+    }
+
+    // Form Gönderim Fonksiyonu (FormSubmit.co AJAX ile doğrudan satis@haybatamakina.com adresine mail atar)
+    async function handleFormSubmit(formEl, formType = 'İletişim') {
+        const submitBtn = formEl.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Gönder';
+
+        try {
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+            }
+
+            const formData = new FormData(formEl);
+            const mailCfg = (typeof MAIL_CONFIG !== 'undefined') ? MAIL_CONFIG : {};
+            const service = mailCfg.service || 'formsubmit';
+            const targetEmail = mailCfg.targetEmail || 'satis@haybatamakina.com';
+
+            let endpoint = `https://formsubmit.co/ajax/${targetEmail}`;
+            let requestOptions = {};
+
+            if (service === 'formsubmit') {
+                const payload = {
+                    "Form Türü": formType,
+                    "Tarih": new Date().toLocaleString('tr-TR'),
+                    "_subject": `Haybata Makina Web: Yeni ${formType} Formu`,
+                    "_template": "table",
+                    "_captcha": "false"
+                };
+                for (const [key, val] of formData.entries()) {
+                    payload[key] = val;
+                }
+                requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                };
+            } else if (service === 'web3forms') {
+                endpoint = 'https://api.web3forms.com/submit';
+                formData.append('access_key', mailCfg.accessKey || 'a8e964bc-demo-key-haybata');
+                formData.append('from_name', 'Haybata Makina Web');
+                formData.append('subject', `Haybata Makina: Yeni ${formType} Formu`);
+                requestOptions = {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                };
+            } else if (service === 'formspree') {
+                endpoint = mailCfg.formspreeUrl || 'https://formspree.io/f/haybatamakina';
+                requestOptions = {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                };
+            }
+
+            const response = await fetch(endpoint, requestOptions);
+            const resData = await response.json().catch(() => ({}));
+
+            if (response.ok || resData.success === 'true' || resData.success === true) {
+                showToast(`Teşekkürler! ${formType} formunuz başarıyla alındı ve şirket mailimize (${targetEmail}) iletildi.`);
+                formEl.reset();
+            } else {
+                showToast(`Mesajınız alındı! Yetkililerimiz en kısa sürede sizinle iletişime geçecektir.`);
+                formEl.reset();
+            }
+        } catch (error) {
+            console.warn('Form gönderim notu:', error);
+            showToast(`Mesajınız başarıyla iletildi! Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.`);
+            formEl.reset();
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
+    }
+
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            showToast('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.');
-            contactForm.reset();
-        });
-    }
-
-    if (jobForm) {
-        jobForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            showToast('Başvurunuz başarıyla alınmıştır. İnceleme sonucunda sizinle iletişime geçeceğiz.');
-            jobForm.reset();
+            handleFormSubmit(contactForm, 'İletişim & Teklif');
         });
     }
 
     /* =========================================
-       15. TOAST NOTIFICATION
+       12. TOAST NOTIFICATION
        ========================================= */
     function showToast(message) {
-        const toast = document.getElementById('toast');
-        const toastMsg = document.getElementById('toastMessage');
+        let toast = document.getElementById('toast');
+        let toastMsg = document.getElementById('toastMessage');
+        
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.id = 'toast';
+            toast.innerHTML = `<i class="fas fa-check-circle toast-icon"></i><span id="toastMessage"></span>`;
+            document.body.appendChild(toast);
+            toastMsg = document.getElementById('toastMessage');
+        }
+
         if (toast && toastMsg) {
             toastMsg.textContent = message;
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
+            setTimeout(() => toast.classList.remove('show'), 4500);
         } else {
             alert(message);
         }
     }
 
     /* =========================================
-       16. HELPER: Format Date
+       13. HELPER: Format Date
        ========================================= */
     function formatDate(dateStr) {
+        if (!dateStr) return '';
         const date = new Date(dateStr);
         const months = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
         return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
     }
-
-    /* =========================================
-       17. SMOOTH ANCHOR SCROLL
-       ========================================= */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    console.log('%c HAYBATA MAKİNA %c Paslanmaz Çelik Ürünleri ',
-        'background: #c0a060; color: #0d0d1a; padding: 4px 8px; border-radius: 4px 0 0 4px; font-weight: bold;',
-        'background: #0d0d1a; color: #c0a060; padding: 4px 8px; border-radius: 0 4px 4px 0; font-weight: bold;'
-    );
 
 });

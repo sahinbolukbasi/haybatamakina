@@ -3,18 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - Haybata Makina | Bize Ulaşın</title>
-    <meta name="description" content="Haybata Makina ile iletişime geçin. Adres, telefon, e-posta ve iletişim formu. Paslanmaz çelik ürünleri hakkında bilgi ve teklif alın.">
-    <meta name="keywords" content="haybata makina iletişim, paslanmaz çelik iletişim, teklif al">
+    <title>İletişim & Teklif Al | Haybata Makina - Sanayi Kazanları & Paslanmaz Çelik</title>
+    <meta name="description" content="Haybata Makina iletişim bilgileri: İkitelli OSB fabrika adresi, telefon (0212 671 25 77), e-posta ve online teklif formu. Buhar kazanları ve paslanmaz ürünler için hemen teklif alın.">
+    <meta name="keywords" content="haybata makina iletişim, kazan teklifi al, paslanmaz vana fiyat teklifi, ikitelli osb paslanmaz, istanbul buhar kazanı imalatçısı telefon">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="İletişim - Haybata Makina">
-    <meta property="og:description" content="Bize ulaşın, teklif alın.">
-    <link rel="canonical" href="https://www.haybatamakina.com/iletisim">
+    <meta name="geo.region" content="TR-34">
+    <meta name="geo.placename" content="İstanbul, Başakşehir, İkitelli">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.haybatamakina.com/iletisim.html">
+    <meta property="og:title" content="İletişim & Teklif Formu - Haybata Makina">
+    <meta property="og:description" content="Endüstriyel buhar kazanları ve paslanmaz çelik ürünlerimiz hakkında bilgi ve teklif almak için bizimle iletişime geçin.">
+    <meta property="og:image" content="https://www.haybatamakina.com/images/projeler/buhar-kazani.jpg">
+    <meta property="og:site_name" content="Haybata Makina">
+    <meta property="og:locale" content="tr_TR">
+
+    <link rel="canonical" href="https://www.haybatamakina.com/iletisim.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Structured Data (ContactPage & Organization) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Haybata Makina İletişim",
+        "url": "https://www.haybatamakina.com/iletisim.html",
+        "mainEntity": {
+            "@type": "ManufacturingCompany",
+            "name": "Haybata Makina",
+            "telephone": "+90-212-671-25-77",
+            "email": "satis@haybatamakina.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "İkitelli OSB, Bağcılar Güngören Sanayi Sitesi Blok:11 No:19",
+                "addressLocality": "Başakşehir",
+                "addressRegion": "İstanbul",
+                "postalCode": "34490",
+                "addressCountry": "TR"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+90-212-671-25-77",
+                "contactType": "sales",
+                "areaServed": "TR",
+                "availableLanguage": ["Turkish", "English"]
+            }
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -22,15 +62,14 @@
     <div class="navbar-inner">
         <a href="index.html" class="nav-logo">
             <div class="logo-icon">H</div>
-            <div>HAYBATA <span>MAKİNA</span><small>PASLANMAZ ÇELİK</small></div>
+            <div>HAYBATA <span>MAKİNA</span><small>PASLANMAZ ÇELİK & KAZAN</small></div>
         </a>
         <div class="nav-links" id="navLinks">
             <a href="index.html">Ana Sayfa</a>
             <a href="urunler.html">Ürünler</a>
+            <a href="projeler.html">Projeler & Kazanlar</a>
             <a href="hakkimizda.html">Hakkımızda</a>
-            <a href="duyurular.html">Duyurular</a>
-            <a href="is-basvurusu.html">İş Başvurusu</a>
-            <a href="iletisim.html" class="active nav-cta">İletişim</a>
+            <a href="iletisim.html" class="active nav-cta">İletişim & Teklif Al</a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Menüyü Aç/Kapat">
             <span></span><span></span><span></span>
@@ -97,89 +136,110 @@
             </div>
         </div>
         <form class="contact-form fade-in-right" id="contactForm">
-            <h3 style="font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 1.5rem;">İletişim Formu</h3>
+            <h3 style="font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Online İletişim & Teklif Formu</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Talebiniz anında satis@haybatamakina.com adresine e-posta olarak iletilir.</p>
             <div class="form-group">
-                <label for="contactName">Adınız Soyadınız</label>
+                <label for="contactName">Adınız Soyadınız *</label>
                 <input type="text" id="contactName" name="name" placeholder="Adınız ve soyadınız" required>
             </div>
             <div class="form-group">
-                <label for="contactEmail">E-posta Adresiniz</label>
-                <input type="email" id="contactEmail" name="email" placeholder="ornek@email.com" required>
+                <label for="contactEmail">E-posta Adresiniz *</label>
+                <input type="email" id="contactEmail" name="email" placeholder="ornek@sirket.com" required>
             </div>
             <div class="form-group">
-                <label for="contactPhone">Telefon</label>
+                <label for="contactPhone">Telefon Numaranız</label>
                 <input type="tel" id="contactPhone" name="phone" placeholder="0555 555 55 55">
             </div>
             <div class="form-group">
-                <label for="contactSubject">Konu</label>
+                <label for="contactSubject">Talep Türü / Konu</label>
                 <select id="contactSubject" name="subject">
-                    <option value="">Konu seçiniz</option>
-                    <option value="Ürün Bilgisi">Ürün Bilgisi</option>
                     <option value="Teklif Talebi">Teklif Talebi</option>
-                    <option value="Teknik Destek">Teknik Destek</option>
-                    <option value="İş Birliği">İş Birliği</option>
+                    <option value="Sanayi Tipi Buhar Kazanı">Sanayi Tipi Buhar Kazanı İmalatı</option>
+                    <option value="Kızgın Yağ Kazanı">Kızgın Yağ Kazanı</option>
+                    <option value="Paslanmaz Vana & Kelepçe Grubu">Paslanmaz Vana & Kelepçe Grubu</option>
+                    <option value="Fittings ve Flanş Grubu">Fittings ve Flanş Grubu</option>
+                    <option value="Proses Tankı & Özel İmalat">Proses Tankı & Özel İmalat</option>
+                    <option value="Teknik Destek & Servis">Teknik Destek & Servis</option>
                     <option value="Diğer">Diğer</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="contactMessage">Mesajınız</label>
-                <textarea id="contactMessage" name="message" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                <label for="contactMessage">Mesajınız / Teknik Detaylar *</label>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Teklif almak istediğiniz ürün, kapasite veya teknik parametreleri belirtiniz..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                <i class="fas fa-paper-plane"></i> Mesajı Gönder
-            </button>
+            <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                <button type="submit" class="btn btn-primary" style="flex: 1; min-width: 180px; justify-content: center;">
+                    <i class="fas fa-paper-plane"></i> Formu Gönder (E-Posta)
+                </button>
+                <button type="button" class="btn btn-outline" id="quickWhatsAppBtn" style="border-color: #25D366; color: #25D366; justify-content: center;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp ile İlet
+                </button>
+            </div>
         </form>
     </div>
 </section>
 
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-grid">
         <div class="footer-brand">
             <h3>HAYBATA <span>MAKİNA</span></h3>
-            <p>Paslanmaz çelik ürünleri sektöründe 30 yılı aşkın tecrübe ile kaliteli üretim, uygun fiyat ve müşteri memnuniyeti odaklı hizmet vermekteyiz.</p>
+            <p>Sanayi tipi buhar ve kızgın yağ kazanları imalatı, paslanmaz çelik tesis ekipmanlarında 30 yılı aşkın tecrübe ile kaliteli üretim ve müşteri memnuniyeti.</p>
             <div class="footer-social">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/902126712577" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:02126712577" aria-label="Telefon"><i class="fas fa-phone"></i></a>
+                <a href="mailto:satis@haybatamakina.com" aria-label="E-Posta"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
         <div>
-            <h4>Hızlı Linkler</h4>
+            <h4>Hızlı Menü</h4>
             <div class="footer-links">
                 <a href="index.html">Ana Sayfa</a>
-                <a href="urunler.html">Ürünler</a>
+                <a href="urunler.html">Ürünler Kataloğu</a>
+                <a href="projeler.html">Projeler & Kazanlar</a>
                 <a href="hakkimizda.html">Hakkımızda</a>
-                <a href="duyurular.html">Duyurular</a>
-                <a href="is-basvurusu.html">İş Başvurusu</a>
-                <a href="iletisim.html">İletişim</a>
+                <a href="iletisim.html">İletişim & Teklif Al</a>
             </div>
         </div>
         <div>
-            <h4>Ürün Grupları</h4>
+            <h4>Ürün & İmalat Grupları</h4>
             <div class="footer-links">
-                <a href="urunler.html#kelepce">Paslanmaz Kelepçe</a>
-                <a href="urunler.html#vana">Paslanmaz Vana</a>
-                <a href="urunler.html#menhol">Paslanmaz Menhol</a>
-                <a href="urunler.html#flans">Paslanmaz Flanş</a>
-                <a href="urunler.html#fittings">Kaynaklı Fittings</a>
-                <a href="urunler.html#ozel">Özel Ürünler</a>
+                <a href="projeler.html#buhar-kazani">Buhar Kazanları</a>
+                <a href="projeler.html#kizgin-yag">Kızgın Yağ Kazanları</a>
+                <a href="urunler.html">Paslanmaz Kelepçeler</a>
+                <a href="urunler.html">Paslanmaz Vanalar</a>
+                <a href="urunler.html">Paslanmaz Menholler</a>
+                <a href="urunler.html">Kaynaklı & Dişli Fittings</a>
             </div>
         </div>
         <div>
-            <h4>İletişim</h4>
+            <h4>İletişim & Konum</h4>
             <div class="footer-links">
                 <a href="tel:02126712577"><i class="fas fa-phone" style="margin-right: 8px;"></i>0212 671 25 77</a>
                 <a href="mailto:satis@haybatamakina.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>satis@haybatamakina.com</a>
-                <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>İkitelli OSB, Başakşehir / İstanbul</a>
+                <a href="https://wa.me/902126712577" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i>WhatsApp Destek</a>
+                <a href="iletisim.html"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>İkitelli OSB, Başakşehir / İstanbul</a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <span>&copy; 2025 Haybata Makina. Tüm hakları saklıdır.</span>
-        <span>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> by Haybata</span>
+        <span>Endüstriyel Paslanmaz Çelik ve Buhar Kazanları Çözümleri</span>
     </div>
 </footer>
+
+<!-- Sol Alt Köşe Sabit WhatsApp Destek Butonu -->
+<a href="https://wa.me/902126712577?text=Merhaba%20Haybata%20Makina%2C%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." 
+   class="whatsapp-float-btn" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="WhatsApp ile Hızlı İletişime Geçin">
+    <div class="wa-icon-wrapper">
+        <div class="wa-pulse-ring"></div>
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    <span class="wa-label">WhatsApp Destek</span>
+</a>
 
 <button class="scroll-top" id="scrollTop" aria-label="Yukarı Çık">
     <i class="fas fa-arrow-up"></i>

@@ -1,64 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- Ana Sayfa -->
     <url>
         <loc>https://www.haybatamakina.com/</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
+    <!-- Ürün Kataloğu -->
     <url>
         <loc>https://www.haybatamakina.com/urunler.html</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
     </url>
+    <!-- Sanayi Tipi Kazan Projeleri & Referanslar -->
+    <url>
+        <loc>https://www.haybatamakina.com/projeler.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    <!-- Kurumsal Hakkımızda -->
     <url>
         <loc>https://www.haybatamakina.com/hakkimizda.html</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.80</priority>
     </url>
-    <url>
-        <loc>https://www.haybatamakina.com/duyurular.html</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
+    <!-- İletişim & Teklif Formu -->
     <url>
         <loc>https://www.haybatamakina.com/iletisim.html</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Kazan ve Proses Grupları -->
+    <url>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=buhar-kazanlari</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/is-basvurusu.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <!-- Ürün grupları -->
-    <url>
-        <loc>https://www.haybatamakina.com/urun-detay.html?slug=paslanmaz-kelepce-grubu</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=kizgin-yag-kazanlari</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urun-detay.html?slug=paslanmaz-vana-grubu</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=sicak-su-degazor</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urun-detay.html?slug=paslanmaz-menhol-grubu</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=proses-tanklari</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Paslanmaz Çelik Ürün Grupları -->
+    <url>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=kuresel-vanalar</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urun-detay.html?slug=paslanmaz-ozel-urunler</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=kelepcе-cesitleri</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urun-detay.html?slug=paslanmaz-flans-grubu</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=kaynakli-fittings</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urun-detay.html?slug=plastik-yikama-topu-grubu</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=endustriyel-flanslar</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=menhol-kapaklari</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
     </url>
 </urlset>
