@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Redüksiyon (Konsantrik / Eksantrik)",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+  "image": "images/urunler/resim89.jpg",
+  "description": "Farklı çaplardaki boruların eksenel birleşimini sağlayan redüksiyon.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316L"
+    },
+    {
+      "key": "Tip",
+      "value": "Konsantrik / Eksantrik"
+    }
+  ]
+}

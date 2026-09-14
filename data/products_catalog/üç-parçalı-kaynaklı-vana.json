@@ -1,0 +1,17 @@
+{
+  "name": "Üç Parçalı Kaynaklı Vana",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Paslanmaz Küresel Vana Grubu",
+  "image": "images/urunler/resim60.jpg",
+  "description": "Hattan sökülmeden gövde bakımı yapılabilen 3 parçalı küresel vana.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 316L"
+    },
+    {
+      "key": "Bakım",
+      "value": "Hatta takılı demonte"
+    }
+  ]
+}

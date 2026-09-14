@@ -1,0 +1,21 @@
+{
+  "name": "Dikey Tip Serpantinli Termal Yağ Kazanı",
+  "categoryGroup": "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
+  "subCategory": "Kızgın Yağ Kazanları (Termal Yağ)",
+  "image": "images/projeler/kizgin-yag-kazani.jpg",
+  "description": "Minimum zemin alanı kaplayan, modüler brülörlü ve yüksek verimli dikey kızgın yağ ünitesi.",
+  "specs": [
+    {
+      "key": "Kapasite",
+      "value": "150.000 - 2.000.000 kcal/h"
+    },
+    {
+      "key": "Çalışma Sıcaklığı",
+      "value": "300°C"
+    },
+    {
+      "key": "Tasarım",
+      "value": "Dikey çift kademeli serpantin"
+    }
+  ]
+}

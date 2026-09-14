@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Emniyet Ventili",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Özel & Yönlendirici Vanalar",
+  "image": "images/urunler/resim101.jpg",
+  "description": "Aşırı basınç yükselmesinde sistemi koruyan emniyet tahliye ventili.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 316"
+    },
+    {
+      "key": "Ayar",
+      "value": "1 - 16 Bar Yay Ayarlı"
+    }
+  ]
+}

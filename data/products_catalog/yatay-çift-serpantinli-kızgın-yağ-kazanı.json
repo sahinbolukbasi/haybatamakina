@@ -1,0 +1,29 @@
+{
+  "name": "Yatay Çift Serpantinli Kızgın Yağ Kazanı",
+  "categoryGroup": "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
+  "subCategory": "Kızgın Yağ Kazanları (Termal Yağ)",
+  "image": "images/projeler/kizgin-yag-kazani.jpg",
+  "description": "Tekstil kurutma, kimya reaktörleri, plastik ve ağaç sanayii için yüksek sıcaklıkta düşük basınçlı güvenli ısı transfer sistemi.",
+  "specs": [
+    {
+      "key": "Kapasite Aralığı",
+      "value": "250.000 - 6.000.000 kcal/h"
+    },
+    {
+      "key": "Maksimum Sıcaklık",
+      "value": "320°C (Özel yağlarla 350°C)"
+    },
+    {
+      "key": "Çalışma Basıncı",
+      "value": "3 - 6 Bar (Sirkülasyon basıncı)"
+    },
+    {
+      "key": "Serpantin Boruları",
+      "value": "DIN 17175 St 35.8 dikişsiz çelik çekme boru"
+    },
+    {
+      "key": "Emniyet Donanımı",
+      "value": "Termal yağ genleşme tankı, azot yastıklama ve acil soğutma serpantini"
+    }
+  ]
+}

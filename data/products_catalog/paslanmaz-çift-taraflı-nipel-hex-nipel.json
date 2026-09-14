@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Çift Taraflı Nipel & Hex Nipel",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Dişli Fittings Grubu",
+  "image": "images/urunler/resim95.jpg",
+  "description": "İki iç dişli parçayı birleştiren dıştan dişli bağlantı elemanı.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Ölçü",
+      "value": "1/4\" - 4\""
+    }
+  ]
+}

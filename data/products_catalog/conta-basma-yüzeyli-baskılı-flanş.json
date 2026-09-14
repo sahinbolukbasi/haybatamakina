@@ -1,0 +1,17 @@
+{
+  "name": "Conta Basma Yüzeyli & Baskılı Flanş",
+  "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+  "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+  "image": "images/urunler/resim72.jpg",
+  "description": "Özel sızdırmazlık contalarının yerleşimi için kanallı ve baskılı flanş.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 316"
+    },
+    {
+      "key": "Yüzey",
+      "value": "Tırtıklı / Kanallı Form"
+    }
+  ]
+}

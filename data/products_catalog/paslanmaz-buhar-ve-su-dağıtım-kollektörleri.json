@@ -1,0 +1,21 @@
+{
+  "name": "Paslanmaz Buhar ve Su Dağıtım Kollektörleri",
+  "categoryGroup": "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
+  "subCategory": "Kazan Dairesi Ekipmanları & Basınçlı Kaplar",
+  "image": "images/projeler/proses-tanki.jpg",
+  "description": "Kazan çıkışındaki buharın veya suyun hatlara dağıtılması için özel çap ve nozullarda paslanmaz veya karbon çelikten üretilen dağıtım gövdeleri.",
+  "specs": [
+    {
+      "key": "Gövde Çapı",
+      "value": "DN100 - DN600"
+    },
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / AISI 316L / Dikişsiz Boru"
+    },
+    {
+      "key": "Bağlantı Flanşları",
+      "value": "PN16 / PN25 / PN40 Dövme Çelik Flanş"
+    }
+  ]
+}

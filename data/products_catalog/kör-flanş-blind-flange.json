@@ -1,0 +1,17 @@
+{
+  "name": "Kör Flanş (Blind Flange)",
+  "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+  "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+  "image": "images/urunler/resim74.jpg",
+  "description": "Boru ucu veya kazan nozulunu sökülebilir şekilde körleme flanşı.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316L"
+    },
+    {
+      "key": "Çap",
+      "value": "DN15 - DN600"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Çek Valf (Yaylı / Çalpara)",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Özel & Yönlendirici Vanalar",
+  "image": "images/urunler/resim94.jpg",
+  "description": "Tek yönlü akış sağlayarak geri dönüşü engelleyen çek valf.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 316"
+    },
+    {
+      "key": "Tip",
+      "value": "Yaylı / Disk"
+    }
+  ]
+}

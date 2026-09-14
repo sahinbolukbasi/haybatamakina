@@ -1,0 +1,25 @@
+{
+  "name": "Paslanmaz Hijyenik Saf Buhar Kazanı",
+  "categoryGroup": "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
+  "subCategory": "Endüstriyel Buhar Kazanları",
+  "image": "images/projeler/proses-tanki.jpg",
+  "description": "Gıda, içecek, ilaç ve biyoteknoloji sektörlerine yönelik gövdesi ve tüm boru demeti tamamen AISI 316L paslanmaz çelikten üretilen saf buhar jeneratörü.",
+  "specs": [
+    {
+      "key": "Gövde & Borular",
+      "value": "AISI 316L Sertifikalı Paslanmaz"
+    },
+    {
+      "key": "Yüzey Kalitesi",
+      "value": "Elektropolisajlı Ra < 0.4 µm"
+    },
+    {
+      "key": "Kullanım Alanı",
+      "value": "İlaç, Enjeksiyonluk Su (WFI), Gıda Sterilizasyonu"
+    },
+    {
+      "key": "Standart",
+      "value": "ASME BPE, cGMP, CE"
+    }
+  ]
+}

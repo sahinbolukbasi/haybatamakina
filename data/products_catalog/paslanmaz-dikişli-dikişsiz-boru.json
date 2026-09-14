@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Dikişli & Dikişsiz Boru",
+  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+  "subCategory": "Paslanmaz Çelik Hammaddeler",
+  "image": "images/urunler/resim81.jpg",
+  "description": "Tesisat ve kazan boru demeti için dikişsiz çekme ve TIG dikişli borular.",
+  "specs": [
+    {
+      "key": "Norm",
+      "value": "ASTM A312 / EN 10217-7"
+    },
+    {
+      "key": "Ölçü",
+      "value": "1/8\" - 24\" (DN6 - DN600)"
+    }
+  ]
+}

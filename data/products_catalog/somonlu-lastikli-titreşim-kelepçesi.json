@@ -1,0 +1,17 @@
+{
+  "name": "Somonlu Lastikli Titreşim Kelepçesi",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Kelepçe Grubu",
+  "image": "images/urunler/resim56.jpg",
+  "description": "Pompa ve kazan çıkışı boru hatlarında titreşim ve gürültüyü emen EPDM lastikli kelepçe.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 + EPDM Fitil"
+    },
+    {
+      "key": "Özellik",
+      "value": "Titreşim Sönümleyici"
+    }
+  ]
+}

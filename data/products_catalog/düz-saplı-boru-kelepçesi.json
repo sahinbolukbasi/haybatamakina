@@ -1,0 +1,17 @@
+{
+  "name": "Düz & Saplı Boru Kelepçesi",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Kelepçe Grubu",
+  "image": "images/urunler/resim53.jpg",
+  "description": "Tesisat borularının rijit ve güvenli montajı için paslanmaz kelepçe.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Çap",
+      "value": "DN15 - DN300"
+    }
+  ]
+}

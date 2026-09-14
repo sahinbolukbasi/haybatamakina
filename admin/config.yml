@@ -8,15 +8,72 @@ public_folder: "images/uploads"
 
 collections:
   # =========================================================
-  # 1. TÜM SİTE AYARLARI, METİNLER VE KURUMSAL BİLGİLER
+  # 1. ÜRÜN KATALOĞU (YENİ ÜRÜN EKLE / DÜZENLE / FOTOĞRAF YÜKLE)
+  # =========================================================
+  - name: "catalog"
+    label: "Ürün Kataloğu (Yeni Ürün & Düzenleme)"
+    folder: "data/products_catalog"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Ürün Adı", name: "name", widget: "string" }
+      - { label: "Ana Sektör / Grup", name: "categoryGroup", widget: "select", options: [
+          "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
+          "Paslanmaz Vana & Akış Kontrol Sistemleri",
+          "Paslanmaz Boru Bağlantı Elemanları (Fittings)",
+          "Paslanmaz Hijyenik Menhol & Kapaklar",
+          "Paslanmaz Tank Ekipmanları & CIP Yıkama",
+          "Paslanmaz Bağlantı Elemanları & Özel Parçalar"
+        ], default: "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları" }
+      - { label: "Alt Kategori", name: "subCategory", widget: "string", hint: "Örn: Endüstriyel Buhar Kazanları, Paslanmaz Kelepçeler vb." }
+      - { label: "Ürün Fotoğrafı", name: "image", widget: "image" }
+      - { label: "Ürün Açıklaması", name: "description", widget: "text" }
+      - label: "Teknik Özellikler Tablosu"
+        name: "specs"
+        widget: "list"
+        fields:
+          - { label: "Özellik Adı (Örn: Kapasite, Basınç)", name: "key", widget: "string" }
+          - { label: "Değer (Örn: 10 Ton/h, 16 Bar)", name: "value", widget: "string" }
+
+  # =========================================================
+  # 2. PROJELER & KAZAN İMALATLARI
+  # =========================================================
+  - name: "projects"
+    label: "Projeler & Referans İmalatlar"
+    folder: "data/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Proje / Kazan Başlığı", name: "title", widget: "string" }
+      - { label: "Kategori", name: "category", widget: "select", options: [
+          { label: "Buhar Kazanı", value: "buhar-kazani" },
+          { label: "Kızgın Yağ Kazanı", value: "kizgin-yag" },
+          { label: "Sıcak Su Kazanı", value: "sicak-su" },
+          { label: "Proses Tankı & Reaktör", value: "proses-tanki" },
+          { label: "Tesis Montaj & Borulama", value: "tesis-montaj" }
+        ]}
+      - { label: "Kategori Etiketi", name: "categoryLabel", widget: "string", default: "Buhar Kazanı İmalatı" }
+      - { label: "Müşteri / Tesis Adı", name: "client", widget: "string" }
+      - { label: "Şehir / Konum", name: "location", widget: "string" }
+      - { label: "Tamamlanma Yılı", name: "year", widget: "string", default: "2024" }
+      - { label: "Kazan / Proje Görseli", name: "image", widget: "image" }
+      - { label: "Kısa Özet Açıklama", name: "summary", widget: "text" }
+      - { label: "Öne Çıkan Özellikler", name: "highlights", widget: "list", field: { label: "Özellik Maddesi", name: "item", widget: "string" } }
+
+  # =========================================================
+  # 3. SİTE SAYFALARI & GENEL AYARLAR
   # =========================================================
   - name: "pages"
-    label: "Site Sayfaları & Genel Ayarlar"
+    label: "Site Sayfaları & İletişim Ayarları"
     delete: false
     editor:
       preview: false
     files:
-      # A) Ana Sayfa Vitrin & İstatistikler
+      # A) Ana Sayfa Vitrin
       - name: "home_page"
         label: "Ana Sayfa Vitrin & Sloganlar"
         file: "data/home.json"
@@ -78,30 +135,3 @@ collections:
           - { label: "Site Başlığı (Title)", name: "siteTitle", widget: "string" }
           - { label: "Google Açıklaması (Meta Description)", name: "defaultDescription", widget: "text" }
           - { label: "Anahtar Kelimeler (Virgülle ayırın)", name: "keywords", widget: "text" }
-
-  # =========================================================
-  # 2. PROJELER & REFERANS KAZAN İMALATLARI
-  # =========================================================
-  - name: "projects"
-    label: "Projeler & Kazan İmalatları"
-    folder: "data/projects"
-    create: true
-    slug: "{{slug}}"
-    extension: "json"
-    format: "json"
-    fields:
-      - { label: "Proje / Kazan Başlığı", name: "title", widget: "string" }
-      - { label: "Kategori", name: "category", widget: "select", options: [
-          { label: "Buhar Kazanı", value: "buhar-kazani" },
-          { label: "Kızgın Yağ Kazanı", value: "kizgin-yag" },
-          { label: "Sıcak Su Kazanı", value: "sicak-su" },
-          { label: "Proses Tankı & Reaktör", value: "proses-tanki" },
-          { label: "Tesis Montaj & Borulama", value: "tesis-montaj" }
-        ]}
-      - { label: "Kategori Etiketi", name: "categoryLabel", widget: "string", default: "Buhar Kazanı İmalatı" }
-      - { label: "Müşteri / Tesis Adı", name: "client", widget: "string" }
-      - { label: "Şehir / Konum", name: "location", widget: "string" }
-      - { label: "Tamamlanma Yılı", name: "year", widget: "string", default: "2024" }
-      - { label: "Kazan / Proje Görseli", name: "image", widget: "image" }
-      - { label: "Kısa Özet Açıklama", name: "summary", widget: "text" }
-      - { label: "Öne Çıkan Özellikler", name: "highlights", widget: "list", field: { label: "Özellik Maddesi", name: "item", widget: "string" } }

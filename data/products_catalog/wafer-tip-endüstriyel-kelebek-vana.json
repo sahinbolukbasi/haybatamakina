@@ -1,0 +1,17 @@
+{
+  "name": "Wafer Tip Endüstriyel Kelebek Vana",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Paslanmaz Kelebek Vana Grubu",
+  "image": "images/urunler/resim61.jpg",
+  "description": "Flanşlar arasına sıkıştırılan wafer tip sızdırmaz vana.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "Paslanmaz Klape + Gövde"
+    },
+    {
+      "key": "Basınç",
+      "value": "PN16"
+    }
+  ]
+}

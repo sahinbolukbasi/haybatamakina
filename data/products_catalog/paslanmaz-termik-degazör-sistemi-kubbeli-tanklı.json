@@ -1,0 +1,25 @@
+{
+  "name": "Paslanmaz Termik Degazör Sistemi (Kubbeli & Tanklı)",
+  "categoryGroup": "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
+  "subCategory": "Kazan Dairesi Ekipmanları & Basınçlı Kaplar",
+  "image": "images/projeler/proses-tanki.jpg",
+  "description": "Buhar kazanı besi suyundaki çözünmüş oksijen (O2) ve karbondioksit (CO2) gazlarını 102°C sıcaklıkta buhar püskürterek uzaklaştıran paslanmaz sistem.",
+  "specs": [
+    {
+      "key": "Kubbeli Bölüm",
+      "value": "Tamamı AISI 304 / 316L Paslanmaz Çelik"
+    },
+    {
+      "key": "Alt Depo Hacmi",
+      "value": "1 m³ - 30 m³"
+    },
+    {
+      "key": "Korozyon Önleme",
+      "value": "Kazan borularında delinmeyi %100 engeller"
+    },
+    {
+      "key": "Çalışma Basıncı",
+      "value": "0.2 - 0.5 Bar Doymuş Buhar"
+    }
+  ]
+}

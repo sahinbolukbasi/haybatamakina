@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Eşit & İnegal Tee",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+  "image": "images/urunler/resim88.jpg",
+  "description": "Boru hatlarından yan branşman almak için kaynaklı bağlantı elemanı.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Tip",
+      "value": "Kaynaklı Dikişsiz"
+    }
+  ]
+}

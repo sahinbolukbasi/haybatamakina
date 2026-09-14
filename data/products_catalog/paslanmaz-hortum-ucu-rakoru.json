@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Hortum Ucu Rakoru",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Dişli Fittings Grubu",
+  "image": "images/urunler/resim103.jpg",
+  "description": "Boru hattından esnek hortumlara geçiş sağlayan tırtıklı rakor.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Tip",
+      "value": "Hortum Tırnaklı"
+    }
+  ]
+}

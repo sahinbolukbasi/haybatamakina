@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Çelik Sac (Plaka & Rulo)",
+  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+  "subCategory": "Paslanmaz Çelik Hammaddeler",
+  "image": "images/urunler/resim85.jpg",
+  "description": "Kazan gövdesi ve tank imalatı için 1. Kalite sertifikalı paslanmaz sac.",
+  "specs": [
+    {
+      "key": "Kalite",
+      "value": "AISI 304 / 316L / 310S"
+    },
+    {
+      "key": "Kalınlık",
+      "value": "0.50 mm - 30 mm"
+    }
+  ]
+}

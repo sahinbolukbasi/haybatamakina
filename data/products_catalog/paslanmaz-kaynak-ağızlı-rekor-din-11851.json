@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Kaynak Ağızlı Rekor (DIN 11851)",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+  "image": "images/urunler/resim93.jpg",
+  "description": "Gıda normunda hijyenik sökülebilir kaynaklı rekor bağlantı seti.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316L + EPDM Conta"
+    },
+    {
+      "key": "Standart",
+      "value": "DIN 11851 / SMS"
+    }
+  ]
+}

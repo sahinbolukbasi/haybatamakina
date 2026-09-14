@@ -1,0 +1,17 @@
+{
+  "name": "Üç Yollu Paslanmaz Vana (L ve T Tipi)",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Özel & Yönlendirici Vanalar",
+  "image": "images/urunler/resim63.jpg",
+  "description": "Üç yönlü akış saptırma ve karışım sağlayan paslanmaz vana.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Yönlendirme",
+      "value": "L-Port / T-Port"
+    }
+  ]
+}

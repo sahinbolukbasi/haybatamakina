@@ -1,0 +1,17 @@
+{
+  "name": "Paslanmaz Kruva (Dört Yollu Dağıtıcı)",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Dişli Fittings Grubu",
+  "image": "images/urunler/resim105.jpg",
+  "description": "Tek hattan 3 farklı yöne akış dağıtımı sağlayan istavroz kruva.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304"
+    },
+    {
+      "key": "Tip",
+      "value": "4 Yollu Dişli"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Hijyenik Kelebek Vana (Kollu)",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Paslanmaz Kelebek Vana Grubu",
+  "image": "images/urunler/resim61.jpg",
+  "description": "Gıda ve süt hatları için paslanmaz hijyenik kelebek vana.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316L"
+    },
+    {
+      "key": "Conta",
+      "value": "Silikon / EPDM / Viton"
+    },
+    {
+      "key": "Çap",
+      "value": "DN25 - DN150"
+    }
+  ]
+}

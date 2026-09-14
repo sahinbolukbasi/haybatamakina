@@ -1,0 +1,17 @@
+{
+  "name": "Trifonlu Kelepçe & Ağır Hizmet U-Bolt",
+  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+  "subCategory": "Paslanmaz Kelepçe Grubu",
+  "image": "images/urunler/resim58.jpg",
+  "description": "Duvar ve çelik konstrüksiyon sabitlemeleri için trifon vidalı ve U-bolt kelepçe.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Tip",
+      "value": "Trifonlu / U-Bolt"
+    }
+  ]
+}

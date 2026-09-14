@@ -1,0 +1,17 @@
+{
+  "name": "360° Döner CIP Tank Yıkama Topu",
+  "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+  "subCategory": "Tank Havalandırma & CIP Yıkama Ekipmanları",
+  "image": "images/urunler/resim77.jpg",
+  "description": "Kazan ve proses tanklarının içini kimyasal solüsyonla otomatik temizleyen döner püskürtme topu.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "PTFE / AISI 316L"
+    },
+    {
+      "key": "Püskürtme",
+      "value": "360 Derece Döner Küre"
+    }
+  ]
+}

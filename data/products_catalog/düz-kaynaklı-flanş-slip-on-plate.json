@@ -1,0 +1,17 @@
+{
+  "name": "Düz Kaynaklı Flanş (Slip-On / Plate)",
+  "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+  "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+  "image": "images/urunler/resim73.jpg",
+  "description": "Boru dışına geçirilerek kaynaklanan standart düz bağlantı flanşı.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Norm",
+      "value": "EN 1092-1 Tip 01"
+    }
+  ]
+}

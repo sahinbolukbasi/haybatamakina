@@ -1,0 +1,21 @@
+{
+  "name": "Dişli Küresel Vana (2 Parçalı)",
+  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+  "subCategory": "Paslanmaz Küresel Vana Grubu",
+  "image": "images/urunler/resim60.jpg",
+  "description": "Dişli bağlantılı, tam geçişli paslanmaz küresel vana.",
+  "specs": [
+    {
+      "key": "Malzeme",
+      "value": "AISI 304 / 316"
+    },
+    {
+      "key": "Bağlantı",
+      "value": "Dişli (BSP / NPT)"
+    },
+    {
+      "key": "Basınç",
+      "value": "PN63 / 1000 WOG"
+    }
+  ]
+}
