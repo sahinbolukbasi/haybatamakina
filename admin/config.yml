@@ -61,9 +61,8 @@ collections:
           - { label: "Değer (Örn: DN50, 16 Bar, AISI 316L)", name: "value", widget: "string" }
 
 
-
   # =========================================================
-  # 6. SİTE SAYFALARI & GENEL AYARLAR
+  # 3. SİTE SAYFALARI & GENEL AYARLAR
   # =========================================================
   - name: "pages"
     label: "Site Sayfaları & İletişim / Sosyal Medya"
@@ -83,6 +82,7 @@ collections:
           - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
           - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string" }
           - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }
+          - { label: "Google Harita Yerleştirme (Embed) URL", name: "mapEmbed", widget: "string", required: false, hint: "Google Maps harita iframe src linki" }
           - { label: "Çalışma Saatleri", name: "hours", widget: "string" }
           - { label: "Instagram Linki", name: "instagram", widget: "string", required: false, hint: "https://www.instagram.com/hesabiniz" }
           - { label: "LinkedIn Linki", name: "linkedin", widget: "string", required: false, hint: "https://www.linkedin.com/company/hesabiniz" }

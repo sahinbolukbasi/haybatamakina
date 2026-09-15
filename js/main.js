@@ -983,6 +983,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     a.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('Merhaba Haybata Makina, bilgi almak istiyorum.')}`;
                 });
             }
+            if (settings.address) {
+                const addrEl = document.getElementById('contactAddressText');
+                if (addrEl) addrEl.innerText = settings.address;
+                document.querySelectorAll('.footer-address-text').forEach(el => el.innerText = settings.address);
+            }
+            if (settings.mapEmbed) {
+                const mapIframe = document.getElementById('contactMapIframe');
+                if (mapIframe) mapIframe.src = settings.mapEmbed;
+            }
         } catch (err) {
             console.warn('Sosyal medya ve ayarlar yuklenirken:', err);
         }
