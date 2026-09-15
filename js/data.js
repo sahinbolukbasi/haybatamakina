@@ -7,7 +7,6 @@
 const NAV_LINKS = [
     { label: 'Ana Sayfa', url: 'index.html' },
     { label: 'Ürünler', url: 'urunler.html' },
-    { label: 'Projeler & Kazanlar', url: 'projeler.html' },
     { label: 'Hakkımızda', url: 'hakkimizda.html' },
     { label: 'İletişim', url: 'iletisim.html' },
 ];
@@ -422,7 +421,7 @@ const CONTACT_INFO = {
     emailSales: 'satis@haybatamakina.com',
     emailInfo: 'bilgi@haybatamakina.com',
     hours: 'Hafta içi: 08:00 - 18:00<br>Cumartesi: 09:00 - 14:00',
-    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.1407236086779!2d28.804779!3d41.079764!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA0JzQ3LjIiTiAyOMKwNDgnMTcuMiJF!5e0!3m2!1str!2str!4v1700000000000',
+    mapEmbed: 'https://maps.google.com/maps?q=%C4%B0kitelli+Organize+Sanayi+B%C3%B6lgesi,+Ba%C4%9Fc%C4%B1lar+G%C3%BCng%C3%B6ren+Sanayi+B%C3%B6lgesi+Blok:11+No:19,+Ba%C5%9fak%C5%9Fehir+/+%C4%B0STANBUL&t=&z=16&ie=UTF8&iwloc=&output=embed',
     social: {
         facebook: 'http://www.facebook.com/sharer.php?u=http://www.haybatamakina.com',
         twitter: 'http://twitter.com/intent/tweet?url=http://www.haybatamakina.com',

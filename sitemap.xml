@@ -16,13 +16,7 @@
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
-    <!-- Sanayi Tipi Kazan Projeleri & Referanslar -->
-    <url>
-        <loc>https://www.haybatamakina.com/projeler.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.95</priority>
-    </url>
+
     <!-- Kurumsal Hakkımızda -->
     <url>
         <loc>https://www.haybatamakina.com/hakkimizda.html</loc>
