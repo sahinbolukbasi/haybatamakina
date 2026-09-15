@@ -1,13 +1,15 @@
 {
   "name": "Paslanmaz Özel İmalat Kürek & El Arabası",
-  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+  "showOnHome": false,
+  "category": "PASLANMAZ SARF MALZEMELER",
   "subCategory": "Özel İmalatlar & Paslanmaz Civatalar",
-  "image": "images/urunler/resim64.jpg",
+  "image": "/images/uploads/PaslanmazElArabasıKürek.jpeg",
   "description": "Gıda ve kimya tesisleri için monoblok paslanmaz hijyenik taşıma ekipmanları.",
   "specs": [
     {
       "key": "Malzeme",
       "value": "AISI 304 Polisajlı"
     }
-  ]
+  ],
+  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat"
 }
