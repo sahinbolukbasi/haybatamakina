@@ -653,7 +653,7 @@
   },
   {
     "name": "Paslanmaz Özel İmalat Kürek & El Arabası",
-    "showOnHome": false,
+    "showOnHome": true,
     "category": "PASLANMAZ SARF MALZEMELER",
     "subCategory": "Özel İmalatlar & Paslanmaz Civatalar",
     "image": "images/uploads/PaslanmazElArabasıKürek.jpeg",
