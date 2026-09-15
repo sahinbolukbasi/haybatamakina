@@ -8,55 +8,83 @@ public_folder: "images/uploads"
 
 collections:
   # =========================================================
-  # 1. ÜRÜN KATALOĞU (YENİ ÜRÜN EKLE / DÜZENLE / FOTOĞRAF YÜKLE)
+  # 1. ÜRÜN KATEGORİLERİ (BAŞLIKLARI AÇ, DÜZENLE, SİL)
+  # =========================================================
+  - name: "categories"
+    label: "Ürün Kategorileri & Başlıklar"
+    label_singular: "Kategori"
+    folder: "data/categories"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Kategori Adı (Büyük Harfle)", name: "name", widget: "string", hint: "Örn: PASLANMAZ FİTTİNGS, PASLANMAZ MENHOL KAPAĞI vb." }
+      - { label: "Link / Slug (Küçük Harfle)", name: "slug", widget: "string", hint: "Örn: paslanmaz-fittings" }
+      - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-cubes", hint: "Örn: fa-faucet-drip, fa-circle-dot, fa-gears, fa-boxes-stacked" }
+      - { label: "Sıralama No", name: "order", widget: "number", default: 1, value_type: "int" }
+      - { label: "Kategori Açıklaması", name: "description", widget: "text", required: false }
+
+  # =========================================================
+  # 2. ÜRÜN KATALOĞU (YENİ ÜRÜN EKLE / DÜZENLE / FOTOĞRAF YÜKLE)
   # =========================================================
   - name: "catalog"
-    label: "Ürün Kataloğu (Yeni Ürün & Düzenleme)"
+    label: "Ürün Kataloğu (Ürün Ekle & Düzenle)"
+    label_singular: "Ürün"
     folder: "data/products_catalog"
     create: true
+    delete: true
     slug: "{{slug}}"
     extension: "json"
     format: "json"
     fields:
       - { label: "Ürün Adı", name: "name", widget: "string" }
-      - { label: "Ana Sektör / Grup", name: "categoryGroup", widget: "select", options: [
-          "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları",
-          "Paslanmaz Vana & Akış Kontrol Sistemleri",
-          "Paslanmaz Boru Bağlantı Elemanları (Fittings)",
-          "Paslanmaz Hijyenik Menhol & Kapaklar",
-          "Paslanmaz Tank Ekipmanları & CIP Yıkama",
-          "Paslanmaz Bağlantı Elemanları & Özel Parçalar"
-        ], default: "Sanayi Tipi Kazan İmalatı & Tesis Ekipmanları" }
-      - { label: "Alt Kategori", name: "subCategory", widget: "string", hint: "Örn: Endüstriyel Buhar Kazanları, Paslanmaz Kelepçeler vb." }
+      - { label: "Kategori Başlığı", name: "category", widget: "relation", collection: "categories", search_fields: ["name"], value_field: "name", display_fields: ["name"], hint: "Açtığınız kategorilerden birini seçin" }
+      - { label: "Alt Kategori / Model Grubu", name: "subCategory", widget: "string", required: false, hint: "Örn: Dişli Dirsek, Kaynaklı Redüksiyon, Basınçlı Menhol vb." }
       - { label: "Ürün Fotoğrafı", name: "image", widget: "image" }
       - { label: "Ürün Açıklaması", name: "description", widget: "text" }
       - label: "Teknik Özellikler Tablosu"
         name: "specs"
         widget: "list"
         fields:
-          - { label: "Özellik Adı (Örn: Kapasite, Basınç)", name: "key", widget: "string" }
-          - { label: "Değer (Örn: 10 Ton/h, 16 Bar)", name: "value", widget: "string" }
+          - { label: "Özellik Adı (Örn: Çap, Basınç, Malzeme)", name: "key", widget: "string" }
+          - { label: "Değer (Örn: DN50, 16 Bar, AISI 316L)", name: "value", widget: "string" }
 
   # =========================================================
-  # 2. PROJELER & KAZAN İMALATLARI
+  # 3. PROJELER & KAZANLAR: BAŞLIKLAR / KATEGORİLER
+  # =========================================================
+  - name: "project_categories"
+    label: "Projeler & Kazan Başlıkları"
+    label_singular: "Proje Başlığı"
+    folder: "data/project_categories"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Başlık / Kategori Adı", name: "title", widget: "string", hint: "Örn: Sanayi Tipi Buhar Kazanları, Kızgın Yağ Kazanları vb." }
+      - { label: "Link / Slug (Küçük Harfle)", name: "slug", widget: "string", hint: "Örn: buhar-kazanlari" }
+      - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-fire", hint: "Örn: fa-fire, fa-temperature-high, fa-water, fa-flask" }
+      - { label: "Sıralama No", name: "order", widget: "number", default: 1, value_type: "int" }
+      - { label: "Kısa Açıklama", name: "description", widget: "text", required: false }
+
+  # =========================================================
+  # 4. PROJELER & KAZANLAR: İMALATLAR & PROJE EKLEME
   # =========================================================
   - name: "projects"
-    label: "Projeler & Referans İmalatlar"
+    label: "Projeler & Kazan İmalatları"
+    label_singular: "Proje / İmalat"
     folder: "data/projects"
     create: true
+    delete: true
     slug: "{{slug}}"
     extension: "json"
     format: "json"
     fields:
       - { label: "Proje / Kazan Başlığı", name: "title", widget: "string" }
-      - { label: "Kategori", name: "category", widget: "select", options: [
-          { label: "Buhar Kazanı", value: "buhar-kazani" },
-          { label: "Kızgın Yağ Kazanı", value: "kizgin-yag" },
-          { label: "Sıcak Su Kazanı", value: "sicak-su" },
-          { label: "Proses Tankı & Reaktör", value: "proses-tanki" },
-          { label: "Tesis Montaj & Borulama", value: "tesis-montaj" }
-        ]}
-      - { label: "Kategori Etiketi", name: "categoryLabel", widget: "string", default: "Buhar Kazanı İmalatı" }
+      - { label: "Ait Olduğu Başlık / Kategori", name: "category", widget: "relation", collection: "project_categories", search_fields: ["title"], value_field: "slug", display_fields: ["title"], hint: "Yukarıdaki proje başlıklarından birini seçin" }
       - { label: "Müşteri / Tesis Adı", name: "client", widget: "string" }
       - { label: "Şehir / Konum", name: "location", widget: "string" }
       - { label: "Tamamlanma Yılı", name: "year", widget: "string", default: "2024" }
