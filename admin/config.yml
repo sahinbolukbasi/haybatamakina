@@ -8,10 +8,10 @@ public_folder: "images/uploads"
 
 collections:
   # =========================================================
-  # 1. ÜRÜN KATEGORİLERİ (BAŞLIKLARI AÇ, DÜZENLE, SİL)
+  # 1. ÜRÜN KATEGORİLERİ & ALT BAŞLIKLAR
   # =========================================================
   - name: "categories"
-    label: "Ürün Kategorileri & Başlıklar"
+    label: "Ürün Kategorileri & Alt Başlıklar"
     label_singular: "Kategori"
     folder: "data/categories"
     create: true
@@ -22,9 +22,17 @@ collections:
     fields:
       - { label: "Kategori Adı (Büyük Harfle)", name: "name", widget: "string", hint: "Örn: PASLANMAZ FİTTİNGS, PASLANMAZ MENHOL KAPAĞI vb." }
       - { label: "Link / Slug (Küçük Harfle)", name: "slug", widget: "string", hint: "Örn: paslanmaz-fittings" }
-      - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-cubes", hint: "Örn: fa-faucet-drip, fa-circle-dot, fa-gears, fa-boxes-stacked" }
+      - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-cubes", hint: "Örn: fa-wrench, fa-door-open, fa-cogs, fa-boxes-stacked" }
       - { label: "Sıralama No", name: "order", widget: "number", default: 1, value_type: "int" }
       - { label: "Kategori Açıklaması", name: "description", widget: "text", required: false }
+      - label: "Alt Başlıklar (Bu Kategorinin Alt Grupları)"
+        name: "subcategories"
+        widget: "list"
+        fields:
+          - { label: "Alt Başlık Adı", name: "name", widget: "string", hint: "Örn: Kaynaklı Fittings, Dişli Fittings, Kelepçeler" }
+          - { label: "Link / Slug", name: "slug", widget: "string", hint: "Örn: kaynakli-fittings" }
+          - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-angle-right" }
+          - { label: "Kısa Açıklama", name: "description", widget: "string", required: false }
 
   # =========================================================
   # 2. ÜRÜN KATALOĞU (YENİ ÜRÜN EKLE / DÜZENLE / FOTOĞRAF YÜKLE)
@@ -40,6 +48,7 @@ collections:
     format: "json"
     fields:
       - { label: "Ürün Adı", name: "name", widget: "string" }
+      - { label: "Anasayfada Göster (Öne Çıkar)", name: "showOnHome", widget: "boolean", default: false, hint: "İşaretlerseniz ürün ana sayfadaki vitrinde öne çıkarılır" }
       - { label: "Kategori Başlığı", name: "category", widget: "relation", collection: "categories", search_fields: ["name"], value_field: "name", display_fields: ["name"], hint: "Açtığınız kategorilerden birini seçin" }
       - { label: "Alt Kategori / Model Grubu", name: "subCategory", widget: "string", required: false, hint: "Örn: Dişli Dirsek, Kaynaklı Redüksiyon, Basınçlı Menhol vb." }
       - { label: "Ürün Fotoğrafı", name: "image", widget: "image" }
@@ -85,23 +94,70 @@ collections:
     fields:
       - { label: "Proje / Kazan Başlığı", name: "title", widget: "string" }
       - { label: "Ait Olduğu Başlık / Kategori", name: "category", widget: "relation", collection: "project_categories", search_fields: ["title"], value_field: "slug", display_fields: ["title"], hint: "Yukarıdaki proje başlıklarından birini seçin" }
+      - { label: "Kategori Etiketi", name: "categoryLabel", widget: "string", default: "Buhar Kazanı İmalatı" }
       - { label: "Müşteri / Tesis Adı", name: "client", widget: "string" }
       - { label: "Şehir / Konum", name: "location", widget: "string" }
       - { label: "Tamamlanma Yılı", name: "year", widget: "string", default: "2024" }
       - { label: "Kazan / Proje Görseli", name: "image", widget: "image" }
       - { label: "Kısa Özet Açıklama", name: "summary", widget: "text" }
-      - { label: "Öne Çıkan Özellikler", name: "highlights", widget: "list", field: { label: "Özellik Maddesi", name: "item", widget: "string" } }
+      - { label: "Öne Çıkan Özellikler (Maddeler)", name: "highlights", widget: "list", field: { label: "Özellik Maddesi", name: "item", widget: "string" } }
+      - label: "Teknik Parametreler Tablosu"
+        name: "specs"
+        widget: "object"
+        fields:
+          - { label: "Kazan Tipi", name: "Kazan Tipi", widget: "string", required: false }
+          - { label: "Kapasite", name: "Kapasite", widget: "string", required: false }
+          - { label: "Tasarım / Çalışma Basıncı", name: "Tasarım Basıncı", widget: "string", required: false }
+          - { label: "Yakıt / Enerji Cinsi", name: "Yakıt Cinsi", widget: "string", required: false }
+          - { label: "Malzeme Kalitesi", name: "Sac Kalitesi", widget: "string", required: false }
+          - { label: "Boru Kalitesi", name: "Borular", widget: "string", required: false }
 
   # =========================================================
-  # 3. SİTE SAYFALARI & GENEL AYARLAR
+  # 5. MÜŞTERİ & SEKTÖR REFERANSLARI
+  # =========================================================
+  - name: "references"
+    label: "Müşteri & Sektör Referansları"
+    label_singular: "Referans"
+    folder: "data/references"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Firma / Tesis Adı", name: "name", widget: "string" }
+      - { label: "Sektör (Tekstil, Kimya, Gıda vb.)", name: "sector", widget: "string" }
+      - { label: "Yapılan İş / Ekipman Açıklaması", name: "desc", widget: "string" }
+
+  # =========================================================
+  # 6. SİTE SAYFALARI & GENEL AYARLAR
   # =========================================================
   - name: "pages"
-    label: "Site Sayfaları & İletişim Ayarları"
+    label: "Site Sayfaları & İletişim / Sosyal Medya"
     delete: false
     editor:
       preview: false
     files:
-      # A) Ana Sayfa Vitrin
+      # A) İletişim & Sosyal Medya Ayarları
+      - name: "contact_info"
+        label: "İletişim & Sosyal Medya Hesapları"
+        file: "data/contact.json"
+        fields:
+          - { label: "Firma Ünvanı", name: "companyName", widget: "string" }
+          - { label: "Telefon Numarası", name: "phone", widget: "string" }
+          - { label: "Faks Numarası", name: "fax", widget: "string", required: false }
+          - { label: "WhatsApp Numarası (Örn: 905521817077)", name: "whatsapp", widget: "string" }
+          - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
+          - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string" }
+          - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }
+          - { label: "Çalışma Saatleri", name: "hours", widget: "string" }
+          - { label: "Instagram Linki", name: "instagram", widget: "string", required: false, hint: "https://www.instagram.com/hesabiniz" }
+          - { label: "LinkedIn Linki", name: "linkedin", widget: "string", required: false, hint: "https://www.linkedin.com/company/hesabiniz" }
+          - { label: "Facebook Linki", name: "facebook", widget: "string", required: false, hint: "https://www.facebook.com/hesabiniz" }
+          - { label: "Twitter / X Linki", name: "twitter", widget: "string", required: false, hint: "https://twitter.com/hesabiniz" }
+          - { label: "YouTube Linki", name: "youtube", widget: "string", required: false, hint: "https://www.youtube.com/@hesabiniz" }
+
+      # B) Ana Sayfa Vitrin & Sloganlar
       - name: "home_page"
         label: "Ana Sayfa Vitrin & Sloganlar"
         file: "data/home.json"
@@ -111,27 +167,6 @@ collections:
           - { label: "Üst Rozet Metni", name: "heroBadge", widget: "string" }
           - { label: "Öne Çıkanlar Başlığı", name: "featuredProductsTitle", widget: "string" }
           - { label: "Öne Çıkanlar Alt Açıklama", name: "featuredProductsSubtitle", widget: "string" }
-          - label: "Ana Sayfa İstatistik Sayaçları"
-            name: "stats"
-            widget: "list"
-            fields:
-              - { label: "Sayı / Değer (Örn: 30+, %99)", name: "number", widget: "string" }
-              - { label: "Etiket (Örn: Yıllık Tecrübe)", name: "label", widget: "string" }
-              - { label: "Kısa Alt Not", name: "desc", widget: "string" }
-
-      # B) Şirket İletişim & Sosyal Medya
-      - name: "contact_info"
-        label: "İletişim & Şirket Bilgileri"
-        file: "data/contact.json"
-        fields:
-          - { label: "Firma Ünvanı", name: "companyName", widget: "string" }
-          - { label: "Telefon Numarası", name: "phone", widget: "string" }
-          - { label: "Faks Numarası", name: "fax", widget: "string" }
-          - { label: "WhatsApp Numarası (Örn: 905521817077)", name: "whatsapp", widget: "string" }
-          - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
-          - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string" }
-          - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }
-          - { label: "Çalışma Saatleri", name: "hours", widget: "string" }
 
       # C) Hakkımızda & Kurumsal Metinler
       - name: "about_info"
@@ -142,20 +177,7 @@ collections:
           - { label: "Misyon & Değerlerimiz", name: "values", widget: "text" }
           - { label: "Vizyon & Gelecek Hedefimiz", name: "goal", widget: "text" }
 
-      # D) Sanayi Referansları
-      - name: "references_info"
-        label: "Sanayi Referansları"
-        file: "data/references.json"
-        fields:
-          - label: "Referans Listesi"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Firma / Kurum Adı", name: "name", widget: "string" }
-              - { label: "Sektör", name: "sector", widget: "string" }
-              - { label: "Yapılan İş / Ekipman", name: "desc", widget: "string" }
-
-      # E) SEO & Arama Motoru Ayarları
+      # D) SEO & Arama Motoru Ayarları
       - name: "seo_info"
         label: "SEO & Google Arama Ayarları"
         file: "data/seo.json"
@@ -164,4 +186,4 @@ collections:
           - { label: "Google Açıklaması (Meta Description)", name: "defaultDescription", widget: "text" }
           - { label: "Anahtar Kelimeler (Virgülle ayırın)", name: "keywords", widget: "text" }
           - { label: "Google Analytics Ölçüm Kimliği (Örn: G-XXXXXXXXXX)", name: "googleAnalyticsId", widget: "string", required: false }
-          - { label: "Google Search Console Doğrulama Kodu (Meta Tag Content)", name: "googleSiteVerification", widget: "string", required: false }
+          - { label: "Google Search Console Doğrulama Kodu", name: "googleSiteVerification", widget: "string", required: false }

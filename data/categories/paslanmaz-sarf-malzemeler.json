@@ -3,5 +3,25 @@
   "slug": "paslanmaz-sarf-malzemeler",
   "icon": "fa-boxes-stacked",
   "order": 4,
-  "description": "Paslanmaz civatalar, somunlar, kelepçeler, contalar, sızdırmazlık elemanları ve montaj sarf malzemeleri."
+  "description": "A2/A4 paslanmaz civata, somun, pul takımları, TIG/MIG kaynak telleri, taşlama/polisaj malzemeleri ve hammadde tedariği.",
+  "subcategories": [
+    {
+      "name": "Paslanmaz Bağlantı Elemanları & Civatalar",
+      "slug": "paslanmaz-civata-baglanti",
+      "icon": "fa-screwdriver-wrench",
+      "description": "A2-70 ve A4-80 normlarında paslanmaz cıvata, somun, imbus, saplama ve pul çeşitleri."
+    },
+    {
+      "name": "Kaynak & Yüzey İşlem Sarfları",
+      "slug": "paslanmaz-sarf-kaynak",
+      "icon": "fa-fire-flame-curved",
+      "description": "TIG/MIG paslanmaz kaynak telleri, kesme taşları ve leke giderici pasivasyon kimyasalları."
+    },
+    {
+      "name": "Paslanmaz Çelik Hammaddeler",
+      "slug": "paslanmaz-hammadde",
+      "icon": "fa-layer-group",
+      "description": "AISI 304, 304L, 316, 316L sertifikalı paslanmaz sac, dikişsiz boru, profil ve mil tedariği."
+    }
+  ]
 }

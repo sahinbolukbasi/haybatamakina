@@ -1,17 +1,26 @@
 {
-  "title": "5 Ton/Saat Kapasiteli Endüstriyel Buhar Kazanı İmalatı ve Kollektör Montajı",
+  "id": "buhar-kazani-tekstil",
+  "title": "6 Ton/Saat Skoç Tipi Doymuş Buhar Kazanı ve Kazan Dairesi Kurulumu",
   "category": "buhar-kazani",
   "categoryLabel": "Buhar Kazanı İmalatı",
-  "client": "Entegre Tekstil ve Boya Sanayi A.Ş.",
+  "client": "Entegre Tekstil Sanayi A.Ş.",
   "location": "Tekirdağ / Çorlu",
   "year": "2024",
   "image": "images/projeler/buhar-kazani.jpg",
-  "summary": "16 Bar işletme basıncına sahip, tam silindirik skoç tip 3 geçişli alev duman borulu sanayi buhar kazanı tasarımı, imalatı, hidrostatik testi ve anahtar teslim devreye alma projesi.",
+  "summary": "Tekstil boyahane ve ramöz ünitelerinin kesintisiz buhar ihtiyacını karşılamak üzere 12 Bar işletme basıncında 3 geçişli skoç tipi buhar kazanı imalatı, degazör ve borulama montajı.",
   "highlights": [
-    "5.000 kg/h doymuş buhar üretim kapasitesi",
-    "EN 12953 ve CE/PED 2014/68/EU standartlarına tam uygunluk",
-    "Modülasyonlu oransal brülör ile %94 yüksek yanma verimi",
-    "Otomatik yüzey ve dip blöf otomasyon sistemi",
-    "PLC dokunmatik ekranlı merkezi kazan kontrol panosu"
-  ]
+    "6.000 kg/saat doymuş buhar üretim kapasitesi",
+    "EN 12953 ve CE Basınçlı Kaplar Direktifi onaylı imalat",
+    "Ekonomizer entegrasyonu ile %94.5 yanma verimi",
+    "Otomatik blöf sistemi ve PLC kontrollü dokunmatik operatör paneli",
+    "Tamamı AISI 316L paslanmaz besi suyu hazırlama ve degazör ünitesi"
+  ],
+  "specs": {
+    "Kazan Tipi": "3 Geçişli Alev Duman Borulu Skoç Tipi",
+    "Kapasite": "6.000 kg/h Buhar",
+    "Tasarım Basıncı": "16 Bar (İşletme: 12 Bar)",
+    "Yakıt Cinsi": "Doğalgaz / LNG Modülasyonlu",
+    "Sac Kalitesi": "P265GH / P295GH Sertifikalı Kazan Sacı",
+    "Borular": "DIN 17175 St 35.8 Dikişsiz Çekme Kazan Borusu"
+  }
 }

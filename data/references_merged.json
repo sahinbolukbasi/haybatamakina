@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Anadolu Gıda & İçecek",
+    "sector": "Gıda Sanayi",
+    "desc": "Paslanmaz Tank & Saf Buhar Hatları",
+    "_file": "anadolu-g-da-i-ecek.json"
+  },
+  {
+    "name": "Ege Modern Jeotermal Sera",
+    "sector": "Tarım & Isıtma",
+    "desc": "Yüksek Basınçlı Kaynar Su Kazanları",
+    "_file": "ege-modern-jeotermal-sera.json"
+  },
+  {
+    "name": "Entegre Tekstil Sanayi",
+    "sector": "Tekstil & Boya",
+    "desc": "Buhar Kazanı & Kollektör Sistemleri",
+    "_file": "entegre-tekstil-sanayi.json"
+  },
+  {
+    "name": "Marmara Ambalaj & Karton",
+    "sector": "Kağıt Sanayi",
+    "desc": "10 Ton Buhar Kazanı & Kondens Sistemi",
+    "_file": "marmara-ambalaj-karton.json"
+  },
+  {
+    "name": "Mega Kimya & Reçine",
+    "sector": "Petrokimya",
+    "desc": "Kızgın Yağ Kazanı & Reaktör Projeleri",
+    "_file": "mega-kimya-re-ine.json"
+  },
+  {
+    "name": "Otomotiv Yan Sanayi A.Ş.",
+    "sector": "Otomotiv",
+    "desc": "Endüstriyel Isıtma ve Akışkan Tesisatı",
+    "_file": "otomotiv-yan-sanayi-a-.json"
+  }
+]

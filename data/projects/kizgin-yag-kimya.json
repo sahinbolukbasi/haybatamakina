@@ -1,0 +1,25 @@
+{
+  "id": "kizgin-yag-kimya",
+  "title": "2.500.000 kcal/h Çift Serpantinli Kızgın Yağ Kazanı İmalatı",
+  "category": "kizgin-yag",
+  "categoryLabel": "Kızgın Yağ Sistemleri",
+  "client": "Petrokimya & Reçine Tesisleri San. Tic.",
+  "location": "Kocaeli / Gebze OSB",
+  "year": "2024",
+  "image": "images/projeler/kizgin-yag-kazani.jpg",
+  "summary": "Reçine reaktörlerinin 300°C proses sıcaklığına ulaştırılması amacıyla çift serpantinli termal yağ kazanı, genleşme tankı, azot yastıklama ve sirkülasyon pompaları projelendirilip üretilmiştir.",
+  "highlights": [
+    "2.500.000 kcal/saat termal kapasite",
+    "320°C maksimum işletme sıcaklığı, 6 Bar sirkülasyon",
+    "DIN 17175 dikişsiz borulardan özel CNC büküm çift serpantin",
+    "Termal şoklara karşı korumalı genleşme ve imdat tankı",
+    "Sıcak yağ vanaları ve paslanmaz kolektör montajı"
+  ],
+  "specs": {
+    "Kazan Tipi": "Yatay Çift Serpantinli Kızgın Yağ Kazanı",
+    "Kapasite": "2.500.000 kcal/h (~2.900 kW)",
+    "Maksimum Sıcaklık": "320°C",
+    "Gövde İzolasyonu": "100 mm Taşyünü + Paslanmaz Sac Kaplama",
+    "Kontrol": "PID Hassas Sıcaklık Kontrolü"
+  }
+}

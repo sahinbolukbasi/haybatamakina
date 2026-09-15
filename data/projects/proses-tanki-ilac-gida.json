@@ -1,0 +1,24 @@
+{
+  "id": "proses-tanki-ilac-gida",
+  "title": "30 m³ AISI 316L Karıştırıcılı Paslanmaz Proses Reaktörü ve Tankı",
+  "category": "proses-tanki",
+  "categoryLabel": "Paslanmaz Proses Tankı",
+  "client": "Global İlaç & Biyoteknoloji Sanayi",
+  "location": "İstanbul / Tuzla Kimyacılar OSB",
+  "year": "2023",
+  "image": "images/projeler/proses-tanki.jpg",
+  "summary": "Hassas kimyasal ve gıda sıvı prosesleri için serpantin ceketli, manyetik karıştırıcılı, 6 vidalı gözetleme camlı menhole sahip paslanmaz reaktör imalatı.",
+  "highlights": [
+    "30.000 Litre net proses hacmi",
+    "Gövde ve temas yüzeyleri tamamı AISI 316L paslanmaz çelik",
+    "İç yüzey pürüzlülüğü Ra < 0.38 µm ayna polisaj",
+    "Basınçlı ısıtma/soğutma ceketli gövde (Half-pipe serpantin)",
+    "Otomatik CIP döner yıkama başlığı sistemi"
+  ],
+  "specs": {
+    "Hacim": "30.000 Litre (30 m³)",
+    "Malzeme": "AISI 316L Paslanmaz Çelik",
+    "Tasarım Standardı": "ASME Sec. VIII Div.1 & PED",
+    "Test Basıncı": "Ceket: 8 Bar / Gövde: 4 Bar & Tam Vakum"
+  }
+}

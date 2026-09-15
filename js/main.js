@@ -168,29 +168,73 @@ document.addEventListener('DOMContentLoaded', () => {
        6. ANASAYFA KATEGORİ VE KAZAN VİTRİNİ
        ========================================= */
     const homeProducts = document.getElementById('homeProducts');
-    if (homeProducts && typeof PRODUCT_CATEGORIES !== 'undefined') {
-        homeProducts.innerHTML = '';
-        PRODUCT_CATEGORIES.slice(0, 8).forEach((cat, index) => {
-            const card = document.createElement('div');
-            card.className = `product-card fade-in delay-${(index % 4) + 1} visible`;
-            card.innerHTML = `
-                <div class="product-card-image">
-                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas ${cat.icon || 'fa-industry'}\\'></i></div>'">
-                    <div class="product-card-overlay">
-                        <span><i class="fas fa-arrow-right"></i> Ürünleri İncele</span>
+    if (homeProducts) {
+        function renderDefaultHomeCategories() {
+            if (typeof PRODUCT_CATEGORIES === 'undefined') return;
+            homeProducts.innerHTML = '';
+            PRODUCT_CATEGORIES.slice(0, 8).forEach((cat, index) => {
+                const card = document.createElement('div');
+                card.className = `product-card fade-in delay-${(index % 4) + 1} visible`;
+                card.innerHTML = `
+                    <div class="product-card-image">
+                        <img src="${cat.image}" alt="${cat.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas ${cat.icon || 'fa-industry'}\\'></i></div>'">
+                        <div class="product-card-overlay">
+                            <span><i class="fas fa-arrow-right"></i> Ürünleri İncele</span>
+                        </div>
                     </div>
-                </div>
-                <div class="product-card-body">
-                    <div class="product-card-category">${cat.groupName || 'Paslanmaz Grubu'} &bull; ${cat.products.length} Çeşit</div>
-                    <h3>${cat.name}</h3>
-                    <p>${cat.description}</p>
-                </div>
-            `;
-            card.addEventListener('click', () => {
-                window.location.href = `urunler.html?sub=${cat.id}`;
+                    <div class="product-card-body">
+                        <div class="product-card-category">${cat.groupName || 'Paslanmaz Grubu'} &bull; ${cat.products.length} Çeşit</div>
+                        <h3>${cat.name}</h3>
+                        <p>${cat.description}</p>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    window.location.href = `urunler.html?sub=${cat.id}`;
+                });
+                homeProducts.appendChild(card);
             });
-            homeProducts.appendChild(card);
-        });
+        }
+
+        renderDefaultHomeCategories();
+
+        // Admin panelinden "Anasayfada Göster" işaretlenen ürünleri canlı çek ve vitrinde listele
+        async function loadFeaturedHomeProducts() {
+            try {
+                const res = await fetch(`data/products_merged.json?_t=${Date.now()}`).catch(() => null);
+                if (!res || !res.ok) return;
+                const products = await res.json();
+                const featured = products.filter(p => p.showOnHome === true || p.showOnHome === 'true');
+                if (featured.length === 0) return;
+
+                homeProducts.innerHTML = '';
+                featured.slice(0, 8).forEach((prod, index) => {
+                    const card = document.createElement('div');
+                    card.className = `product-card fade-in delay-${(index % 4) + 1} visible`;
+                    const cleanImg = (prod.image || '').replace(/^\/+/, '') || 'images/urunler/resim80.jpg';
+                    const categoryLabel = prod.category || prod.categoryGroup || 'Paslanmaz Grubu';
+                    card.innerHTML = `
+                        <div class="product-card-image">
+                            <img src="${cleanImg}" alt="${prod.name}" loading="lazy" onerror="this.src='images/urunler/resim80.jpg'">
+                            <div class="product-card-overlay">
+                                <span><i class="fas fa-arrow-right"></i> Detay & Teklif</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <div class="product-card-category"><i class="fas fa-star" style="color:var(--accent);margin-right:4px;"></i>${categoryLabel}</div>
+                            <h3>${prod.name}</h3>
+                            <p>${prod.description || ''}</p>
+                        </div>
+                    `;
+                    card.addEventListener('click', () => {
+                        window.location.href = `urunler.html`;
+                    });
+                    homeProducts.appendChild(card);
+                });
+            } catch (err) {
+                console.warn('Anasayfa vitrin urunleri yukleme:', err);
+            }
+        }
+        loadFeaturedHomeProducts();
     }
 
     /* =========================================
@@ -830,21 +874,114 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Referansları bas
     if (referencesContainer && typeof REFERENCES !== 'undefined') {
-        referencesContainer.innerHTML = '';
-        REFERENCES.forEach(ref => {
-            const card = document.createElement('div');
-            card.className = 'reference-card fade-in visible';
-            card.innerHTML = `
-                <div class="reference-icon">
-                    <i class="fas fa-industry"></i>
-                </div>
-                <h4>${ref.name}</h4>
-                <div class="reference-sector">${ref.sector}</div>
-                <p class="reference-desc">${ref.desc}</p>
-            `;
-            referencesContainer.appendChild(card);
-        });
+        function renderReferencesList(list) {
+            referencesContainer.innerHTML = '';
+            list.forEach(ref => {
+                const card = document.createElement('div');
+                card.className = 'reference-card fade-in visible';
+                card.innerHTML = `
+                    <div class="reference-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h4>${ref.name}</h4>
+                    <div class="reference-sector">${ref.sector}</div>
+                    <p class="reference-desc">${ref.desc}</p>
+                `;
+                referencesContainer.appendChild(card);
+            });
+        }
+        renderReferencesList(REFERENCES);
+
+        // CMS'ten güncel referansları yükle
+        async function loadCmsReferences() {
+            try {
+                const res = await fetch(`data/references_merged.json?_t=${Date.now()}`).catch(() => null);
+                if (res && res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        renderReferencesList(data);
+                    }
+                }
+            } catch (err) {
+                console.warn('Referanslar CMS yükleme:', err);
+            }
+        }
+        loadCmsReferences();
     }
+
+    // CMS'ten güncel Projeleri yükle
+    if (projectsContainer) {
+        async function loadCmsProjects() {
+            try {
+                const res = await fetch(`data/projects_merged.json?_t=${Date.now()}`).catch(() => null);
+                if (res && res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        // Resim yollarını temizle
+                        data.forEach(p => {
+                            if (p.image) p.image = p.image.replace(/^\/+/, '');
+                        });
+                        // PROJECTS dizisini güncelle
+                        if (typeof PROJECTS !== 'undefined') {
+                            data.forEach(cp => {
+                                const exIdx = PROJECTS.findIndex(p => p.id === cp.id || p.title === cp.title);
+                                if (exIdx >= 0) {
+                                    PROJECTS[exIdx] = { ...PROJECTS[exIdx], ...cp };
+                                } else {
+                                    PROJECTS.push(cp);
+                                }
+                            });
+                        }
+                        const activeBtn = document.querySelector('.proj-filter-btn.active');
+                        const activeFilter = activeBtn ? activeBtn.dataset.filter : 'all';
+                        if (typeof renderProjects === 'function') {
+                            renderProjects(activeFilter);
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Projeler CMS yükleme:', err);
+            }
+        }
+        loadCmsProjects();
+    }
+
+    /* =========================================
+       10. SOSYAL MEDYA & İLETİŞİM DİNAMİK AYARLARI (contact.json)
+       ========================================= */
+    async function loadSiteSettingsAndSocial() {
+        try {
+            const res = await fetch(`data/contact.json?_t=${Date.now()}`).catch(() => null);
+            if (!res || !res.ok) return;
+            const settings = await res.json();
+
+            // Sosyal Medya Linkleri
+            if (settings.facebook) {
+                document.querySelectorAll('.footer-social a[aria-label="Facebook"]').forEach(a => a.href = settings.facebook);
+            }
+            if (settings.instagram) {
+                document.querySelectorAll('.footer-social a[aria-label="Instagram"]').forEach(a => a.href = settings.instagram);
+            }
+            if (settings.linkedin) {
+                document.querySelectorAll('.footer-social a[aria-label="LinkedIn"]').forEach(a => a.href = settings.linkedin);
+            }
+            if (settings.twitter) {
+                document.querySelectorAll('.footer-social a[aria-label="Twitter"]').forEach(a => a.href = settings.twitter);
+            }
+            if (settings.youtube) {
+                document.querySelectorAll('.footer-social a[aria-label="YouTube"]').forEach(a => a.href = settings.youtube);
+            }
+            if (settings.whatsapp) {
+                const cleanWa = settings.whatsapp.replace(/[^0-9]/g, '');
+                document.querySelectorAll('.footer-social a[aria-label="WhatsApp"], .whatsapp-float-btn').forEach(a => {
+                    a.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('Merhaba Haybata Makina, bilgi almak istiyorum.')}`;
+                });
+            }
+        } catch (err) {
+            console.warn('Sosyal medya ve ayarlar yuklenirken:', err);
+        }
+    }
+    loadSiteSettingsAndSocial();
 
     /* =========================================
        10. DOĞRUDAN E-POSTA VE FORM SİSTEMİ (FormSubmit.co / Web3Forms)

@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Sanayi Tipi Buhar Kazanları",
+    "slug": "buhar-kazanlari",
+    "icon": "fa-fire",
+    "order": 1,
+    "description": "Skoç tipi, alev duman borulu, 3 geçişli yüksek verimli endüstriyel buhar kazanları imalatı.",
+    "_file": "buhar-kazanlari.json"
+  },
+  {
+    "title": "Kızgın Yağ Kazanları",
+    "slug": "kizgin-yag-kazanlari",
+    "icon": "fa-temperature-high",
+    "order": 2,
+    "description": "300°C yüksek sıcaklıkta atmosferik veya düşük basınçlı termal yağ kazanları ve ısı transfer sistemleri.",
+    "_file": "kizgin-yag-kazanlari.json"
+  },
+  {
+    "title": "Paslanmaz Proses Tankları",
+    "slug": "proses-tanklari",
+    "icon": "fa-flask",
+    "order": 4,
+    "description": "Kimya, gıda, ilaç ve boya sanayine özel karıştırıcılı, serpantinli ve ceketli paslanmaz proses reaktörleri.",
+    "_file": "proses-tanklari.json"
+  },
+  {
+    "title": "Sıcak Su Kazanları & Degazör",
+    "slug": "sicak-su-kazanlari",
+    "icon": "fa-water",
+    "order": 3,
+    "description": "Yüksek basınçlı kaynar su kazanları, termik degazörler ve enerji geri kazanım ekonomizerleri.",
+    "_file": "sicak-su-kazanlari.json"
+  }
+]

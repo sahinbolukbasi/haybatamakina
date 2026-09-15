@@ -1,0 +1,22 @@
+{
+  "id": "paslanmaz-tesis-montaj",
+  "title": "Gıda Fabrikası Paslanmaz Borulama, Vana Dağıtım ve Kollektör Tesisatı",
+  "category": "tesis-montaj",
+  "categoryLabel": "Tesis Montaj & Borulama",
+  "client": "Süt ve Meyve Suyu İşleme Entegre Tesisi",
+  "location": "Balıkesir / Susurluk",
+  "year": "2023",
+  "image": "images/projeler/proses-tanki.jpg",
+  "summary": "Pastörizatör, buhar kazanı dağıtımı, CIP yıkama hatları ve tank beslemeleri için 4.500 metre AISI 316L hijyenik orbital kaynaklı boru montajı ve vana adası kurulumu.",
+  "highlights": [
+    "4.500 metre DN25 - DN200 paslanmaz boru hattı",
+    "Argon korumalı orbital kaynaklı sıfır cüruflu montaj",
+    "Pnömatik aktüatörlü kelebek ve küresel vana otomasyonu",
+    "Basınç düşürücü istasyonları ve debimetre panelleri"
+  ],
+  "specs": {
+    "Boru Tipi": "DIN 11850 Hijyenik Paslanmaz Boru",
+    "Kaynak Standardı": "Orbital TIG / AWS D18.1",
+    "Ekipman": "24 Adet Vana Matrisi ve Dağıtım Kollektörü"
+  }
+}

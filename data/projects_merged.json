@@ -1,0 +1,127 @@
+[
+  {
+    "id": "buhar-kazani-tekstil",
+    "title": "6 Ton/Saat Skoç Tipi Doymuş Buhar Kazanı ve Kazan Dairesi Kurulumu",
+    "category": "buhar-kazani",
+    "categoryLabel": "Buhar Kazanı İmalatı",
+    "client": "Entegre Tekstil Sanayi A.Ş.",
+    "location": "Tekirdağ / Çorlu",
+    "year": "2024",
+    "image": "images/projeler/buhar-kazani.jpg",
+    "summary": "Tekstil boyahane ve ramöz ünitelerinin kesintisiz buhar ihtiyacını karşılamak üzere 12 Bar işletme basıncında 3 geçişli skoç tipi buhar kazanı imalatı, degazör ve borulama montajı.",
+    "highlights": [
+      "6.000 kg/saat doymuş buhar üretim kapasitesi",
+      "EN 12953 ve CE Basınçlı Kaplar Direktifi onaylı imalat",
+      "Ekonomizer entegrasyonu ile %94.5 yanma verimi",
+      "Otomatik blöf sistemi ve PLC kontrollü dokunmatik operatör paneli",
+      "Tamamı AISI 316L paslanmaz besi suyu hazırlama ve degazör ünitesi"
+    ],
+    "specs": {
+      "Kazan Tipi": "3 Geçişli Alev Duman Borulu Skoç Tipi",
+      "Kapasite": "6.000 kg/h Buhar",
+      "Tasarım Basıncı": "16 Bar (İşletme: 12 Bar)",
+      "Yakıt Cinsi": "Doğalgaz / LNG Modülasyonlu",
+      "Sac Kalitesi": "P265GH / P295GH Sertifikalı Kazan Sacı",
+      "Borular": "DIN 17175 St 35.8 Dikişsiz Çekme Kazan Borusu"
+    },
+    "_file": "buhar-kazani-tekstil.json"
+  },
+  {
+    "id": "kizgin-yag-kimya",
+    "title": "2.500.000 kcal/h Çift Serpantinli Kızgın Yağ Kazanı İmalatı",
+    "category": "kizgin-yag",
+    "categoryLabel": "Kızgın Yağ Sistemleri",
+    "client": "Petrokimya & Reçine Tesisleri San. Tic.",
+    "location": "Kocaeli / Gebze OSB",
+    "year": "2024",
+    "image": "images/projeler/kizgin-yag-kazani.jpg",
+    "summary": "Reçine reaktörlerinin 300°C proses sıcaklığına ulaştırılması amacıyla çift serpantinli termal yağ kazanı, genleşme tankı, azot yastıklama ve sirkülasyon pompaları projelendirilip üretilmiştir.",
+    "highlights": [
+      "2.500.000 kcal/saat termal kapasite",
+      "320°C maksimum işletme sıcaklığı, 6 Bar sirkülasyon",
+      "DIN 17175 dikişsiz borulardan özel CNC büküm çift serpantin",
+      "Termal şoklara karşı korumalı genleşme ve imdat tankı",
+      "Sıcak yağ vanaları ve paslanmaz kolektör montajı"
+    ],
+    "specs": {
+      "Kazan Tipi": "Yatay Çift Serpantinli Kızgın Yağ Kazanı",
+      "Kapasite": "2.500.000 kcal/h (~2.900 kW)",
+      "Maksimum Sıcaklık": "320°C",
+      "Gövde İzolasyonu": "100 mm Taşyünü + Paslanmaz Sac Kaplama",
+      "Kontrol": "PID Hassas Sıcaklık Kontrolü"
+    },
+    "_file": "kizgin-yag-kimya.json"
+  },
+  {
+    "id": "paslanmaz-tesis-montaj",
+    "title": "Gıda Fabrikası Paslanmaz Borulama, Vana Dağıtım ve Kollektör Tesisatı",
+    "category": "tesis-montaj",
+    "categoryLabel": "Tesis Montaj & Borulama",
+    "client": "Süt ve Meyve Suyu İşleme Entegre Tesisi",
+    "location": "Balıkesir / Susurluk",
+    "year": "2023",
+    "image": "images/projeler/proses-tanki.jpg",
+    "summary": "Pastörizatör, buhar kazanı dağıtımı, CIP yıkama hatları ve tank beslemeleri için 4.500 metre AISI 316L hijyenik orbital kaynaklı boru montajı ve vana adası kurulumu.",
+    "highlights": [
+      "4.500 metre DN25 - DN200 paslanmaz boru hattı",
+      "Argon korumalı orbital kaynaklı sıfır cüruflu montaj",
+      "Pnömatik aktüatörlü kelebek ve küresel vana otomasyonu",
+      "Basınç düşürücü istasyonları ve debimetre panelleri"
+    ],
+    "specs": {
+      "Boru Tipi": "DIN 11850 Hijyenik Paslanmaz Boru",
+      "Kaynak Standardı": "Orbital TIG / AWS D18.1",
+      "Ekipman": "24 Adet Vana Matrisi ve Dağıtım Kollektörü"
+    },
+    "_file": "paslanmaz-tesis-montaj.json"
+  },
+  {
+    "id": "proses-tanki-ilac-gida",
+    "title": "30 m³ AISI 316L Karıştırıcılı Paslanmaz Proses Reaktörü ve Tankı",
+    "category": "proses-tanki",
+    "categoryLabel": "Paslanmaz Proses Tankı",
+    "client": "Global İlaç & Biyoteknoloji Sanayi",
+    "location": "İstanbul / Tuzla Kimyacılar OSB",
+    "year": "2023",
+    "image": "images/projeler/proses-tanki.jpg",
+    "summary": "Hassas kimyasal ve gıda sıvı prosesleri için serpantin ceketli, manyetik karıştırıcılı, 6 vidalı gözetleme camlı menhole sahip paslanmaz reaktör imalatı.",
+    "highlights": [
+      "30.000 Litre net proses hacmi",
+      "Gövde ve temas yüzeyleri tamamı AISI 316L paslanmaz çelik",
+      "İç yüzey pürüzlülüğü Ra < 0.38 µm ayna polisaj",
+      "Basınçlı ısıtma/soğutma ceketli gövde (Half-pipe serpantin)",
+      "Otomatik CIP döner yıkama başlığı sistemi"
+    ],
+    "specs": {
+      "Hacim": "30.000 Litre (30 m³)",
+      "Malzeme": "AISI 316L Paslanmaz Çelik",
+      "Tasarım Standardı": "ASME Sec. VIII Div.1 & PED",
+      "Test Basıncı": "Ceket: 8 Bar / Gövde: 4 Bar & Tam Vakum"
+    },
+    "_file": "proses-tanki-ilac-gida.json"
+  },
+  {
+    "id": "sicak-su-sera-sanayi",
+    "title": "10.000.000 kcal/h Yüksek Basınçlı Kaynar Su Kazanı",
+    "category": "sicak-su",
+    "categoryLabel": "Kaynar Su Sistemleri",
+    "client": "Modern Jeotermal & Endüstriyel Tesisler",
+    "location": "İzmir / Bergama",
+    "year": "2023",
+    "image": "images/projeler/sicak-su-kazani.jpg",
+    "summary": "200 dönümlük endüstriyel sera ve kurutma tesislerinin ısıtılması amacıyla 140/90°C rejiminde çalışan 3 geçişli yüksek basınçlı kaynar su kazanı sistemi.",
+    "highlights": [
+      "10.000.000 kcal/h yüksek ısı çıkışı",
+      "16 Bar işletme basıncı altında buharlaşmasız kaynar su üretimi",
+      "Radyografik %100 kaynak kontrolü (Röntgen filmi) onaylı",
+      "Baca gazı yoğuşmalı ekonomizer ile üstün yakıt tasarrufu"
+    ],
+    "specs": {
+      "Isı Gücü": "10.000.000 kcal/h (11.6 MW)",
+      "Giriş/Çıkış Sıcaklığı": "90°C / 140°C",
+      "Çalışma Basıncı": "16 Bar",
+      "Gövde Çapı": "Ø 2.800 mm, Boy: 6.200 mm"
+    },
+    "_file": "sicak-su-sera-sanayi.json"
+  }
+]
