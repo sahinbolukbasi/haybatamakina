@@ -480,6 +480,117 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             renderTreeProducts(null, '');
         }
+
+        // Admin panelinden yapılan ürün değişikliklerini (resim, açıklama, özellik) canlı senkronize et
+        async function loadAndApplyCmsProducts() {
+            try {
+                const res = await fetch(`data/products_merged.json?_t=${Date.now()}`).catch(() => null);
+                let cmsProducts = [];
+                if (res && res.ok) {
+                    cmsProducts = await res.json();
+                }
+
+                const idxRes = await fetch(`data/products_index.json?_t=${Date.now()}`).catch(() => null);
+                if (idxRes && idxRes.ok) {
+                    const fileList = await idxRes.json();
+                    const existingFiles = new Set(cmsProducts.map(p => p._file));
+                    const missingFiles = fileList.filter(f => !existingFiles.has(f));
+                    if (missingFiles.length > 0) {
+                        const fetchedMissing = await Promise.all(missingFiles.map(f => 
+                            fetch(`data/products_catalog/${encodeURIComponent(f)}?_t=${Date.now()}`)
+                                .then(r => r.ok ? r.json() : null)
+                                .catch(() => null)
+                        ));
+                        fetchedMissing.filter(Boolean).forEach(p => cmsProducts.push(p));
+                    }
+                }
+
+                if (!Array.isArray(cmsProducts) || cmsProducts.length === 0) return;
+
+                let changesApplied = false;
+                function norm(str) {
+                    return (str || '').toLowerCase()
+                        .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+                        .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
+                        .replace(/[^a-z0-9]/g, '');
+                }
+
+                cmsProducts.forEach(cmsProd => {
+                    if (!cmsProd || !cmsProd.name) return;
+                    const cmsNorm = norm(cmsProd.name);
+                    const cleanImg = (cmsProd.image || '').replace(/^\/+/, '');
+
+                    let cleanSpecs = {};
+                    if (Array.isArray(cmsProd.specs)) {
+                        cmsProd.specs.forEach(s => {
+                            if (s && s.key) cleanSpecs[s.key] = s.value;
+                        });
+                    } else if (typeof cmsProd.specs === 'object' && cmsProd.specs !== null) {
+                        cleanSpecs = cmsProd.specs;
+                    }
+
+                    let found = false;
+                    for (const grp of PRODUCT_TREE) {
+                        for (const sub of grp.subcategories) {
+                            for (const p of sub.products) {
+                                if (norm(p.name) === cmsNorm) {
+                                    if (cleanImg && p.image !== cleanImg) {
+                                        p.image = cleanImg;
+                                        changesApplied = true;
+                                    }
+                                    if (cmsProd.description && p.description !== cmsProd.description) {
+                                        p.description = cmsProd.description;
+                                        changesApplied = true;
+                                    }
+                                    if (Object.keys(cleanSpecs).length > 0) {
+                                        p.specs = cleanSpecs;
+                                        changesApplied = true;
+                                    }
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (found) break;
+                        }
+                        if (found) break;
+                    }
+
+                    if (!found && PRODUCT_TREE.length > 0) {
+                        const catTarget = norm(cmsProd.category || cmsProd.categoryGroup || '');
+                        let targetSub = null;
+                        for (const grp of PRODUCT_TREE) {
+                            if (norm(grp.name).includes(catTarget) || catTarget.includes(norm(grp.name))) {
+                                targetSub = grp.subcategories[0];
+                                break;
+                            }
+                        }
+                        if (!targetSub) {
+                            targetSub = PRODUCT_TREE[0].subcategories[0];
+                        }
+                        if (targetSub) {
+                            targetSub.products.push({
+                                name: cmsProd.name,
+                                image: cleanImg || targetSub.image,
+                                description: cmsProd.description || '',
+                                specs: cleanSpecs
+                            });
+                            changesApplied = true;
+                        }
+                    }
+                });
+
+                if (changesApplied) {
+                    const newTotal = PRODUCT_TREE.reduce((acc, g) => acc + g.subcategories.reduce((sAcc, s) => sAcc + s.products.length, 0), 0);
+                    if (treeAllBadge) treeAllBadge.textContent = `${newTotal}`;
+                    buildTreeNavigation();
+                    renderTreeProducts(currentSelectedSub, treeSearchInput ? treeSearchInput.value : '');
+                }
+            } catch (e) {
+                console.warn('CMS senkronizasyon uyarısı:', e);
+            }
+        }
+
+        loadAndApplyCmsProducts();
     }
 
     /* =========================================
@@ -572,6 +683,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 const msg = encodeURIComponent(`Merhaba Haybata Makina, "${foundProduct.name}" ürünü için teknik bilgi ve fiyat teklifi almak istiyorum.`);
                 waQuoteBtn.href = `https://wa.me/${phone}?text=${msg}`;
             }
+
+            // Admin panelinden yapılan son güncellemeleri (yeni resim, açıklama, özellik) canlı sorgula
+            async function fetchFreshDetailFromCms(productName) {
+                try {
+                    function norm(str) {
+                        return (str || '').toLowerCase()
+                            .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+                            .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
+                            .replace(/[^a-z0-9]/g, '');
+                    }
+                    const targetNorm = norm(productName);
+
+                    const res = await fetch(`data/products_merged.json?_t=${Date.now()}`).catch(() => null);
+                    if (res && res.ok) {
+                        const list = await res.json();
+                        const cmsMatch = list.find(item => norm(item.name) === targetNorm);
+                        if (cmsMatch) {
+                            applyFreshDetail(cmsMatch);
+                            return;
+                        }
+                    }
+                } catch (err) {
+                    console.warn('Detay CMS yükleme uyarısı:', err);
+                }
+            }
+
+            function applyFreshDetail(data) {
+                const cleanImg = (data.image || '').replace(/^\/+/, '');
+                if (cleanImg && imgWrap) {
+                    imgWrap.innerHTML = `
+                        <img src="${cleanImg}" alt="${data.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" onerror="this.outerHTML='<i class=\\'fas fa-industry\\' style=\\'font-size:5rem;color:var(--steel-light);\\'></i>'">
+                    `;
+                }
+                if (data.description && descEl) {
+                    descEl.textContent = data.description;
+                }
+                if (data.specs && specsList) {
+                    let specsEntries = [];
+                    if (Array.isArray(data.specs)) {
+                        specsEntries = data.specs.map(s => [s.key, s.value]);
+                    } else if (typeof data.specs === 'object' && data.specs !== null) {
+                        specsEntries = Object.entries(data.specs);
+                    }
+                    if (specsEntries.length > 0) {
+                        specsList.innerHTML = specsEntries.map(([k, v]) => `
+                            <div class="spec-item">
+                                <strong>${k}</strong>
+                                <span>${v}</span>
+                            </div>
+                        `).join('');
+                    }
+                }
+            }
+
+            fetchFreshDetailFromCms(foundProduct.name);
         }
     }
 

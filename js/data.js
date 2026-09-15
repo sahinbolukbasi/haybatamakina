@@ -122,7 +122,7 @@ const PRODUCT_TREE = [
                     { name: 'Kaynak Boyunlu Flanş (Welding Neck)', image: 'images/urunler/resim75.jpg', description: 'Kazan çıkışları ve yüksek basınç hatlarında gerilimi dağıtan boyunlu flanş.', specs: { 'Malzeme': 'AISI 304L / 316L', 'Norm': 'EN 1092-1 Tip 11 / ANSI B16.5', 'Basınç': 'PN16 / PN25 / PN40 / 150-300 LBS' } },
                     { name: 'Düz Kaynaklı Flanş (Slip-On / Plate)', image: 'images/urunler/resim73.jpg', description: 'Boru dışına geçirilerek kaynaklanan standart düz bağlantı flanşı.', specs: { 'Malzeme': 'AISI 304 / 316', 'Norm': 'EN 1092-1 Tip 01' } },
                     { name: 'Kör Flanş (Blind Flange)', image: 'images/urunler/resim74.jpg', description: 'Boru ucu veya kazan nozulunu sökülebilir şekilde körleme flanşı.', specs: { 'Malzeme': 'AISI 304 / 316L', 'Çap': 'DN15 - DN600' } },
-                    { name: 'Conta Basma Yüzeyli & Baskılı Flanş', image: 'images/urunler/resim72.jpg', description: 'Özel sızdırmazlık contalarının yerleşimi için kanallı ve baskılı flanş.', specs: { 'Malzeme': 'AISI 316', 'Yüzey': 'Tırtıklı / Kanallı Form' } }
+                    { name: 'Conta Basma Yüzeyli & Baskılı Flanş', image: 'images/uploads/ContaBasmaYuzeyliBaskılıFlans.jpeg', description: 'Özel sızdırmazlık contalarının yerleşimi için kanallı ve baskılı flanş.', specs: { 'Malzeme': 'AISI 316', 'Yüzey': 'Tırtıklı / Kanallı Form' } }
                 ]
             },
             {

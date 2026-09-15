@@ -1,0 +1,782 @@
+[
+  {
+    "name": "360° Döner CIP Tank Yıkama Topu",
+    "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+    "subCategory": "Tank Havalandırma & CIP Yıkama Ekipmanları",
+    "image": "images/urunler/resim77.jpg",
+    "description": "Kazan ve proses tanklarının içini kimyasal solüsyonla otomatik temizleyen döner püskürtme topu.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "PTFE / AISI 316L"
+      },
+      {
+        "key": "Püskürtme",
+        "value": "360 Derece Döner Küre"
+      }
+    ],
+    "_file": "360-döner-cip-tank-yıkama-topu.json",
+    "_slug": "360-döner-cip-tank-yıkama-topu"
+  },
+  {
+    "name": "A2 / A4 Paslanmaz Altıköşe Civata & Somun Setleri",
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "subCategory": "Özel İmalatlar & Paslanmaz Civatalar",
+    "image": "images/urunler/resim116.jpg",
+    "description": "Flanş ve makine montajı için paslanmaz bağlantı elemanları.",
+    "specs": [
+      {
+        "key": "Kalite",
+        "value": "A2-70 (AISI 304) / A4-80 (AISI 316)"
+      },
+      {
+        "key": "Ölçü",
+        "value": "M6 - M36 Boy Çeşitleri"
+      }
+    ],
+    "_file": "a2-a4-paslanmaz-altıköşe-civata-somun-setleri.json",
+    "_slug": "a2-a4-paslanmaz-altıköşe-civata-somun-setleri"
+  },
+  {
+    "name": "Basınca Dayanıklı 6 Vidalı Menhol Kapağı",
+    "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+    "subCategory": "Paslanmaz Menhol Grubu (Kazan & Tank Kapakları)",
+    "image": "images/urunler/resim69.jpg",
+    "description": "Kazan ve basınçlı kaplarda yüksek iç basınca karşı 6 kelebek vidalı sızdırmaz kapak.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316L"
+      },
+      {
+        "key": "Basınç Dayanımı",
+        "value": "6 - 10 Bar"
+      },
+      {
+        "key": "Conta",
+        "value": "Silikon / Viton"
+      }
+    ],
+    "_file": "basınca-dayanıklı-6-vidalı-menhol-kapağı.json",
+    "_slug": "basınca-dayanıklı-6-vidalı-menhol-kapağı"
+  },
+  {
+    "name": "Conta Basma Yüzeyli & Baskılı Flanş",
+    "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+    "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+    "image": "/images/uploads/ContaBasmaYuzeyliBaskılıFlans.jpeg",
+    "description": "Özel sızdırmazlık contalarının yerleşimi için kanallı ve baskılı flanş.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Yüzey",
+        "value": "Tırtıklı / Kanallı Form"
+      }
+    ],
+    "_file": "conta-basma-yüzeyli-baskılı-flanş.json",
+    "_slug": "conta-basma-yüzeyli-baskılı-flanş"
+  },
+  {
+    "name": "Dişli Küresel Vana (2 Parçalı)",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Paslanmaz Küresel Vana Grubu",
+    "image": "images/urunler/resim60.jpg",
+    "description": "Dişli bağlantılı, tam geçişli paslanmaz küresel vana.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Bağlantı",
+        "value": "Dişli (BSP / NPT)"
+      },
+      {
+        "key": "Basınç",
+        "value": "PN63 / 1000 WOG"
+      }
+    ],
+    "_file": "dişli-küresel-vana-2-parçalı.json",
+    "_slug": "dişli-küresel-vana-2-parçalı"
+  },
+  {
+    "name": "Düz Kaynaklı Flanş (Slip-On / Plate)",
+    "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+    "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+    "image": "images/urunler/resim73.jpg",
+    "description": "Boru dışına geçirilerek kaynaklanan standart düz bağlantı flanşı.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Norm",
+        "value": "EN 1092-1 Tip 01"
+      }
+    ],
+    "_file": "düz-kaynaklı-flanş-slip-on-plate.json",
+    "_slug": "düz-kaynaklı-flanş-slip-on-plate"
+  },
+  {
+    "name": "Düz & Saplı Boru Kelepçesi",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kelepçe Grubu",
+    "image": "images/urunler/resim53.jpg",
+    "description": "Tesisat borularının rijit ve güvenli montajı için paslanmaz kelepçe.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Çap",
+        "value": "DN15 - DN300"
+      }
+    ],
+    "_file": "düz-saplı-boru-kelepçesi.json",
+    "_slug": "düz-saplı-boru-kelepçesi"
+  },
+  {
+    "name": "Flanşlı Küresel Vana",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Paslanmaz Küresel Vana Grubu",
+    "image": "images/urunler/resim62.jpg",
+    "description": "Flanşlı bağlantı ile monte edilen endüstriyel proses vanası.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Bağlantı",
+        "value": "Flanşlı PN16 / PN40"
+      },
+      {
+        "key": "Çap",
+        "value": "DN15 - DN200"
+      }
+    ],
+    "_file": "flanşlı-küresel-vana.json",
+    "_slug": "flanşlı-küresel-vana"
+  },
+  {
+    "name": "Gözetleme Camlı Menhol Kapağı",
+    "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+    "subCategory": "Paslanmaz Menhol Grubu (Kazan & Tank Kapakları)",
+    "image": "images/urunler/resim70.jpg",
+    "description": "Tank içi reaksiyon ve sıvı seviyesini kapağı açmadan izleme olanağı sunan borosilikat camlı menhol.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316 + Temperli Borosilikat Cam"
+      }
+    ],
+    "_file": "gözetleme-camlı-menhol-kapağı.json",
+    "_slug": "gözetleme-camlı-menhol-kapağı"
+  },
+  {
+    "name": "Hijyenik Kelebek Vana (Kollu)",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Paslanmaz Kelebek Vana Grubu",
+    "image": "images/urunler/resim61.jpg",
+    "description": "Gıda ve süt hatları için paslanmaz hijyenik kelebek vana.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316L"
+      },
+      {
+        "key": "Conta",
+        "value": "Silikon / EPDM / Viton"
+      },
+      {
+        "key": "Çap",
+        "value": "DN25 - DN150"
+      }
+    ],
+    "_file": "hijyenik-kelebek-vana-kollu.json",
+    "_slug": "hijyenik-kelebek-vana-kollu"
+  },
+  {
+    "name": "Kaynak Boyunlu Flanş (Welding Neck)",
+    "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+    "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+    "image": "images/urunler/resim75.jpg",
+    "description": "Kazan çıkışları ve yüksek basınç hatlarında gerilimi dağıtan boyunlu flanş.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304L / 316L"
+      },
+      {
+        "key": "Norm",
+        "value": "EN 1092-1 Tip 11 / ANSI B16.5"
+      },
+      {
+        "key": "Basınç",
+        "value": "PN16 / PN25 / PN40 / 150-300 LBS"
+      }
+    ],
+    "_file": "kaynak-boyunlu-flanş-welding-neck.json",
+    "_slug": "kaynak-boyunlu-flanş-welding-neck"
+  },
+  {
+    "name": "Kör Flanş (Blind Flange)",
+    "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
+    "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+    "image": "images/urunler/resim74.jpg",
+    "description": "Boru ucu veya kazan nozulunu sökülebilir şekilde körleme flanşı.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316L"
+      },
+      {
+        "key": "Çap",
+        "value": "DN15 - DN600"
+      }
+    ],
+    "_file": "kör-flanş-blind-flange.json",
+    "_slug": "kör-flanş-blind-flange"
+  },
+  {
+    "name": "Paslanmaz Basınç Düşürücü Regülatör",
+    "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+    "subCategory": "Tank Havalandırma & CIP Yıkama Ekipmanları",
+    "image": "images/urunler/resim115.jpg",
+    "description": "Buhar ve sıvı hatlarında değişken giriş basıncını istenilen sabit basınca indiren vana.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Giriş",
+        "value": "16 Bar"
+      },
+      {
+        "key": "Çıkış",
+        "value": "0.5 - 8 Bar Ayarlı"
+      }
+    ],
+    "_file": "paslanmaz-basınç-düşürücü-regülatör.json",
+    "_slug": "paslanmaz-basınç-düşürücü-regülatör"
+  },
+  {
+    "name": "Paslanmaz Bombe Kep (Boru Sonu Kapağı)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+    "image": "images/urunler/resim91.jpg",
+    "description": "Boru hatlarının uçlarını kaynakla körleme için bombeli kep.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Form",
+        "value": "Bombeli / Torisferik"
+      }
+    ],
+    "_file": "paslanmaz-bombe-kep-boru-sonu-kapağı.json",
+    "_slug": "paslanmaz-bombe-kep-boru-sonu-kapağı"
+  },
+  {
+    "name": "Paslanmaz Dikişli & Dikişsiz Boru",
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "subCategory": "Paslanmaz Çelik Hammaddeler",
+    "image": "images/urunler/resim81.jpg",
+    "description": "Tesisat ve kazan boru demeti için dikişsiz çekme ve TIG dikişli borular.",
+    "specs": [
+      {
+        "key": "Norm",
+        "value": "ASTM A312 / EN 10217-7"
+      },
+      {
+        "key": "Ölçü",
+        "value": "1/8\" - 24\" (DN6 - DN600)"
+      }
+    ],
+    "_file": "paslanmaz-dikişli-dikişsiz-boru.json",
+    "_slug": "paslanmaz-dikişli-dikişsiz-boru"
+  },
+  {
+    "name": "Paslanmaz Dişli Dirsek & Manşon",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Dişli Fittings Grubu",
+    "image": "images/urunler/resim97.jpg",
+    "description": "Dişli yön değiştirme dirseği ve boru birleştirme manşonu.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Diş",
+        "value": "İçten Dişli BSP"
+      }
+    ],
+    "_file": "paslanmaz-dişli-dirsek-manşon.json",
+    "_slug": "paslanmaz-dişli-dirsek-manşon"
+  },
+  {
+    "name": "Paslanmaz Dişli Rekor (Konik / Düz Contalı)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Dişli Fittings Grubu",
+    "image": "images/urunler/resim99.jpg",
+    "description": "Tesisatın istendiğinde sökülüp takılabilmesini sağlayan rekor.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Sızdırmazlık",
+        "value": "Metal Metale Konik / PTFE"
+      }
+    ],
+    "_file": "paslanmaz-dişli-rekor-konik-düz-contalı.json",
+    "_slug": "paslanmaz-dişli-rekor-konik-düz-contalı"
+  },
+  {
+    "name": "Paslanmaz Emniyet Ventili",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Özel & Yönlendirici Vanalar",
+    "image": "images/urunler/resim101.jpg",
+    "description": "Aşırı basınç yükselmesinde sistemi koruyan emniyet tahliye ventili.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Ayar",
+        "value": "1 - 16 Bar Yay Ayarlı"
+      }
+    ],
+    "_file": "paslanmaz-emniyet-ventili.json",
+    "_slug": "paslanmaz-emniyet-ventili"
+  },
+  {
+    "name": "Paslanmaz Eşit & İnegal Tee",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+    "image": "images/urunler/resim88.jpg",
+    "description": "Boru hatlarından yan branşman almak için kaynaklı bağlantı elemanı.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Tip",
+        "value": "Kaynaklı Dikişsiz"
+      }
+    ],
+    "_file": "paslanmaz-eşit-i-negal-tee.json",
+    "_slug": "paslanmaz-eşit-i-negal-tee"
+  },
+  {
+    "name": "Paslanmaz Hortum Kelepçesi (Sonsuz Vida)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kelepçe Grubu",
+    "image": "images/urunler/resim57.jpg",
+    "description": "Hortum bağlantılarında yüksek sıkma torku sağlayan paslanmaz kelepçe.",
+    "specs": [
+      {
+        "key": "Bant & Gövde",
+        "value": "AISI 304 Tamamı Paslanmaz"
+      }
+    ],
+    "_file": "paslanmaz-hortum-kelepçesi-sonsuz-vida.json",
+    "_slug": "paslanmaz-hortum-kelepçesi-sonsuz-vida"
+  },
+  {
+    "name": "Paslanmaz Hortum Ucu Rakoru",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Dişli Fittings Grubu",
+    "image": "images/urunler/resim103.jpg",
+    "description": "Boru hattından esnek hortumlara geçiş sağlayan tırtıklı rakor.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Tip",
+        "value": "Hortum Tırnaklı"
+      }
+    ],
+    "_file": "paslanmaz-hortum-ucu-rakoru.json",
+    "_slug": "paslanmaz-hortum-ucu-rakoru"
+  },
+  {
+    "name": "Paslanmaz Kaynak Ağızlı Rekor (DIN 11851)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+    "image": "images/urunler/resim93.jpg",
+    "description": "Gıda normunda hijyenik sökülebilir kaynaklı rekor bağlantı seti.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316L + EPDM Conta"
+      },
+      {
+        "key": "Standart",
+        "value": "DIN 11851 / SMS"
+      }
+    ],
+    "_file": "paslanmaz-kaynak-ağızlı-rekor-din-11851.json",
+    "_slug": "paslanmaz-kaynak-ağızlı-rekor-din-11851"
+  },
+  {
+    "name": "Paslanmaz Kruva (Dört Yollu Dağıtıcı)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Dişli Fittings Grubu",
+    "image": "images/urunler/resim105.jpg",
+    "description": "Tek hattan 3 farklı yöne akış dağıtımı sağlayan istavroz kruva.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304"
+      },
+      {
+        "key": "Tip",
+        "value": "4 Yollu Dişli"
+      }
+    ],
+    "_file": "paslanmaz-kruva-dört-yollu-dağıtıcı.json",
+    "_slug": "paslanmaz-kruva-dört-yollu-dağıtıcı"
+  },
+  {
+    "name": "Paslanmaz Mil & Altıköşe Çubuk",
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "subCategory": "Paslanmaz Çelik Hammaddeler",
+    "image": "images/urunler/resim83.jpg",
+    "description": "Talaşlı imalat ve CNC işleme için paslanmaz transmision milleri.",
+    "specs": [
+      {
+        "key": "Tolerans",
+        "value": "h9 / h11"
+      },
+      {
+        "key": "Çap",
+        "value": "Ø 3 mm - Ø 250 mm"
+      }
+    ],
+    "_file": "paslanmaz-mil-altıköşe-çubuk.json",
+    "_slug": "paslanmaz-mil-altıköşe-çubuk"
+  },
+  {
+    "name": "Paslanmaz Patent Dirsek (90° / 45°)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+    "image": "images/urunler/resim87.jpg",
+    "description": "Akış yönünü değiştirmek için kullanılan kaynaklı dirsek parçaları.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316L"
+      },
+      {
+        "key": "Açı",
+        "value": "90° / 45° / 180°"
+      },
+      {
+        "key": "Et Kalınlığı",
+        "value": "SCH 10 / SCH 40"
+      }
+    ],
+    "_file": "paslanmaz-patent-dirsek-90-45.json",
+    "_slug": "paslanmaz-patent-dirsek-90-45"
+  },
+  {
+    "name": "Paslanmaz Pislik Tutucu (Y Tipi Filtre)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Dişli Fittings Grubu",
+    "image": "images/urunler/resim108.jpg",
+    "description": "Hat içerisindeki tortu ve çapakları tutarak vana ve pompaları koruyan filtre.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Bağlantı",
+        "value": "Dişli BSP"
+      },
+      {
+        "key": "Filtre Gözenek",
+        "value": "0.5 - 1.0 mm"
+      }
+    ],
+    "_file": "paslanmaz-pislik-tutucu-y-tipi-filtre.json",
+    "_slug": "paslanmaz-pislik-tutucu-y-tipi-filtre"
+  },
+  {
+    "name": "Paslanmaz Profil, Lama & Köşebent",
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "subCategory": "Paslanmaz Çelik Hammaddeler",
+    "image": "images/urunler/resim84.jpg",
+    "description": "Şasi ve konstrüksiyon imalatları için paslanmaz kutu profil ve lamalar.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Ebat",
+        "value": "Geniş stok aralığı"
+      }
+    ],
+    "_file": "paslanmaz-profil-lama-köşebent.json",
+    "_slug": "paslanmaz-profil-lama-köşebent"
+  },
+  {
+    "name": "Paslanmaz Redüksiyon (Konsantrik / Eksantrik)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+    "image": "images/urunler/resim89.jpg",
+    "description": "Farklı çaplardaki boruların eksenel birleşimini sağlayan redüksiyon.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316L"
+      },
+      {
+        "key": "Tip",
+        "value": "Konsantrik / Eksantrik"
+      }
+    ],
+    "_file": "paslanmaz-redüksiyon-konsantrik-eksantrik.json",
+    "_slug": "paslanmaz-redüksiyon-konsantrik-eksantrik"
+  },
+  {
+    "name": "Paslanmaz Tank Havalandırma Başlığı (Aeratör)",
+    "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+    "subCategory": "Tank Havalandırma & CIP Yıkama Ekipmanları",
+    "image": "images/urunler/resim112.jpg",
+    "description": "Tank dolum ve boşaltımında vakum oluşmasını önleyen paslanmaz filtreli başlık.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316L"
+      },
+      {
+        "key": "Filtre",
+        "value": "Paslanmaz Sineklik & Toz Filtresi"
+      }
+    ],
+    "_file": "paslanmaz-tank-havalandırma-başlığı-aeratör.json",
+    "_slug": "paslanmaz-tank-havalandırma-başlığı-aeratör"
+  },
+  {
+    "name": "Paslanmaz Yaka (Stub End)",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+    "image": "images/urunler/resim90.jpg",
+    "description": "Serbest flanşlarla boru birleşiminde sızdırmaz yüzey oluşturan kaynaklı yaka.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Tip",
+        "value": "Kaynaklı Boyunlu"
+      }
+    ],
+    "_file": "paslanmaz-yaka-stub-end.json",
+    "_slug": "paslanmaz-yaka-stub-end"
+  },
+  {
+    "name": "Paslanmaz Çek Valf (Yaylı / Çalpara)",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Özel & Yönlendirici Vanalar",
+    "image": "images/urunler/resim94.jpg",
+    "description": "Tek yönlü akış sağlayarak geri dönüşü engelleyen çek valf.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316"
+      },
+      {
+        "key": "Tip",
+        "value": "Yaylı / Disk"
+      }
+    ],
+    "_file": "paslanmaz-çek-valf-yaylı-çalpara.json",
+    "_slug": "paslanmaz-çek-valf-yaylı-çalpara"
+  },
+  {
+    "name": "Paslanmaz Çelik Sac (Plaka & Rulo)",
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "subCategory": "Paslanmaz Çelik Hammaddeler",
+    "image": "images/urunler/resim85.jpg",
+    "description": "Kazan gövdesi ve tank imalatı için 1. Kalite sertifikalı paslanmaz sac.",
+    "specs": [
+      {
+        "key": "Kalite",
+        "value": "AISI 304 / 316L / 310S"
+      },
+      {
+        "key": "Kalınlık",
+        "value": "0.50 mm - 30 mm"
+      }
+    ],
+    "_file": "paslanmaz-çelik-sac-plaka-rulo.json",
+    "_slug": "paslanmaz-çelik-sac-plaka-rulo"
+  },
+  {
+    "name": "Paslanmaz Çift Taraflı Nipel & Hex Nipel",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Dişli Fittings Grubu",
+    "image": "images/urunler/resim95.jpg",
+    "description": "İki iç dişli parçayı birleştiren dıştan dişli bağlantı elemanı.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Ölçü",
+        "value": "1/4\" - 4\""
+      }
+    ],
+    "_file": "paslanmaz-çift-taraflı-nipel-hex-nipel.json",
+    "_slug": "paslanmaz-çift-taraflı-nipel-hex-nipel"
+  },
+  {
+    "name": "Paslanmaz Özel İmalat Kürek & El Arabası",
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "subCategory": "Özel İmalatlar & Paslanmaz Civatalar",
+    "image": "images/urunler/resim64.jpg",
+    "description": "Gıda ve kimya tesisleri için monoblok paslanmaz hijyenik taşıma ekipmanları.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 Polisajlı"
+      }
+    ],
+    "_file": "paslanmaz-özel-i-malat-kürek-el-arabası.json",
+    "_slug": "paslanmaz-özel-i-malat-kürek-el-arabası"
+  },
+  {
+    "name": "Somonlu Lastikli Titreşim Kelepçesi",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kelepçe Grubu",
+    "image": "images/urunler/resim56.jpg",
+    "description": "Pompa ve kazan çıkışı boru hatlarında titreşim ve gürültüyü emen EPDM lastikli kelepçe.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 + EPDM Fitil"
+      },
+      {
+        "key": "Özellik",
+        "value": "Titreşim Sönümleyici"
+      }
+    ],
+    "_file": "somonlu-lastikli-titreşim-kelepçesi.json",
+    "_slug": "somonlu-lastikli-titreşim-kelepçesi"
+  },
+  {
+    "name": "Trifonlu Kelepçe & Ağır Hizmet U-Bolt",
+    "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
+    "subCategory": "Paslanmaz Kelepçe Grubu",
+    "image": "images/urunler/resim58.jpg",
+    "description": "Duvar ve çelik konstrüksiyon sabitlemeleri için trifon vidalı ve U-bolt kelepçe.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Tip",
+        "value": "Trifonlu / U-Bolt"
+      }
+    ],
+    "_file": "trifonlu-kelepçe-ağır-hizmet-u-bolt.json",
+    "_slug": "trifonlu-kelepçe-ağır-hizmet-u-bolt"
+  },
+  {
+    "name": "Wafer Tip Endüstriyel Kelebek Vana",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Paslanmaz Kelebek Vana Grubu",
+    "image": "images/urunler/resim61.jpg",
+    "description": "Flanşlar arasına sıkıştırılan wafer tip sızdırmaz vana.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "Paslanmaz Klape + Gövde"
+      },
+      {
+        "key": "Basınç",
+        "value": "PN16"
+      }
+    ],
+    "_file": "wafer-tip-endüstriyel-kelebek-vana.json",
+    "_slug": "wafer-tip-endüstriyel-kelebek-vana"
+  },
+  {
+    "name": "Yuvarlak & Oval İçe-Dışa Açılır Menhol",
+    "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
+    "subCategory": "Paslanmaz Menhol Grubu (Kazan & Tank Kapakları)",
+    "image": "images/urunler/resim66.jpg",
+    "description": "Depolama ve fermentasyon tankları için hijyenik açılır menhol kapağı.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Açılış",
+        "value": "Dışa / İçe Salınımlı"
+      }
+    ],
+    "_file": "yuvarlak-oval-i-çe-dışa-açılır-menhol.json",
+    "_slug": "yuvarlak-oval-i-çe-dışa-açılır-menhol"
+  },
+  {
+    "name": "Üç Parçalı Kaynaklı Vana",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Paslanmaz Küresel Vana Grubu",
+    "image": "images/urunler/resim60.jpg",
+    "description": "Hattan sökülmeden gövde bakımı yapılabilen 3 parçalı küresel vana.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 316L"
+      },
+      {
+        "key": "Bakım",
+        "value": "Hatta takılı demonte"
+      }
+    ],
+    "_file": "üç-parçalı-kaynaklı-vana.json",
+    "_slug": "üç-parçalı-kaynaklı-vana"
+  },
+  {
+    "name": "Üç Yollu Paslanmaz Vana (L ve T Tipi)",
+    "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
+    "subCategory": "Özel & Yönlendirici Vanalar",
+    "image": "images/urunler/resim63.jpg",
+    "description": "Üç yönlü akış saptırma ve karışım sağlayan paslanmaz vana.",
+    "specs": [
+      {
+        "key": "Malzeme",
+        "value": "AISI 304 / 316"
+      },
+      {
+        "key": "Yönlendirme",
+        "value": "L-Port / T-Port"
+      }
+    ],
+    "_file": "üç-yollu-paslanmaz-vana-l-ve-t-tipi.json",
+    "_slug": "üç-yollu-paslanmaz-vana-l-ve-t-tipi"
+  }
+]
