@@ -178,7 +178,7 @@ const PRODUCT_TREE = [
                 image: 'images/urunler/resim64.jpg',
                 description: 'Gıda, kimya ve ilaç sanayisine özel paslanmaz ekipman ve aparat imalatları.',
                 products: [
-                    { name: 'Paslanmaz Özel İmalat Kürek & El Arabası', image: 'images/urunler/resim64.jpg', description: 'Gıda ve kimya tesisleri için monoblok paslanmaz hijyenik taşıma ekipmanları.', specs: { 'Malzeme': 'AISI 304 Polisajlı' } },
+                    { name: 'Paslanmaz Özel İmalat Kürek & El Arabası', image: 'images/uploads/PaslanmazElArabasıKürek.jpeg', description: 'Gıda ve kimya tesisleri için monoblok paslanmaz hijyenik taşıma ekipmanları.', specs: { 'Malzeme': 'AISI 304 Polisajlı' } },
                     { name: 'Paslanmaz Karıştırıcı & Mikser Şaftları', image: 'images/projeler/proses-tanki.jpg', description: 'Reaktör ve mikser tankları için özel balanslı kanat ve şaft imalatı.', specs: { 'Malzeme': 'AISI 316L', 'Yüzey': 'Ayna Polisajlı' } },
                     { name: 'Özel İmalat Kollektör ve Boru Spool Hatları', image: 'images/projeler/montaj.jpg', description: 'Saha montajını hızlandıran flanşlı ve kaynaklı hazır borulama modülleri.', specs: { 'Norm': 'EN / ASME', 'Test': 'Röntgen / Penetrant' } }
                 ]

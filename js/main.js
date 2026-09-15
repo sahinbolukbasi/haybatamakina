@@ -226,7 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     `;
                     card.addEventListener('click', () => {
-                        window.location.href = `urunler.html`;
+                        const slug = prod._slug || (prod.name ? prod.name.toLowerCase().replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]/g, '-') : '');
+                        window.location.href = `urun-detay.html?slug=${encodeURIComponent(slug)}`;
                     });
                     homeProducts.appendChild(card);
                 });
@@ -447,12 +448,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const specsEntries = item.specs ? Object.entries(item.specs).slice(0, 2) : [];
                 const specsChipsHtml = specsEntries.map(([k, v]) => `<span class="spec-chip"><strong>${k}:</strong> ${v}</span>`).join('');
 
-                const detailUrl = `urun-detay.html?sub=${item.subId}&prod=${item.productIndex}`;
+                const slugVal = item._slug || item.slug || (item.name ? item.name.toLowerCase().replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]/g, '-') : '');
+                const detailUrl = `urun-detay.html?slug=${encodeURIComponent(slugVal)}&sub=${item.subId}&prod=${item.productIndex}`;
+                const cardImg = (item.image || '').replace(/^\/+/, '');
 
                 card.style.cursor = 'pointer';
                 card.innerHTML = `
                     <div class="tree-product-img-wrap">
-                        <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas fa-industry\\'></i></div>'">
+                        <img src="${cardImg}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas fa-industry\\'></i></div>'">
                         <span class="tree-product-badge">${item.groupName}</span>
                     </div>
                     <div class="tree-product-body">
@@ -525,28 +528,73 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTreeProducts(null, '');
         }
 
-        // Admin panelinden yapılan ürün değişikliklerini (resim, açıklama, özellik) canlı senkronize et
+        // Admin panelinden yapılan ürün değişikliklerini (resim, açıklama, özellik, kategori) canlı senkronize et
         async function loadAndApplyCmsProducts() {
             try {
+                // 1. Önce güncel products_merged.json'ı çek
                 const res = await fetch(`data/products_merged.json?_t=${Date.now()}`).catch(() => null);
                 let cmsProducts = [];
                 if (res && res.ok) {
                     cmsProducts = await res.json();
                 }
 
+                // 2. data/products_index.json dosyasını çek
                 const idxRes = await fetch(`data/products_index.json?_t=${Date.now()}`).catch(() => null);
+                let fileList = [];
                 if (idxRes && idxRes.ok) {
-                    const fileList = await idxRes.json();
-                    const existingFiles = new Set(cmsProducts.map(p => p._file));
-                    const missingFiles = fileList.filter(f => !existingFiles.has(f));
-                    if (missingFiles.length > 0) {
-                        const fetchedMissing = await Promise.all(missingFiles.map(f => 
-                            fetch(`data/products_catalog/${encodeURIComponent(f)}?_t=${Date.now()}`)
-                                .then(r => r.ok ? r.json() : null)
-                                .catch(() => null)
-                        ));
-                        fetchedMissing.filter(Boolean).forEach(p => cmsProducts.push(p));
+                    fileList = await idxRes.json();
+                }
+
+                // 3. GitHub API üzerinden en son commit edilen katalog dosyalarını kontrol et (Timeout 2.5s)
+                let ghFiles = null;
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 2500);
+                    const ghRes = await fetch(`https://api.github.com/repos/sahinbolukbasi/haybatamakina/contents/data/products_catalog?ref=main&_t=${Date.now()}`, {
+                        signal: controller.signal
+                    }).catch(() => null);
+                    clearTimeout(timeoutId);
+                    if (ghRes && ghRes.ok) {
+                        ghFiles = await ghRes.json();
                     }
+                } catch (err) {
+                    // API limiti veya offline durumu
+                }
+
+                // 4. Doğrudan çekilmesi gereken güncel dosyaları belirle
+                const filesToFetch = new Set();
+                if (Array.isArray(ghFiles)) {
+                    ghFiles.forEach(gf => {
+                        if (gf.name && gf.name.endsWith('.json')) {
+                            filesToFetch.add(gf.name);
+                        }
+                    });
+                } else if (fileList.length > 0) {
+                    fileList.forEach(f => filesToFetch.add(f));
+                }
+
+                // Eğer son düzenlenen/eklenen ürünler varsa doğrudan JSON dosyasından çek
+                if (filesToFetch.size > 0) {
+                    const fetchedFiles = await Promise.all(Array.from(filesToFetch).slice(0, 50).map(f =>
+                        fetch(`data/products_catalog/${encodeURIComponent(f)}?_t=${Date.now()}`)
+                            .then(r => r.ok ? r.json() : null)
+                            .then(data => {
+                                if (data) {
+                                    data._file = f;
+                                    data._slug = f.replace(/\.json$/, '');
+                                }
+                                return data;
+                            })
+                            .catch(() => null)
+                    ));
+                    fetchedFiles.filter(Boolean).forEach(fp => {
+                        const exIdx = cmsProducts.findIndex(p => p._file === fp._file || p._slug === fp._slug || p.name === fp.name);
+                        if (exIdx >= 0) {
+                            cmsProducts[exIdx] = { ...cmsProducts[exIdx], ...fp };
+                        } else {
+                            cmsProducts.push(fp);
+                        }
+                    });
                 }
 
                 if (!Array.isArray(cmsProducts) || cmsProducts.length === 0) return;
@@ -562,6 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cmsProducts.forEach(cmsProd => {
                     if (!cmsProd || !cmsProd.name) return;
                     const cmsNorm = norm(cmsProd.name);
+                    const cmsSlug = cmsProd._slug || cmsNorm;
                     const cleanImg = (cmsProd.image || '').replace(/^\/+/, '');
 
                     let cleanSpecs = {};
@@ -574,23 +623,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     let found = false;
+                    let foundGroup = null;
+                    let foundSub = null;
+                    let foundProduct = null;
+
                     for (const grp of PRODUCT_TREE) {
                         for (const sub of grp.subcategories) {
                             for (const p of sub.products) {
-                                if (norm(p.name) === cmsNorm) {
-                                    if (cleanImg && p.image !== cleanImg) {
-                                        p.image = cleanImg;
-                                        changesApplied = true;
-                                    }
-                                    if (cmsProd.description && p.description !== cmsProd.description) {
-                                        p.description = cmsProd.description;
-                                        changesApplied = true;
-                                    }
-                                    if (Object.keys(cleanSpecs).length > 0) {
-                                        p.specs = cleanSpecs;
-                                        changesApplied = true;
-                                    }
+                                if (norm(p.name) === cmsNorm || (p._slug && p._slug === cmsSlug)) {
                                     found = true;
+                                    foundGroup = grp;
+                                    foundSub = sub;
+                                    foundProduct = p;
                                     break;
                                 }
                             }
@@ -599,7 +643,40 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (found) break;
                     }
 
-                    if (!found && PRODUCT_TREE.length > 0) {
+                    if (found && foundProduct) {
+                        foundProduct._slug = cmsSlug;
+                        if (cleanImg && foundProduct.image !== cleanImg) {
+                            foundProduct.image = cleanImg;
+                            changesApplied = true;
+                        }
+                        if (cmsProd.name && foundProduct.name !== cmsProd.name) {
+                            foundProduct.name = cmsProd.name;
+                            changesApplied = true;
+                        }
+                        if (cmsProd.description && foundProduct.description !== cmsProd.description) {
+                            foundProduct.description = cmsProd.description;
+                            changesApplied = true;
+                        }
+                        if (Object.keys(cleanSpecs).length > 0) {
+                            foundProduct.specs = cleanSpecs;
+                            changesApplied = true;
+                        }
+
+                        // Kategori değişmişse doğru kategoriye taşı
+                        if (cmsProd.category) {
+                            const targetCatNorm = norm(cmsProd.category);
+                            const currentGrpNorm = norm(foundGroup.name);
+                            if (!currentGrpNorm.includes(targetCatNorm) && !targetCatNorm.includes(currentGrpNorm)) {
+                                const targetGrp = PRODUCT_TREE.find(g => norm(g.name).includes(targetCatNorm) || targetCatNorm.includes(norm(g.name)));
+                                if (targetGrp && targetGrp.subcategories.length > 0) {
+                                    foundSub.products = foundSub.products.filter(p => p !== foundProduct);
+                                    targetGrp.subcategories[0].products.push(foundProduct);
+                                    changesApplied = true;
+                                }
+                            }
+                        }
+                    } else if (PRODUCT_TREE.length > 0) {
+                        // Yeni ürün: Uygun kategoriye ekle
                         const catTarget = norm(cmsProd.category || cmsProd.categoryGroup || '');
                         let targetSub = null;
                         for (const grp of PRODUCT_TREE) {
@@ -614,6 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (targetSub) {
                             targetSub.products.push({
                                 name: cmsProd.name,
+                                _slug: cmsSlug,
                                 image: cleanImg || targetSub.image,
                                 description: cmsProd.description || '',
                                 specs: cleanSpecs
@@ -646,14 +724,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const subParam = urlParams.get('sub');
         const prodParam = urlParams.get('prod');
         const slugParam = urlParams.get('slug');
+        const nameParam = urlParams.get('name');
+
+        function normStr(str) {
+            return (str || '').toLowerCase()
+                .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+                .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
+                .replace(/[^a-z0-9]/g, '');
+        }
 
         let foundProduct = null;
         let foundSub = null;
         let foundGroup = null;
 
-        // Ağaç içinde ara
+        // Ağaç içinde ara (önce slug/isim, sonra sub/prod)
         for (const grp of PRODUCT_TREE) {
             for (const sub of grp.subcategories) {
+                if (slugParam) {
+                    const pMatch = sub.products.find(p => p._slug === slugParam || normStr(p.name) === normStr(slugParam));
+                    if (pMatch) {
+                        foundProduct = pMatch;
+                        foundSub = sub;
+                        foundGroup = grp;
+                        break;
+                    }
+                }
+                if (nameParam) {
+                    const pMatch = sub.products.find(p => normStr(p.name) === normStr(nameParam));
+                    if (pMatch) {
+                        foundProduct = pMatch;
+                        foundSub = sub;
+                        foundGroup = grp;
+                        break;
+                    }
+                }
                 if (subParam && sub.id === subParam) {
                     const idx = parseInt(prodParam) || 0;
                     if (sub.products[idx]) {
@@ -662,12 +766,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         foundGroup = grp;
                         break;
                     }
-                } else if (slugParam && sub.slug === slugParam) {
-                    const idx = parseInt(prodParam) || 0;
-                    foundProduct = sub.products[idx] || sub.products[0];
-                    foundSub = sub;
-                    foundGroup = grp;
-                    break;
                 }
             }
             if (foundProduct) break;
@@ -681,38 +779,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (foundProduct) {
-            document.title = `${foundProduct.name} - Haybata Makina`;
+            renderDetailDom(foundProduct, foundGroup, foundSub);
+        }
+
+        function renderDetailDom(prod, grp, sub) {
+            document.title = `${prod.name} - Haybata Makina`;
             
-            // Hero Başlıkları
             const heroTitle = document.getElementById('productHeroTitle');
             const heroDesc = document.getElementById('productHeroDesc');
-            if (heroTitle) heroTitle.textContent = foundProduct.name;
-            if (heroDesc) heroDesc.textContent = `${foundGroup.name} / ${foundSub.name}`;
+            if (heroTitle) heroTitle.textContent = prod.name;
+            if (heroDesc) heroDesc.textContent = `${grp?.name || 'Paslanmaz'} / ${sub?.name || 'Ürün Grubu'}`;
 
-            // Breadcrumb
             const bcCurrent = document.getElementById('productBreadcrumbCurrent');
-            if (bcCurrent) bcCurrent.textContent = foundProduct.name;
+            if (bcCurrent) bcCurrent.textContent = prod.name;
 
-            // İçerik Alanları
             const catBadge = document.getElementById('productDetailCategoryBadge');
-            if (catBadge) catBadge.textContent = `${foundGroup.name} > ${foundSub.name}`;
+            if (catBadge) catBadge.textContent = `${grp?.name || 'Paslanmaz'} > ${sub?.name || 'Ürün'}`;
 
-            productDetailTitle.textContent = foundProduct.name;
+            productDetailTitle.textContent = prod.name;
 
             const descEl = document.getElementById('productDetailDesc');
-            if (descEl) descEl.textContent = foundProduct.description || '';
+            if (descEl) descEl.textContent = prod.description || '';
 
             const imgWrap = document.getElementById('productDetailImageWrap');
+            const cleanImg = (prod.image || sub?.image || '').replace(/^\/+/, '');
             if (imgWrap) {
                 imgWrap.innerHTML = `
-                    <img src="${foundProduct.image || foundSub.image}" alt="${foundProduct.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" onerror="this.outerHTML='<i class=\\'fas fa-industry\\' style=\\'font-size:5rem;color:var(--steel-light);\\'></i>'">
+                    <img src="${cleanImg}" alt="${prod.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" onerror="this.outerHTML='<i class=\\'fas fa-industry\\' style=\\'font-size:5rem;color:var(--steel-light);\\'></i>'">
                 `;
             }
 
-            // Teknik Özellik Tablosu
             const specsList = document.getElementById('productSpecsList');
-            if (specsList && foundProduct.specs) {
-                specsList.innerHTML = Object.entries(foundProduct.specs).map(([k, v]) => `
+            if (specsList && prod.specs) {
+                let specsEntries = [];
+                if (Array.isArray(prod.specs)) {
+                    specsEntries = prod.specs.map(s => [s.key, s.value]);
+                } else if (typeof prod.specs === 'object' && prod.specs !== null) {
+                    specsEntries = Object.entries(prod.specs);
+                }
+                specsList.innerHTML = specsEntries.map(([k, v]) => `
                     <div class="spec-item">
                         <strong>${k}</strong>
                         <span>${v}</span>
@@ -720,69 +825,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 `).join('');
             }
 
-            // WhatsApp Fiyat Teklifi Butonu
             const waQuoteBtn = document.getElementById('productWaQuoteBtn');
             if (waQuoteBtn) {
                 const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '905521817077';
-                const msg = encodeURIComponent(`Merhaba Haybata Makina, "${foundProduct.name}" ürünü için teknik bilgi ve fiyat teklifi almak istiyorum.`);
+                const msg = encodeURIComponent(`Merhaba Haybata Makina, "${prod.name}" ürünü için teknik bilgi ve fiyat teklifi almak istiyorum.`);
                 waQuoteBtn.href = `https://wa.me/${phone}?text=${msg}`;
             }
+        }
 
-            // Admin panelinden yapılan son güncellemeleri (yeni resim, açıklama, özellik) canlı sorgula
-            async function fetchFreshDetailFromCms(productName) {
-                try {
-                    function norm(str) {
-                        return (str || '').toLowerCase()
-                            .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-                            .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
-                            .replace(/[^a-z0-9]/g, '');
+        // Admin panelinden yapılan son güncellemeleri (yeni resim, açıklama, özellik) canlı ve anlık çek
+        async function fetchFreshDetailFromCms(activeSlug, activeName) {
+            try {
+                let liveData = null;
+
+                // 1. Eğer slug varsa doğrudan data/products_catalog/[slug].json dosyasını çek (en hızlı ve kesin yöntem)
+                if (activeSlug) {
+                    const singleRes = await fetch(`data/products_catalog/${encodeURIComponent(activeSlug)}.json?_t=${Date.now()}`).catch(() => null);
+                    if (singleRes && singleRes.ok) {
+                        liveData = await singleRes.json();
                     }
-                    const targetNorm = norm(productName);
+                }
 
+                // 2. Bulunamazsa products_merged.json içinde ara
+                if (!liveData) {
                     const res = await fetch(`data/products_merged.json?_t=${Date.now()}`).catch(() => null);
                     if (res && res.ok) {
                         const list = await res.json();
-                        const cmsMatch = list.find(item => norm(item.name) === targetNorm);
-                        if (cmsMatch) {
-                            applyFreshDetail(cmsMatch);
-                            return;
-                        }
+                        const targetNorm = normStr(activeName || activeSlug);
+                        liveData = list.find(item => normStr(item.name) === targetNorm || item._slug === activeSlug);
                     }
-                } catch (err) {
-                    console.warn('Detay CMS yükleme uyarısı:', err);
                 }
-            }
 
-            function applyFreshDetail(data) {
-                const cleanImg = (data.image || '').replace(/^\/+/, '');
-                if (cleanImg && imgWrap) {
-                    imgWrap.innerHTML = `
-                        <img src="${cleanImg}" alt="${data.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" onerror="this.outerHTML='<i class=\\'fas fa-industry\\' style=\\'font-size:5rem;color:var(--steel-light);\\'></i>'">
-                    `;
-                }
-                if (data.description && descEl) {
-                    descEl.textContent = data.description;
-                }
-                if (data.specs && specsList) {
-                    let specsEntries = [];
-                    if (Array.isArray(data.specs)) {
-                        specsEntries = data.specs.map(s => [s.key, s.value]);
-                    } else if (typeof data.specs === 'object' && data.specs !== null) {
-                        specsEntries = Object.entries(data.specs);
+                if (liveData) {
+                    const cleanImg = (liveData.image || '').replace(/^\/+/, '');
+                    let cleanSpecs = {};
+                    if (Array.isArray(liveData.specs)) {
+                        liveData.specs.forEach(s => { if (s && s.key) cleanSpecs[s.key] = s.value; });
+                    } else if (typeof liveData.specs === 'object' && liveData.specs !== null) {
+                        cleanSpecs = liveData.specs;
                     }
-                    if (specsEntries.length > 0) {
-                        specsList.innerHTML = specsEntries.map(([k, v]) => `
-                            <div class="spec-item">
-                                <strong>${k}</strong>
-                                <span>${v}</span>
-                            </div>
-                        `).join('');
-                    }
-                }
-            }
 
-            fetchFreshDetailFromCms(foundProduct.name);
+                    renderDetailDom({
+                        name: liveData.name || foundProduct.name,
+                        image: cleanImg || foundProduct.image,
+                        description: liveData.description || foundProduct.description,
+                        specs: Object.keys(cleanSpecs).length > 0 ? cleanSpecs : foundProduct.specs
+                    }, foundGroup, foundSub);
+                }
+            } catch (err) {
+                console.warn('Detay CMS yükleme uyarısı:', err);
+            }
         }
+
+        fetchFreshDetailFromCms(slugParam || foundProduct?._slug, foundProduct?.name);
     }
 
     /* =========================================
@@ -992,8 +1087,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 const mapIframe = document.getElementById('contactMapIframe');
                 if (mapIframe) mapIframe.src = settings.mapEmbed;
             }
+
+            // Ana Sayfa Vitrin & Sloganlar (home.json)
+            const homeRes = await fetch(`data/home.json?_t=${Date.now()}`).catch(() => null);
+            if (homeRes && homeRes.ok) {
+                const homeData = await homeRes.json();
+                if (homeData.heroBadge) {
+                    const el = document.querySelector('.hero-badge');
+                    if (el) el.innerText = homeData.heroBadge;
+                }
+                if (homeData.heroTitle) {
+                    const el = document.querySelector('.hero-content h1');
+                    if (el) el.innerHTML = homeData.heroTitle;
+                }
+                if (homeData.heroSubtitle) {
+                    const el = document.querySelector('.hero-content p');
+                    if (el) el.innerText = homeData.heroSubtitle;
+                }
+                if (homeData.featuredProductsTitle) {
+                    const el = document.querySelector('#products .section-title');
+                    if (el) el.innerHTML = homeData.featuredProductsTitle;
+                }
+                if (homeData.featuredProductsSubtitle) {
+                    const el = document.querySelector('#products .section-subtitle');
+                    if (el) el.innerText = homeData.featuredProductsSubtitle;
+                }
+            }
+
+            // Hakkımızda Metinleri (about.json)
+            const aboutRes = await fetch(`data/about.json?_t=${Date.now()}`).catch(() => null);
+            if (aboutRes && aboutRes.ok) {
+                const aboutData = await aboutRes.json();
+                if (aboutData.intro) {
+                    const p1 = document.getElementById('aboutIntroP1');
+                    if (p1) p1.innerText = aboutData.intro;
+                }
+                if (aboutData.values) {
+                    const p2 = document.getElementById('aboutIntroP2');
+                    if (p2) p2.innerText = aboutData.values;
+                }
+                if (aboutData.goal) {
+                    const p3 = document.getElementById('aboutIntroP3');
+                    if (p3) p3.innerText = aboutData.goal;
+                }
+            }
+
+            // SEO & Google Analytics (seo.json)
+            const seoRes = await fetch(`data/seo.json?_t=${Date.now()}`).catch(() => null);
+            if (seoRes && seoRes.ok) {
+                const seoData = await seoRes.json();
+                if (seoData.googleAnalyticsId && !window._gaLoaded) {
+                    window._gaLoaded = true;
+                    const gaScript = document.createElement('script');
+                    gaScript.async = true;
+                    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(seoData.googleAnalyticsId)}`;
+                    document.head.appendChild(gaScript);
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', seoData.googleAnalyticsId);
+                }
+                if (seoData.googleSiteVerification) {
+                    let meta = document.querySelector('meta[name="google-site-verification"]');
+                    if (!meta) {
+                        meta = document.createElement('meta');
+                        meta.name = 'google-site-verification';
+                        document.head.appendChild(meta);
+                    }
+                    meta.content = seoData.googleSiteVerification;
+                }
+            }
         } catch (err) {
-            console.warn('Sosyal medya ve ayarlar yuklenirken:', err);
+            console.warn('Site içerikleri ve ayarlar yüklenirken:', err);
         }
     }
     loadSiteSettingsAndSocial();

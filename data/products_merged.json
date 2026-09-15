@@ -64,7 +64,7 @@
     "name": "Conta Basma Yüzeyli & Baskılı Flanş",
     "category": "PASLANMAZ FİTTİNGS",
     "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
-    "image": "/images/uploads/ContaBasmaYuzeyliBaskılıFlans.jpeg",
+    "image": "images/uploads/ContaBasmaYuzeyliBaskılıFlans.jpeg",
     "description": "Özel sızdırmazlık contalarının yerleşimi için kanallı ve baskılı flanş.",
     "specs": [
       {
@@ -653,9 +653,10 @@
   },
   {
     "name": "Paslanmaz Özel İmalat Kürek & El Arabası",
-    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
+    "showOnHome": false,
+    "category": "PASLANMAZ SARF MALZEMELER",
     "subCategory": "Özel İmalatlar & Paslanmaz Civatalar",
-    "image": "images/urunler/resim64.jpg",
+    "image": "images/uploads/PaslanmazElArabasıKürek.jpeg",
     "description": "Gıda ve kimya tesisleri için monoblok paslanmaz hijyenik taşıma ekipmanları.",
     "specs": [
       {
@@ -663,6 +664,7 @@
         "value": "AISI 304 Polisajlı"
       }
     ],
+    "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
     "_file": "paslanmaz-özel-i-malat-kürek-el-arabası.json",
     "_slug": "paslanmaz-özel-i-malat-kürek-el-arabası"
   },

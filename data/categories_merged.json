@@ -37,7 +37,8 @@
         "description": "Endüstriyel ve hijyenik küresel, kelebek ve yönlendirici vanalar."
       }
     ],
-    "_file": "paslanmaz-fittings.json"
+    "_file": "paslanmaz-fittings.json",
+    "_slug": "paslanmaz-fittings"
   },
   {
     "name": "PASLANMAZ MENHOL KAPAĞI",
@@ -53,7 +54,8 @@
         "description": "Basınçlı ve atmosferik tanklara insan ve bakım erişimi sağlayan standart ve özel menholler."
       }
     ],
-    "_file": "paslanmaz-menhol-kapagi.json"
+    "_file": "paslanmaz-menhol-kapagi.json",
+    "_slug": "paslanmaz-menhol-kapagi"
   },
   {
     "name": "PASLANMAZ ÖZEL İMALATLAR",
@@ -75,7 +77,8 @@
         "description": "Vakum ve aşırı basınç koruma başlıkları ve otomatik CIP tank yıkama topları."
       }
     ],
-    "_file": "paslanmaz-ozel-imalatlar.json"
+    "_file": "paslanmaz-ozel-imalatlar.json",
+    "_slug": "paslanmaz-ozel-imalatlar"
   },
   {
     "name": "PASLANMAZ SARF MALZEMELER",
@@ -103,6 +106,7 @@
         "description": "AISI 304, 304L, 316, 316L sertifikalı paslanmaz sac, dikişsiz boru, profil ve mil tedariği."
       }
     ],
-    "_file": "paslanmaz-sarf-malzemeler.json"
+    "_file": "paslanmaz-sarf-malzemeler.json",
+    "_slug": "paslanmaz-sarf-malzemeler"
   }
 ]

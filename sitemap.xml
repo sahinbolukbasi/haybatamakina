@@ -32,60 +32,54 @@
         <priority>0.85</priority>
     </url>
 
-    <!-- Kazan ve Proses Grupları -->
+    <!-- 4 Ana Paslanmaz Ürün Kategorisi -->
     <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=buhar-kazanlari</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=paslanmaz-fittings</loc>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=kizgin-yag-kazanlari</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=paslanmaz-menhol-kapagi</loc>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=sicak-su-degazor</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=paslanmaz-ozel-imalatlar</loc>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
+        <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=proses-tanklari</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=paslanmaz-sarf-malzemeler</loc>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
+        <priority>0.90</priority>
     </url>
 
-    <!-- Paslanmaz Çelik Ürün Grupları -->
-    <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=kuresel-vanalar</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
-    <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=kelepcе-cesitleri</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
+    <!-- Alt Ürün Grupları -->
     <url>
         <loc>https://www.haybatamakina.com/urunler.html?sub=kaynakli-fittings</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-09-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=disli-fittings</loc>
+        <lastmod>2026-09-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.haybatamakina.com/urunler.html?sub=kelepce-baglanti-elemanlari</loc>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://www.haybatamakina.com/urunler.html?sub=endustriyel-flanslar</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
-    <url>
-        <loc>https://www.haybatamakina.com/urunler.html?sub=menhol-kapaklari</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
