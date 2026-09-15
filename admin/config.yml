@@ -99,7 +99,7 @@ collections:
           - { label: "Firma Ünvanı", name: "companyName", widget: "string" }
           - { label: "Telefon Numarası", name: "phone", widget: "string" }
           - { label: "Faks Numarası", name: "fax", widget: "string" }
-          - { label: "WhatsApp Numarası (Örn: 902126712577)", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp Numarası (Örn: 905521817077)", name: "whatsapp", widget: "string" }
           - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
           - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string" }
           - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }

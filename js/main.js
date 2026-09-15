@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function ensureWhatsAppButton() {
         if (!document.querySelector('.whatsapp-float-btn')) {
-            const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '902126712577';
+            const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '905521817077';
             const defaultMsg = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.defaultMessage) 
                 ? encodeURIComponent(WHATSAPP_CONFIG.defaultMessage)
                 : encodeURIComponent('Merhaba Haybata Makina, sanayi tipi kazan ve paslanmaz ürünleriniz hakkında bilgi almak istiyorum.');
@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // WhatsApp Fiyat Teklifi Butonu
             const waQuoteBtn = document.getElementById('productWaQuoteBtn');
             if (waQuoteBtn) {
-                const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '902126712577';
+                const phone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '905521817077';
                 const msg = encodeURIComponent(`Merhaba Haybata Makina, "${foundProduct.name}" ürünü için teknik bilgi ve fiyat teklifi almak istiyorum.`);
                 waQuoteBtn.href = `https://wa.me/${phone}?text=${msg}`;
             }
@@ -589,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
 
                         <div style="margin-top:1.5rem;display:flex;gap:10px;">
-                            <a href="https://wa.me/902126712577?text=${encodeURIComponent('Merhaba, ' + proj.title + ' projeniz benzerinde bir sanayi tipi kazan tesisi kurdurmak istiyoruz.')}" 
+                            <a href="https://wa.me/${(typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '905521817077'}?text=${encodeURIComponent('Merhaba, ' + proj.title + ' projeniz benzerinde bir sanayi tipi kazan tesisi kurdurmak istiyoruz.')}" 
                                target="_blank" 
                                class="btn" 
                                style="background:#25D366;color:#ffffff;font-size:0.85rem;padding:0.6rem 1rem;flex:1;text-align:center;">
@@ -652,7 +652,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = contactForm.querySelector('[name="subject"]')?.value || 'Teklif Talebi';
             const message = contactForm.querySelector('[name="message"]')?.value || '';
 
-            const waPhone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '902126712577';
+            const waPhone = (typeof WHATSAPP_CONFIG !== 'undefined' && WHATSAPP_CONFIG.phone) ? WHATSAPP_CONFIG.phone : '905521817077';
             let waText = `*Haybata Makina Teklif Talebi*\n\n` +
                          `👤 *Ad Soyad:* ${name || 'Belirtilmedi'}\n` +
                          `📧 *E-Posta:* ${email || 'Belirtilmedi'}\n` +
@@ -724,7 +724,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(endpoint, requestOptions);
             const resData = await response.json().catch(() => ({}));
 
-            if (response.ok || resData.success === 'true' || resData.success === true) {
+            if (resData.message && resData.message.toLowerCase().includes('activation')) {
+                showToast(`FormSubmit Onay Linki ${targetEmail} adresinize gönderildi! Lütfen gelen kutunuzdaki (veya Spam'daki) bağlantıya tıklayarak onaylayın.`);
+                formEl.reset();
+            } else if (resData.success === 'true' || resData.success === true || (response.ok && resData.success !== 'false' && resData.success !== false)) {
                 showToast(`Teşekkürler! ${formType} formunuz başarıyla alındı ve şirket mailimize (${targetEmail}) iletildi.`);
                 formEl.reset();
             } else {

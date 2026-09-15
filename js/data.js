@@ -28,8 +28,8 @@ const MAIL_CONFIG = {
 
 // WhatsApp İletişim Yapılandırması (Sol Alt Köşe Butonu)
 const WHATSAPP_CONFIG = {
-    phone: '902126712577', // Uluslararası formatta numara (0212 671 25 77)
-    displayPhone: '0212 671 25 77',
+    phone: '905521817077', // Uluslararası formatta numara (+90 552 181 70 77)
+    displayPhone: '+90 552 181 70 77',
     defaultMessage: 'Merhaba Haybata Makina, paslanmaz çelik ürünleriniz ve sanayi tipi kazan imalatınız hakkında bilgi ve fiyat teklifi almak istiyorum.'
 };
 
@@ -572,7 +572,7 @@ const CONTACT_INFO = {
     address: 'İkitelli Organize Sanayi Bölgesi, Bağcılar Güngören Sanayi Bölgesi Blok:11 No:19, Başakşehir / İSTANBUL',
     phone: '0212 671 25 77',
     fax: '0212 671 25 78',
-    whatsapp: '902126712577',
+    whatsapp: '905521817077',
     emailSales: 'satis@haybatamakina.com',
     emailInfo: 'bilgi@haybatamakina.com',
     hours: 'Hafta içi: 08:00 - 18:00<br>Cumartesi: 09:00 - 14:00',
@@ -582,7 +582,7 @@ const CONTACT_INFO = {
         twitter: 'http://twitter.com/intent/tweet?url=http://www.haybatamakina.com',
         instagram: '#',
         linkedin: '#',
-        whatsapp: 'https://wa.me/902126712577'
+        whatsapp: 'https://wa.me/905521817077'
     }
 };
 
