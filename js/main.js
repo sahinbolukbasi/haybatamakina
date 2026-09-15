@@ -832,4 +832,42 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
     }
 
+    /* =========================================
+       14. GOOGLE SERVICES (Analytics & Search Console)
+       ========================================= */
+    initGoogleServices();
+
+    async function initGoogleServices() {
+        try {
+            const res = await fetch('data/seo.json').catch(() => null);
+            if (!res || !res.ok) return;
+            const seoData = await res.json().catch(() => null);
+            if (!seoData) return;
+
+            // 1. Google Search Console Doğrulama Meta Etiketi
+            if (seoData.googleSiteVerification && !document.querySelector('meta[name="google-site-verification"]')) {
+                const meta = document.createElement('meta');
+                meta.name = 'google-site-verification';
+                meta.content = seoData.googleSiteVerification;
+                document.head.appendChild(meta);
+            }
+
+            // 2. Google Analytics (GA4) gtag.js Entegrasyonu
+            const gaId = seoData.googleAnalyticsId;
+            if (gaId && gaId.startsWith('G-') && !window.dataLayer) {
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+                document.head.appendChild(script);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', gaId);
+            }
+        } catch (e) {
+            console.debug('Google Services init:', e);
+        }
+    }
+
 });

@@ -135,3 +135,5 @@ collections:
           - { label: "Site Başlığı (Title)", name: "siteTitle", widget: "string" }
           - { label: "Google Açıklaması (Meta Description)", name: "defaultDescription", widget: "text" }
           - { label: "Anahtar Kelimeler (Virgülle ayırın)", name: "keywords", widget: "text" }
+          - { label: "Google Analytics Ölçüm Kimliği (Örn: G-XXXXXXXXXX)", name: "googleAnalyticsId", widget: "string", required: false }
+          - { label: "Google Search Console Doğrulama Kodu (Meta Tag Content)", name: "googleSiteVerification", widget: "string", required: false }
