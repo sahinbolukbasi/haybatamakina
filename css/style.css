@@ -1868,6 +1868,71 @@ img {
     background: var(--gray-100);
 }
 
+/* Tree All Products Button */
+.tree-all-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 0.95rem;
+    margin-bottom: 0.85rem;
+    background: #ffffff;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--primary-dark);
+    user-select: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.tree-all-item:hover {
+    border-color: var(--accent);
+    background: rgba(192, 160, 96, 0.08);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.tree-all-item.active {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: #ffffff;
+    border-color: var(--primary-dark);
+    box-shadow: 0 4px 14px rgba(15, 28, 46, 0.25);
+}
+
+.tree-all-title {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.tree-all-title i {
+    color: var(--accent);
+    font-size: 1.05rem;
+    width: 18px;
+    text-align: center;
+}
+
+.tree-all-item.active .tree-all-title i {
+    color: var(--accent-light);
+}
+
+.tree-all-item .tree-badge {
+    background: var(--gray-200);
+    color: var(--text);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.tree-all-item.active .tree-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
 /* Tree Nodes */
 .tree-root-list {
     list-style: none;

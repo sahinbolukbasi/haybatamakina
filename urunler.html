@@ -87,7 +87,7 @@
 
 <!-- Page Header -->
 <div class="page-header">
-    <h1>Hiyerarşik Ürün Ağacı</h1>
+    <h1>Endüstriyel Ürün Kataloğu</h1>
     <p>Sanayi Tipi Kazan İmalatı ve Endüstriyel Paslanmaz Çelik Çözümleri</p>
 </div>
 
@@ -98,7 +98,7 @@
         <span class="separator"> / </span>
         <a href="urunler.html">Ürünler</a>
         <span class="separator"> / </span>
-        <span class="current" id="breadcrumbCategory">Tüm Gruplar</span>
+        <span class="current" id="breadcrumbCategory">Tüm Ürünler</span>
     </div>
 </div>
 
@@ -107,19 +107,28 @@
     
     <!-- Mobile Toggle Button -->
     <button class="tree-mobile-toggle-btn" id="treeMobileToggle">
-        <span><i class="fas fa-sitemap"></i> Kategori Ağacını Göster / Gizle</span>
+        <span><i class="fas fa-boxes-stacked"></i> Ürün Gruplarını Göster / Gizle</span>
         <i class="fas fa-chevron-down"></i>
     </button>
 
     <div class="tree-view-layout">
         
-        <!-- Left Sidebar: Category Tree View -->
+        <!-- Left Sidebar: Products Groups -->
         <aside class="tree-sidebar" id="treeSidebar">
             <div class="tree-sidebar-header">
-                <h3><i class="fas fa-folder-tree"></i> Kategori Ağacı</h3>
-                <button class="tree-reset-btn" id="treeResetBtn" title="Filtreyi Sıfırla">
-                    <i class="fas fa-rotate-left"></i> Tümü
+                <h3><i class="fas fa-boxes-stacked"></i> Ürünler</h3>
+                <button class="tree-reset-btn" id="treeResetBtn" title="Tüm Ürünleri Göster">
+                    <i class="fas fa-rotate-left"></i> Sıfırla
                 </button>
+            </div>
+            
+            <!-- En Üst: Tüm Ürünler Butonu -->
+            <div class="tree-all-item active" id="treeAllItem" title="Kataloğumuzdaki tüm ürünleri listele">
+                <div class="tree-all-title">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Tüm Ürünler</span>
+                </div>
+                <span class="tree-badge" id="treeAllBadge">Tümü</span>
             </div>
             
             <ul class="tree-root-list" id="treeRootList">
@@ -134,12 +143,12 @@
             <div class="tree-top-bar">
                 <div class="tree-search-wrapper">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="treeSearchInput" class="tree-search-input" placeholder="Ürün adı, parça kodu veya özellik ara...">
+                    <input type="text" id="treeSearchInput" class="tree-search-input" placeholder="Tüm ürünlerde ara (örn: kazan, vana, flanş, kelepçe, menhol)...">
                 </div>
                 
                 <div id="treeActiveFilterContainer" style="display: flex; align-items: center; gap: 10px;">
                     <span class="tree-active-filter-badge" id="activeFilterBadge">
-                        <span>Filtre: <strong>Tüm Ürünler</strong></span>
+                        <span>Gösterilen: <strong>Tüm Ürünler</strong></span>
                     </span>
                     <span id="productCountBadge" style="font-size: 0.85rem; color: var(--text-light); font-weight: 600;"></span>
                 </div>

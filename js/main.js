@@ -205,10 +205,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const treeMobileToggle = document.getElementById('treeMobileToggle');
     const treeSidebar = document.getElementById('treeSidebar');
     const breadcrumbCategory = document.getElementById('breadcrumbCategory');
+    const treeAllItem = document.getElementById('treeAllItem');
+    const treeAllBadge = document.getElementById('treeAllBadge');
 
     if (treeRootList && treeProductsGrid && typeof PRODUCT_TREE !== 'undefined') {
         
         let currentSelectedSub = null; // null = tümü
+
+        // Toplam katalog ürün sayısını hesapla ve Tüm Ürünler rozetine yaz
+        const totalAllProducts = PRODUCT_TREE.reduce((acc, g) => acc + g.subcategories.reduce((sAcc, s) => sAcc + s.products.length, 0), 0);
+        if (treeAllBadge) {
+            treeAllBadge.textContent = `${totalAllProducts}`;
+        }
 
         // Mobil sidebar aç/kapa
         if (treeMobileToggle && treeSidebar) {
@@ -217,7 +225,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Kategori Ağacını (Tree View Sidebar) İnşa Et
+        // Sol menü: En üstteki "Tüm Ürünler" butonu tıklanınca
+        if (treeAllItem) {
+            treeAllItem.addEventListener('click', () => {
+                resetTreeFilter();
+                if (treeSidebar) treeSidebar.classList.remove('show-mobile');
+            });
+        }
+
+        // Ürün Gruplarını (Tree View Sidebar) İnşa Et
         function buildTreeNavigation() {
             treeRootList.innerHTML = '';
 
@@ -265,6 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 groupLi.querySelectorAll('.tree-sub-item').forEach(subItem => {
                     subItem.addEventListener('click', (e) => {
                         e.stopPropagation();
+                        // Tüm Ürünler butonundan aktifi kaldır
+                        if (treeAllItem) treeAllItem.classList.remove('active');
+
                         // Aktif stili güncelle
                         document.querySelectorAll('.tree-sub-item').forEach(i => i.classList.remove('active'));
                         subItem.classList.add('active');
@@ -275,15 +294,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         currentSelectedSub = subId;
                         if (breadcrumbCategory) breadcrumbCategory.textContent = `${groupName} / ${subName}`;
-                        if (activeFilterBadge) {
-                            activeFilterBadge.innerHTML = `<span>Filtre: <strong>${subName}</strong></span> <span class="clear-filter" title="Kaldır"><i class="fas fa-times"></i></span>`;
-                            activeFilterBadge.querySelector('.clear-filter')?.addEventListener('click', (ev) => {
-                                ev.stopPropagation();
-                                resetTreeFilter();
-                            });
-                        }
+                        
+                        // Arama kutusunu temizleyerek seçilen kategoriye odaklan
+                        if (treeSearchInput) treeSearchInput.value = '';
 
-                        renderTreeProducts(subId, treeSearchInput ? treeSearchInput.value : '');
+                        renderTreeProducts(subId, '');
 
                         // Mobilde seçim yapılınca sidebar'ı kapat
                         if (treeSidebar) treeSidebar.classList.remove('show-mobile');
@@ -294,16 +309,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Ürünleri Sağ Izgaraya Doldur (Filtre veya Arama Bazlı)
+        // Ürünleri Sağ Izgaraya Doldur (Filtre veya Tüm Katalogda Canlı Arama)
         function renderTreeProducts(subFilterId = null, searchQuery = '') {
             treeProductsGrid.innerHTML = '';
             searchQuery = searchQuery.trim().toLowerCase();
+            const isSearching = searchQuery.length > 0;
 
-            // Tüm ürünleri toparla
+            // KULLANICI ARAMA YAPIYORSA: Filtreye takılmadan TÜM ÜRÜNLERDE arasın!
+            // Arama yapılmıyorsa: Seçilen alt kategoriye göre (veya tümüne) filtrelesin.
+            const targetFilter = isSearching ? null : subFilterId;
+
+            // Ürün listesini oluştur
             let productList = [];
             PRODUCT_TREE.forEach(group => {
                 group.subcategories.forEach(sub => {
-                    if (!subFilterId || sub.id === subFilterId) {
+                    if (!targetFilter || sub.id === targetFilter) {
                         sub.products.forEach((p, pIdx) => {
                             productList.push({
                                 ...p,
@@ -319,14 +339,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // Arama sorgusu varsa filtrele
-            if (searchQuery) {
+            // Arama sorgusu varsa TÜM ürünler üzerinde filtrele
+            if (isSearching) {
                 productList = productList.filter(item => {
-                    const matchName = item.name.toLowerCase().includes(searchQuery);
+                    const matchName = (item.name || '').toLowerCase().includes(searchQuery);
                     const matchDesc = (item.description || '').toLowerCase().includes(searchQuery);
                     const matchCat = (item.subName || '').toLowerCase().includes(searchQuery);
+                    const matchGroup = (item.groupName || '').toLowerCase().includes(searchQuery);
                     const matchSpecs = item.specs ? Object.values(item.specs).join(' ').toLowerCase().includes(searchQuery) : false;
-                    return matchName || matchDesc || matchCat || matchSpecs;
+                    return matchName || matchDesc || matchCat || matchGroup || matchSpecs;
                 });
             }
 
@@ -335,15 +356,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 productCountBadge.textContent = `${productList.length} ürün listeleniyor`;
             }
 
+            // Aktif Filtre Rozetini Güncelle
+            if (activeFilterBadge) {
+                if (isSearching) {
+                    activeFilterBadge.innerHTML = `<span>Arama: <strong>"${searchQuery}"</strong> (Tüm Ürünlerde)</span> <span class="clear-filter" title="Aramayı Temizle"><i class="fas fa-times"></i></span>`;
+                    activeFilterBadge.querySelector('.clear-filter')?.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        if (treeSearchInput) treeSearchInput.value = '';
+                        renderTreeProducts(currentSelectedSub, '');
+                    });
+                } else if (subFilterId) {
+                    let activeSubName = 'Seçili Kategori';
+                    PRODUCT_TREE.forEach(g => {
+                        const s = g.subcategories.find(x => x.id === subFilterId);
+                        if (s) activeSubName = s.name;
+                    });
+                    activeFilterBadge.innerHTML = `<span>Filtre: <strong>${activeSubName}</strong></span> <span class="clear-filter" title="Tüm Ürünleri Göster"><i class="fas fa-times"></i></span>`;
+                    activeFilterBadge.querySelector('.clear-filter')?.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        resetTreeFilter();
+                    });
+                } else {
+                    activeFilterBadge.innerHTML = `<span>Gösterilen: <strong>Tüm Ürünler</strong></span>`;
+                }
+            }
+
             if (productList.length === 0) {
                 treeProductsGrid.innerHTML = `
                     <div class="empty-state" style="grid-column: 1/-1;">
                         <div class="icon"><i class="fas fa-search-minus"></i></div>
-                        <h3>Aradığınız kriterde ürün bulunamadı</h3>
-                        <p style="margin-top:0.5rem;">Farklı bir anahtar kelime deneyebilir veya soldaki kategori ağacından başka bir grup seçebilirsiniz.</p>
-                        <button class="btn btn-outline" style="margin-top:1.5rem;" onclick="location.reload();">Tüm Ürünleri Göster</button>
+                        <h3>"${searchQuery}" ile eşleşen ürün bulunamadı</h3>
+                        <p style="margin-top:0.5rem;">Farklı bir anahtar kelime deneyebilir veya sol menüden ürün gruplarını inceleyebilirsiniz.</p>
+                        <button class="btn btn-outline" style="margin-top:1.5rem;" id="emptyResetBtn">Tüm Ürünleri Göster</button>
                     </div>
                 `;
+                document.getElementById('emptyResetBtn')?.addEventListener('click', resetTreeFilter);
                 return;
             }
 
@@ -378,9 +425,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
 
-                // Kartın herhangi bir yerine (yazıya, fotoğrafa veya gövdeye) tıklandığında sayfaya git
+                // Kartın herhangi bir yerine tıklandığında detay sayfasına git
                 card.addEventListener('click', (e) => {
-                    // Eğer doğrudan bir alt linke tıklanmadıysa yönlendir
                     if (!e.target.closest('a')) {
                         window.location.href = detailUrl;
                     }
@@ -390,14 +436,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Filtreyi Sıfırlama
+        // Filtreyi Sıfırlama (Tüm Ürünlere Dön)
         function resetTreeFilter() {
             currentSelectedSub = null;
             document.querySelectorAll('.tree-sub-item').forEach(i => i.classList.remove('active'));
-            if (activeFilterBadge) {
-                activeFilterBadge.innerHTML = `<span>Filtre: <strong>Tüm Ürünler</strong></span>`;
-            }
-            if (breadcrumbCategory) breadcrumbCategory.textContent = 'Tüm Gruplar';
+            if (treeAllItem) treeAllItem.classList.add('active');
+            if (breadcrumbCategory) breadcrumbCategory.textContent = 'Tüm Ürünler';
             if (treeSearchInput) treeSearchInput.value = '';
             renderTreeProducts(null, '');
         }
@@ -406,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
             treeResetBtn.addEventListener('click', resetTreeFilter);
         }
 
-        // Canlı Arama Input Dinleyicisi
+        // Canlı Arama Input Dinleyicisi (Filtreye takılmadan TÜM ÜRÜNLERDE arar)
         if (treeSearchInput) {
             treeSearchInput.addEventListener('input', (e) => {
                 renderTreeProducts(currentSelectedSub, e.target.value);
