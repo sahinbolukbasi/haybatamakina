@@ -16,14 +16,32 @@
       "Otomatik blöf sistemi ve PLC kontrollü dokunmatik operatör paneli",
       "Tamamı AISI 316L paslanmaz besi suyu hazırlama ve degazör ünitesi"
     ],
-    "specs": {
-      "Kazan Tipi": "3 Geçişli Alev Duman Borulu Skoç Tipi",
-      "Kapasite": "6.000 kg/h Buhar",
-      "Tasarım Basıncı": "16 Bar (İşletme: 12 Bar)",
-      "Yakıt Cinsi": "Doğalgaz / LNG Modülasyonlu",
-      "Sac Kalitesi": "P265GH / P295GH Sertifikalı Kazan Sacı",
-      "Borular": "DIN 17175 St 35.8 Dikişsiz Çekme Kazan Borusu"
-    },
+    "specs": [
+      {
+        "key": "Kazan Tipi",
+        "value": "3 Geçişli Alev Duman Borulu Skoç Tipi"
+      },
+      {
+        "key": "Kapasite",
+        "value": "6.000 kg/h Buhar"
+      },
+      {
+        "key": "Tasarım Basıncı",
+        "value": "16 Bar (İşletme: 12 Bar)"
+      },
+      {
+        "key": "Yakıt Cinsi",
+        "value": "Doğalgaz / LNG Modülasyonlu"
+      },
+      {
+        "key": "Sac Kalitesi",
+        "value": "P265GH / P295GH Sertifikalı Kazan Sacı"
+      },
+      {
+        "key": "Borular",
+        "value": "DIN 17175 St 35.8 Dikişsiz Çekme Kazan Borusu"
+      }
+    ],
     "_file": "buhar-kazani-tekstil.json"
   },
   {
@@ -43,13 +61,28 @@
       "Termal şoklara karşı korumalı genleşme ve imdat tankı",
       "Sıcak yağ vanaları ve paslanmaz kolektör montajı"
     ],
-    "specs": {
-      "Kazan Tipi": "Yatay Çift Serpantinli Kızgın Yağ Kazanı",
-      "Kapasite": "2.500.000 kcal/h (~2.900 kW)",
-      "Maksimum Sıcaklık": "320°C",
-      "Gövde İzolasyonu": "100 mm Taşyünü + Paslanmaz Sac Kaplama",
-      "Kontrol": "PID Hassas Sıcaklık Kontrolü"
-    },
+    "specs": [
+      {
+        "key": "Kazan Tipi",
+        "value": "Yatay Çift Serpantinli Kızgın Yağ Kazanı"
+      },
+      {
+        "key": "Kapasite",
+        "value": "2.500.000 kcal/h (~2.900 kW)"
+      },
+      {
+        "key": "Maksimum Sıcaklık",
+        "value": "320°C"
+      },
+      {
+        "key": "Gövde İzolasyonu",
+        "value": "100 mm Taşyünü + Paslanmaz Sac Kaplama"
+      },
+      {
+        "key": "Kontrol",
+        "value": "PID Hassas Sıcaklık Kontrolü"
+      }
+    ],
     "_file": "kizgin-yag-kimya.json"
   },
   {
@@ -68,11 +101,20 @@
       "Pnömatik aktüatörlü kelebek ve küresel vana otomasyonu",
       "Basınç düşürücü istasyonları ve debimetre panelleri"
     ],
-    "specs": {
-      "Boru Tipi": "DIN 11850 Hijyenik Paslanmaz Boru",
-      "Kaynak Standardı": "Orbital TIG / AWS D18.1",
-      "Ekipman": "24 Adet Vana Matrisi ve Dağıtım Kollektörü"
-    },
+    "specs": [
+      {
+        "key": "Boru Tipi",
+        "value": "DIN 11850 Hijyenik Paslanmaz Boru"
+      },
+      {
+        "key": "Kaynak Standardı",
+        "value": "Orbital TIG / AWS D18.1"
+      },
+      {
+        "key": "Ekipman",
+        "value": "24 Adet Vana Matrisi ve Dağıtım Kollektörü"
+      }
+    ],
     "_file": "paslanmaz-tesis-montaj.json"
   },
   {
@@ -92,12 +134,24 @@
       "Basınçlı ısıtma/soğutma ceketli gövde (Half-pipe serpantin)",
       "Otomatik CIP döner yıkama başlığı sistemi"
     ],
-    "specs": {
-      "Hacim": "30.000 Litre (30 m³)",
-      "Malzeme": "AISI 316L Paslanmaz Çelik",
-      "Tasarım Standardı": "ASME Sec. VIII Div.1 & PED",
-      "Test Basıncı": "Ceket: 8 Bar / Gövde: 4 Bar & Tam Vakum"
-    },
+    "specs": [
+      {
+        "key": "Hacim",
+        "value": "30.000 Litre (30 m³)"
+      },
+      {
+        "key": "Malzeme",
+        "value": "AISI 316L Paslanmaz Çelik"
+      },
+      {
+        "key": "Tasarım Standardı",
+        "value": "ASME Sec. VIII Div.1 & PED"
+      },
+      {
+        "key": "Test Basıncı",
+        "value": "Ceket: 8 Bar / Gövde: 4 Bar & Tam Vakum"
+      }
+    ],
     "_file": "proses-tanki-ilac-gida.json"
   },
   {
@@ -116,12 +170,24 @@
       "Radyografik %100 kaynak kontrolü (Röntgen filmi) onaylı",
       "Baca gazı yoğuşmalı ekonomizer ile üstün yakıt tasarrufu"
     ],
-    "specs": {
-      "Isı Gücü": "10.000.000 kcal/h (11.6 MW)",
-      "Giriş/Çıkış Sıcaklığı": "90°C / 140°C",
-      "Çalışma Basıncı": "16 Bar",
-      "Gövde Çapı": "Ø 2.800 mm, Boy: 6.200 mm"
-    },
+    "specs": [
+      {
+        "key": "Isı Gücü",
+        "value": "10.000.000 kcal/h (11.6 MW)"
+      },
+      {
+        "key": "Giriş/Çıkış Sıcaklığı",
+        "value": "90°C / 140°C"
+      },
+      {
+        "key": "Çalışma Basıncı",
+        "value": "16 Bar"
+      },
+      {
+        "key": "Gövde Çapı",
+        "value": "Ø 2.800 mm, Boy: 6.200 mm"
+      }
+    ],
     "_file": "sicak-su-sera-sanayi.json"
   }
 ]

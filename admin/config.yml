@@ -103,14 +103,10 @@ collections:
       - { label: "Öne Çıkan Özellikler (Maddeler)", name: "highlights", widget: "list", field: { label: "Özellik Maddesi", name: "item", widget: "string" } }
       - label: "Teknik Parametreler Tablosu"
         name: "specs"
-        widget: "object"
+        widget: "list"
         fields:
-          - { label: "Kazan Tipi", name: "Kazan Tipi", widget: "string", required: false }
-          - { label: "Kapasite", name: "Kapasite", widget: "string", required: false }
-          - { label: "Tasarım / Çalışma Basıncı", name: "Tasarım Basıncı", widget: "string", required: false }
-          - { label: "Yakıt / Enerji Cinsi", name: "Yakıt Cinsi", widget: "string", required: false }
-          - { label: "Malzeme Kalitesi", name: "Sac Kalitesi", widget: "string", required: false }
-          - { label: "Boru Kalitesi", name: "Borular", widget: "string", required: false }
+          - { label: "Parametre Adı (Örn: Kazan Tipi, Kapasite, Basınç)", name: "key", widget: "string" }
+          - { label: "Değer (Örn: 3 Geçişli Skoç, 6 Ton/h, 16 Bar)", name: "value", widget: "string" }
 
   # =========================================================
   # 5. MÜŞTERİ & SEKTÖR REFERANSLARI

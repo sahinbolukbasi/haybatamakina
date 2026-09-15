@@ -14,9 +14,19 @@
     "Pnömatik aktüatörlü kelebek ve küresel vana otomasyonu",
     "Basınç düşürücü istasyonları ve debimetre panelleri"
   ],
-  "specs": {
-    "Boru Tipi": "DIN 11850 Hijyenik Paslanmaz Boru",
-    "Kaynak Standardı": "Orbital TIG / AWS D18.1",
-    "Ekipman": "24 Adet Vana Matrisi ve Dağıtım Kollektörü"
-  }
+  "specs": [
+    {
+      "key": "Boru Tipi",
+      "value": "DIN 11850 Hijyenik Paslanmaz Boru"
+    },
+    {
+      "key": "Kaynak Standardı",
+      "value": "Orbital TIG / AWS D18.1"
+    },
+    {
+      "key": "Ekipman",
+      "value": "24 Adet Vana Matrisi ve Dağıtım Kollektörü"
+    }
+  ],
+  "_file": "paslanmaz-tesis-montaj.json"
 }

@@ -14,10 +14,23 @@
     "Radyografik %100 kaynak kontrolü (Röntgen filmi) onaylı",
     "Baca gazı yoğuşmalı ekonomizer ile üstün yakıt tasarrufu"
   ],
-  "specs": {
-    "Isı Gücü": "10.000.000 kcal/h (11.6 MW)",
-    "Giriş/Çıkış Sıcaklığı": "90°C / 140°C",
-    "Çalışma Basıncı": "16 Bar",
-    "Gövde Çapı": "Ø 2.800 mm, Boy: 6.200 mm"
-  }
+  "specs": [
+    {
+      "key": "Isı Gücü",
+      "value": "10.000.000 kcal/h (11.6 MW)"
+    },
+    {
+      "key": "Giriş/Çıkış Sıcaklığı",
+      "value": "90°C / 140°C"
+    },
+    {
+      "key": "Çalışma Basıncı",
+      "value": "16 Bar"
+    },
+    {
+      "key": "Gövde Çapı",
+      "value": "Ø 2.800 mm, Boy: 6.200 mm"
+    }
+  ],
+  "_file": "sicak-su-sera-sanayi.json"
 }

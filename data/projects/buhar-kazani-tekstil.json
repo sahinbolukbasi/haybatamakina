@@ -15,12 +15,31 @@
     "Otomatik blöf sistemi ve PLC kontrollü dokunmatik operatör paneli",
     "Tamamı AISI 316L paslanmaz besi suyu hazırlama ve degazör ünitesi"
   ],
-  "specs": {
-    "Kazan Tipi": "3 Geçişli Alev Duman Borulu Skoç Tipi",
-    "Kapasite": "6.000 kg/h Buhar",
-    "Tasarım Basıncı": "16 Bar (İşletme: 12 Bar)",
-    "Yakıt Cinsi": "Doğalgaz / LNG Modülasyonlu",
-    "Sac Kalitesi": "P265GH / P295GH Sertifikalı Kazan Sacı",
-    "Borular": "DIN 17175 St 35.8 Dikişsiz Çekme Kazan Borusu"
-  }
+  "specs": [
+    {
+      "key": "Kazan Tipi",
+      "value": "3 Geçişli Alev Duman Borulu Skoç Tipi"
+    },
+    {
+      "key": "Kapasite",
+      "value": "6.000 kg/h Buhar"
+    },
+    {
+      "key": "Tasarım Basıncı",
+      "value": "16 Bar (İşletme: 12 Bar)"
+    },
+    {
+      "key": "Yakıt Cinsi",
+      "value": "Doğalgaz / LNG Modülasyonlu"
+    },
+    {
+      "key": "Sac Kalitesi",
+      "value": "P265GH / P295GH Sertifikalı Kazan Sacı"
+    },
+    {
+      "key": "Borular",
+      "value": "DIN 17175 St 35.8 Dikişsiz Çekme Kazan Borusu"
+    }
+  ],
+  "_file": "buhar-kazani-tekstil.json"
 }

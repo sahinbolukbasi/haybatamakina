@@ -813,12 +813,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const highlightsHtml = (proj.highlights || []).map(h => `<li>${h}</li>`).join('');
 
                 // Teknik mini tablo
-                const specsHtml = proj.specs ? Object.entries(proj.specs).slice(0, 4).map(([k, v]) => `
+                let specsEntries = [];
+                if (Array.isArray(proj.specs)) {
+                    specsEntries = proj.specs.map(s => [s.key, s.value]);
+                } else if (typeof proj.specs === 'object' && proj.specs !== null) {
+                    specsEntries = Object.entries(proj.specs);
+                }
+                const specsHtml = specsEntries.slice(0, 4).map(([k, v]) => `
                     <div class="project-spec-row">
                         <strong>${k}:</strong>
                         <span>${v}</span>
                     </div>
-                `).join('') : '';
+                `).join('');
 
                 card.innerHTML = `
                     <div class="project-card-image">

@@ -15,11 +15,27 @@
     "Termal şoklara karşı korumalı genleşme ve imdat tankı",
     "Sıcak yağ vanaları ve paslanmaz kolektör montajı"
   ],
-  "specs": {
-    "Kazan Tipi": "Yatay Çift Serpantinli Kızgın Yağ Kazanı",
-    "Kapasite": "2.500.000 kcal/h (~2.900 kW)",
-    "Maksimum Sıcaklık": "320°C",
-    "Gövde İzolasyonu": "100 mm Taşyünü + Paslanmaz Sac Kaplama",
-    "Kontrol": "PID Hassas Sıcaklık Kontrolü"
-  }
+  "specs": [
+    {
+      "key": "Kazan Tipi",
+      "value": "Yatay Çift Serpantinli Kızgın Yağ Kazanı"
+    },
+    {
+      "key": "Kapasite",
+      "value": "2.500.000 kcal/h (~2.900 kW)"
+    },
+    {
+      "key": "Maksimum Sıcaklık",
+      "value": "320°C"
+    },
+    {
+      "key": "Gövde İzolasyonu",
+      "value": "100 mm Taşyünü + Paslanmaz Sac Kaplama"
+    },
+    {
+      "key": "Kontrol",
+      "value": "PID Hassas Sıcaklık Kontrolü"
+    }
+  ],
+  "_file": "kizgin-yag-kimya.json"
 }

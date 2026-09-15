@@ -15,10 +15,23 @@
     "Basınçlı ısıtma/soğutma ceketli gövde (Half-pipe serpantin)",
     "Otomatik CIP döner yıkama başlığı sistemi"
   ],
-  "specs": {
-    "Hacim": "30.000 Litre (30 m³)",
-    "Malzeme": "AISI 316L Paslanmaz Çelik",
-    "Tasarım Standardı": "ASME Sec. VIII Div.1 & PED",
-    "Test Basıncı": "Ceket: 8 Bar / Gövde: 4 Bar & Tam Vakum"
-  }
+  "specs": [
+    {
+      "key": "Hacim",
+      "value": "30.000 Litre (30 m³)"
+    },
+    {
+      "key": "Malzeme",
+      "value": "AISI 316L Paslanmaz Çelik"
+    },
+    {
+      "key": "Tasarım Standardı",
+      "value": "ASME Sec. VIII Div.1 & PED"
+    },
+    {
+      "key": "Test Basıncı",
+      "value": "Ceket: 8 Bar / Gövde: 4 Bar & Tam Vakum"
+    }
+  ],
+  "_file": "proses-tanki-ilac-gida.json"
 }
