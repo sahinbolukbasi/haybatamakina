@@ -9,20 +9,19 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    <!-- Ürün Kataloğu -->
-    <url>
-        <loc>https://www.haybatamakina.com/urunler.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.95</priority>
-    </url>
-
     <!-- Kurumsal Hakkımızda -->
     <url>
         <loc>https://www.haybatamakina.com/hakkimizda.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-09-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
+        <priority>0.85</priority>
+    </url>
+    <!-- Ürün Kataloğu -->
+    <url>
+        <loc>https://www.haybatamakina.com/urunler.html</loc>
+        <lastmod>2026-09-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
     </url>
     <!-- İletişim & Teklif Formu -->
     <url>

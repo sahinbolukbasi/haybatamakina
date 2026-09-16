@@ -6,8 +6,8 @@
 // Menü Navigasyon Linkleri
 const NAV_LINKS = [
     { label: 'Ana Sayfa', url: 'index.html' },
-    { label: 'Ürünler', url: 'urunler.html' },
     { label: 'Hakkımızda', url: 'hakkimizda.html' },
+    { label: 'Ürünler', url: 'urunler.html' },
     { label: 'İletişim', url: 'iletisim.html' },
 ];
 
