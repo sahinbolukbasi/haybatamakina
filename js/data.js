@@ -722,7 +722,6 @@ const JOB_LISTINGS = [];
 const CONTACT_INFO = {
     address: 'İkitelli Organize Sanayi Bölgesi, Bağcılar Güngören Sanayi Bölgesi Blok:11 No:19, Başakşehir / İSTANBUL',
     phone: '0212 671 25 77',
-    fax: '0212 671 25 78',
     whatsapp: '905521817077',
     emailSales: 'satis@haybatamakina.com',
     hours: 'Hafta içi: 08:00 - 18:00<br>Cumartesi: 09:00 - 14:00',

@@ -101,7 +101,6 @@ collections:
         fields:
           - { label: "Firma Ünvanı", name: "companyName", widget: "string" }
           - { label: "Telefon Numarası", name: "phone", widget: "string" }
-          - { label: "Faks Numarası", name: "fax", widget: "string", required: false }
           - { label: "WhatsApp Numarası (Örn: 905521817077)", name: "whatsapp", widget: "string" }
           - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
           - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }
