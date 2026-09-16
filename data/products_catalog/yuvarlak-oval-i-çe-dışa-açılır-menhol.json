@@ -1,7 +1,6 @@
 {
   "name": "Yuvarlak & Oval İçe-Dışa Açılır Menhol",
-  "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
-  "subCategory": "Paslanmaz Menhol Grubu (Kazan & Tank Kapakları)",
+  "subCategory": "Kazan & Tank Menhol Kapakları",
   "image": "images/urunler/resim66.jpg",
   "description": "Depolama ve fermentasyon tankları için hijyenik açılır menhol kapağı.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Açılış",
       "value": "Dışa / İçe Salınımlı"
     }
-  ]
+  ],
+  "category": "PASLANMAZ MENHOL KAPAĞI"
 }

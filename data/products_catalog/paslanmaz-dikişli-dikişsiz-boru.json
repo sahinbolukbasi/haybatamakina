@@ -1,6 +1,5 @@
 {
   "name": "Paslanmaz Dikişli & Dikişsiz Boru",
-  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
   "subCategory": "Paslanmaz Çelik Hammaddeler",
   "image": "images/urunler/resim81.jpg",
   "description": "Tesisat ve kazan boru demeti için dikişsiz çekme ve TIG dikişli borular.",
@@ -13,5 +12,6 @@
       "key": "Ölçü",
       "value": "1/8\" - 24\" (DN6 - DN600)"
     }
-  ]
+  ],
+  "category": "PASLANMAZ SARF MALZEMELER"
 }

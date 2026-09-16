@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Yaka (Stub End)",
-  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
-  "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+  "subCategory": "Kaynaklı Fittings Grubu",
   "image": "images/urunler/resim90.jpg",
   "description": "Serbest flanşlarla boru birleşiminde sızdırmaz yüzey oluşturan kaynaklı yaka.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Tip",
       "value": "Kaynaklı Boyunlu"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

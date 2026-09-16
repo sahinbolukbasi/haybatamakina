@@ -1,6 +1,5 @@
 {
   "name": "Paslanmaz Çelik Sac (Plaka & Rulo)",
-  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
   "subCategory": "Paslanmaz Çelik Hammaddeler",
   "image": "images/urunler/resim85.jpg",
   "description": "Kazan gövdesi ve tank imalatı için 1. Kalite sertifikalı paslanmaz sac.",
@@ -13,5 +12,6 @@
       "key": "Kalınlık",
       "value": "0.50 mm - 30 mm"
     }
-  ]
+  ],
+  "category": "PASLANMAZ SARF MALZEMELER"
 }

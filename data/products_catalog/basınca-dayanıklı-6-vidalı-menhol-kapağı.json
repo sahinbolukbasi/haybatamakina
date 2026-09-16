@@ -1,7 +1,6 @@
 {
   "name": "Basınca Dayanıklı 6 Vidalı Menhol Kapağı",
-  "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
-  "subCategory": "Paslanmaz Menhol Grubu (Kazan & Tank Kapakları)",
+  "subCategory": "Kazan & Tank Menhol Kapakları",
   "image": "images/urunler/resim69.jpg",
   "description": "Kazan ve basınçlı kaplarda yüksek iç basınca karşı 6 kelebek vidalı sızdırmaz kapak.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Conta",
       "value": "Silikon / Viton"
     }
-  ]
+  ],
+  "category": "PASLANMAZ MENHOL KAPAĞI"
 }

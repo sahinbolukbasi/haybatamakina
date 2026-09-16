@@ -1,7 +1,6 @@
 {
   "name": "Kaynak Boyunlu Flanş (Welding Neck)",
-  "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu",
-  "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
+  "subCategory": "Endüstriyel Flanşlar",
   "image": "images/urunler/resim75.jpg",
   "description": "Kazan çıkışları ve yüksek basınç hatlarında gerilimi dağıtan boyunlu flanş.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Basınç",
       "value": "PN16 / PN25 / PN40 / 150-300 LBS"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

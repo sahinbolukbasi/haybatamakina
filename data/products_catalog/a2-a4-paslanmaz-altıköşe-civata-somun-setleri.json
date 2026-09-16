@@ -1,7 +1,6 @@
 {
   "name": "A2 / A4 Paslanmaz Altıköşe Civata & Somun Setleri",
-  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
-  "subCategory": "Özel İmalatlar & Paslanmaz Civatalar",
+  "subCategory": "Paslanmaz Bağlantı Elemanları & Civatalar",
   "image": "images/urunler/resim116.jpg",
   "description": "Flanş ve makine montajı için paslanmaz bağlantı elemanları.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Ölçü",
       "value": "M6 - M36 Boy Çeşitleri"
     }
-  ]
+  ],
+  "category": "PASLANMAZ SARF MALZEMELER"
 }

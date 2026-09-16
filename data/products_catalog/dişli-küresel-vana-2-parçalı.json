@@ -1,7 +1,6 @@
 {
   "name": "Dişli Küresel Vana (2 Parçalı)",
-  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
-  "subCategory": "Paslanmaz Küresel Vana Grubu",
+  "subCategory": "Paslanmaz Vana & Akış Ekipmanları",
   "image": "images/urunler/resim60.jpg",
   "description": "Dişli bağlantılı, tam geçişli paslanmaz küresel vana.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Basınç",
       "value": "PN63 / 1000 WOG"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

@@ -1,7 +1,6 @@
 {
   "name": "Hijyenik Kelebek Vana (Kollu)",
-  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
-  "subCategory": "Paslanmaz Kelebek Vana Grubu",
+  "subCategory": "Paslanmaz Vana & Akış Ekipmanları",
   "image": "images/urunler/resim61.jpg",
   "description": "Gıda ve süt hatları için paslanmaz hijyenik kelebek vana.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Çap",
       "value": "DN25 - DN150"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

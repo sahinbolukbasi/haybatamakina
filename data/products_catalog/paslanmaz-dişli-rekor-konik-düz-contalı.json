@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Dişli Rekor (Konik / Düz Contalı)",
-  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
-  "subCategory": "Paslanmaz Dişli Fittings Grubu",
+  "subCategory": "Dişli Fittings Grubu",
   "image": "images/urunler/resim99.jpg",
   "description": "Tesisatın istendiğinde sökülüp takılabilmesini sağlayan rekor.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Sızdırmazlık",
       "value": "Metal Metale Konik / PTFE"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

@@ -1,7 +1,6 @@
 {
   "name": "Gözetleme Camlı Menhol Kapağı",
-  "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
-  "subCategory": "Paslanmaz Menhol Grubu (Kazan & Tank Kapakları)",
+  "subCategory": "Kazan & Tank Menhol Kapakları",
   "image": "images/urunler/resim70.jpg",
   "description": "Tank içi reaksiyon ve sıvı seviyesini kapağı açmadan izleme olanağı sunan borosilikat camlı menhol.",
   "specs": [
@@ -9,5 +8,6 @@
       "key": "Malzeme",
       "value": "AISI 316 + Temperli Borosilikat Cam"
     }
-  ]
+  ],
+  "category": "PASLANMAZ MENHOL KAPAĞI"
 }

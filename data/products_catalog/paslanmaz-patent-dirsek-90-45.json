@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Patent Dirsek (90° / 45°)",
-  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
-  "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+  "subCategory": "Kaynaklı Fittings Grubu",
   "image": "images/urunler/resim87.jpg",
   "description": "Akış yönünü değiştirmek için kullanılan kaynaklı dirsek parçaları.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Et Kalınlığı",
       "value": "SCH 10 / SCH 40"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Bombe Kep (Boru Sonu Kapağı)",
-  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
-  "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
+  "subCategory": "Kaynaklı Fittings Grubu",
   "image": "images/urunler/resim91.jpg",
   "description": "Boru hatlarının uçlarını kaynakla körleme için bombeli kep.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Form",
       "value": "Bombeli / Torisferik"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

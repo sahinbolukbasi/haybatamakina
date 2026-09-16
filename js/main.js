@@ -650,6 +650,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     return { group: PRODUCT_TREE[0], sub: PRODUCT_TREE[0]?.subcategories[0] };
                 }
 
+                // Admin panelindeki ürünler TEK YETKİLİ kaynaktır!
+                // Admin panelinde olmayan veya panelden silinmiş hiçbir ürün sitede gösterilmez.
+                PRODUCT_TREE.forEach(grp => {
+                    grp.subcategories.forEach(sub => {
+                        sub.products = [];
+                    });
+                });
+
                 cmsProducts.forEach(cmsProd => {
                     if (!cmsProd || !cmsProd.name) return;
                     const cmsNorm = norm(cmsProd.name);
@@ -665,66 +673,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         cleanSpecs = cmsProd.specs;
                     }
 
-                    let found = false;
-                    let foundGroup = null;
-                    let foundSub = null;
-                    let foundProduct = null;
-
-                    for (const grp of PRODUCT_TREE) {
-                        for (const sub of grp.subcategories) {
-                            for (const p of sub.products) {
-                                if (norm(p.name) === cmsNorm || (p._slug && p._slug === cmsSlug)) {
-                                    found = true;
-                                    foundGroup = grp;
-                                    foundSub = sub;
-                                    foundProduct = p;
-                                    break;
-                                }
-                            }
-                            if (found) break;
-                        }
-                        if (found) break;
-                    }
-
-                    if (found && foundProduct) {
-                        foundProduct._slug = cmsSlug;
-                        if (cleanImg && foundProduct.image !== cleanImg) {
-                            foundProduct.image = cleanImg;
-                            changesApplied = true;
-                        }
-                        if (cmsProd.name && foundProduct.name !== cmsProd.name) {
-                            foundProduct.name = cmsProd.name;
-                            changesApplied = true;
-                        }
-                        if (cmsProd.description && foundProduct.description !== cmsProd.description) {
-                            foundProduct.description = cmsProd.description;
-                            changesApplied = true;
-                        }
-                        if (Object.keys(cleanSpecs).length > 0) {
-                            foundProduct.specs = cleanSpecs;
-                            changesApplied = true;
-                        }
-
-                        // Kategori veya Alt Kategori değişmişse doğru alt başlığa taşı
-                        const targetDest = findTargetSub(cmsProd.category, cmsProd.subCategory);
-                        if (targetDest && targetDest.sub && targetDest.sub !== foundSub) {
-                            foundSub.products = foundSub.products.filter(p => p !== foundProduct);
-                            targetDest.sub.products.push(foundProduct);
-                            changesApplied = true;
-                        }
-                    } else if (PRODUCT_TREE.length > 0) {
-                        // Yeni ürün: Seçilen Kategori ve Alt Kategoriye ekle
-                        const targetDest = findTargetSub(cmsProd.category, cmsProd.subCategory);
-                        if (targetDest && targetDest.sub) {
-                            targetDest.sub.products.push({
-                                name: cmsProd.name,
-                                _slug: cmsSlug,
-                                image: cleanImg || targetDest.sub.image,
-                                description: cmsProd.description || '',
-                                specs: cleanSpecs
-                            });
-                            changesApplied = true;
-                        }
+                    const targetDest = findTargetSub(cmsProd.category, cmsProd.subCategory);
+                    if (targetDest && targetDest.sub) {
+                        targetDest.sub.products.push({
+                            name: cmsProd.name,
+                            _slug: cmsSlug,
+                            _file: cmsProd._file || '',
+                            image: cleanImg || targetDest.sub.image || 'images/urunler/resim80.jpg',
+                            description: cmsProd.description || '',
+                            specs: cleanSpecs,
+                            showOnHome: cmsProd.showOnHome === true || cmsProd.showOnHome === 'true'
+                        });
+                        changesApplied = true;
                     }
                 });
 

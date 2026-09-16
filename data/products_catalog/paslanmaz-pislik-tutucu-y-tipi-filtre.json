@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Pislik Tutucu (Y Tipi Filtre)",
-  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
-  "subCategory": "Paslanmaz Dişli Fittings Grubu",
+  "subCategory": "Dişli Fittings Grubu",
   "image": "images/urunler/resim108.jpg",
   "description": "Hat içerisindeki tortu ve çapakları tutarak vana ve pompaları koruyan filtre.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Filtre Gözenek",
       "value": "0.5 - 1.0 mm"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

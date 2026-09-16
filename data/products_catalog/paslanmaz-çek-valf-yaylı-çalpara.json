@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Çek Valf (Yaylı / Çalpara)",
-  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
-  "subCategory": "Özel & Yönlendirici Vanalar",
+  "subCategory": "Paslanmaz Vana & Akış Ekipmanları",
   "image": "images/urunler/resim94.jpg",
   "description": "Tek yönlü akış sağlayarak geri dönüşü engelleyen çek valf.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Tip",
       "value": "Yaylı / Disk"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

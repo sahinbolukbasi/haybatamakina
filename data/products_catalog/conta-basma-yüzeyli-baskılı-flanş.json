@@ -1,8 +1,8 @@
 {
   "name": "Conta Basma Yüzeyli & Baskılı Flanş",
   "category": "PASLANMAZ FİTTİNGS",
-  "subCategory": "Paslanmaz Flanş Çeşitleri (EN 1092-1 / ANSI)",
-  "image": "/images/uploads/ContaBasmaYuzeyliBaskılıFlans.jpeg",
+  "subCategory": "Endüstriyel Flanşlar",
+  "image": "images/uploads/ContaBasmaYuzeyliBaskılıFlans.jpeg",
   "description": "Özel sızdırmazlık contalarının yerleşimi için kanallı ve baskılı flanş.",
   "specs": [
     {
@@ -13,6 +13,5 @@
       "key": "Yüzey",
       "value": "Tırtıklı / Kanallı Form"
     }
-  ],
-  "categoryGroup": "Paslanmaz Flanş & Sızdırmazlık Grubu"
+  ]
 }

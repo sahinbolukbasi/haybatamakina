@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Basınç Düşürücü Regülatör",
-  "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
-  "subCategory": "Tank Havalandırma & CIP Yıkama Ekipmanları",
+  "subCategory": "Özel İmalat Proses Ekipmanları",
   "image": "images/urunler/resim115.jpg",
   "description": "Buhar ve sıvı hatlarında değişken giriş basıncını istenilen sabit basınca indiren vana.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Çıkış",
       "value": "0.5 - 8 Bar Ayarlı"
     }
-  ]
+  ],
+  "category": "PASLANMAZ ÖZEL İMALATLAR"
 }

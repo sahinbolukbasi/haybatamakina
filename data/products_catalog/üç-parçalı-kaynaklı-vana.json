@@ -1,7 +1,6 @@
 {
   "name": "Üç Parçalı Kaynaklı Vana",
-  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
-  "subCategory": "Paslanmaz Küresel Vana Grubu",
+  "subCategory": "Paslanmaz Vana & Akış Ekipmanları",
   "image": "images/urunler/resim60.jpg",
   "description": "Hattan sökülmeden gövde bakımı yapılabilen 3 parçalı küresel vana.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Bakım",
       "value": "Hatta takılı demonte"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

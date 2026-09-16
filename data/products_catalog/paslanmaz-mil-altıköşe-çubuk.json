@@ -1,6 +1,5 @@
 {
   "name": "Paslanmaz Mil & Altıköşe Çubuk",
-  "categoryGroup": "Paslanmaz Hammadde & Özel İmalat",
   "subCategory": "Paslanmaz Çelik Hammaddeler",
   "image": "images/urunler/resim83.jpg",
   "description": "Talaşlı imalat ve CNC işleme için paslanmaz transmision milleri.",
@@ -13,5 +12,6 @@
       "key": "Çap",
       "value": "Ø 3 mm - Ø 250 mm"
     }
-  ]
+  ],
+  "category": "PASLANMAZ SARF MALZEMELER"
 }

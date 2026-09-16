@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Tank Havalandırma Başlığı (Aeratör)",
-  "categoryGroup": "Paslanmaz Tank Ekipmanları, Menhol & Havalandırma",
-  "subCategory": "Tank Havalandırma & CIP Yıkama Ekipmanları",
+  "subCategory": "Tank Havalandırma & CIP Yıkama Başlıkları",
   "image": "images/urunler/resim112.jpg",
   "description": "Tank dolum ve boşaltımında vakum oluşmasını önleyen paslanmaz filtreli başlık.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Filtre",
       "value": "Paslanmaz Sineklik & Toz Filtresi"
     }
-  ]
+  ],
+  "category": "PASLANMAZ ÖZEL İMALATLAR"
 }

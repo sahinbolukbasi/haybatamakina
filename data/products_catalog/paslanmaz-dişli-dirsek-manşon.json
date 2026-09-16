@@ -1,7 +1,6 @@
 {
   "name": "Paslanmaz Dişli Dirsek & Manşon",
-  "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
-  "subCategory": "Paslanmaz Dişli Fittings Grubu",
+  "subCategory": "Dişli Fittings Grubu",
   "image": "images/urunler/resim97.jpg",
   "description": "Dişli yön değiştirme dirseği ve boru birleştirme manşonu.",
   "specs": [
@@ -13,5 +12,6 @@
       "key": "Diş",
       "value": "İçten Dişli BSP"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }

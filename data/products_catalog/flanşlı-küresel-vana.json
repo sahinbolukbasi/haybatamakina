@@ -1,7 +1,6 @@
 {
   "name": "Flanşlı Küresel Vana",
-  "categoryGroup": "Paslanmaz Vana & Akış Kontrol Sistemleri",
-  "subCategory": "Paslanmaz Küresel Vana Grubu",
+  "subCategory": "Paslanmaz Vana & Akış Ekipmanları",
   "image": "images/urunler/resim62.jpg",
   "description": "Flanşlı bağlantı ile monte edilen endüstriyel proses vanası.",
   "specs": [
@@ -17,5 +16,6 @@
       "key": "Çap",
       "value": "DN15 - DN200"
     }
-  ]
+  ],
+  "category": "PASLANMAZ FİTTİNGS"
 }
