@@ -727,6 +727,26 @@
     "_slug": "paslanmaz-çift-taraflı-nipel-hex-nipel"
   },
   {
+    "name": "PASLANMAZ ÇOK SIKMALI  MENHOL KAPAĞI",
+    "showOnHome": false,
+    "category": "PASLANMAZ MENHOL KAPAĞI",
+    "subCategory": "PASLANMAZ MENHOL KAPAĞI",
+    "image": "images/uploads/WhatsApp Image 2026-09-15 at 12.21.51 PM.jpeg",
+    "description": "BASINÇSIZ TİP PASLANMAZ MENHOL İMALATLARIMIZDA EXSTRA GÜVENLİK AMACIYLA BİRDEN FAZLA SIKMA TOPUZU TALEBE GÖRE EKLENEREK İMALAT GERÇEKLEŞTİRLEBİLİR.",
+    "specs": [
+      {
+        "key": "MALZEME",
+        "value": "AISI 304 AISI316"
+      },
+      {
+        "key": "ÇAP",
+        "value": "200 MM - 600 MM"
+      }
+    ],
+    "_file": "paslanmaz-çok-sıkmalı-menhol-kapağı.json",
+    "_slug": "paslanmaz-çok-sıkmalı-menhol-kapağı"
+  },
+  {
     "name": "Paslanmaz Özel İmalat Kürek & El Arabası",
     "showOnHome": true,
     "category": "PASLANMAZ ÖZEL İMALATLAR",
