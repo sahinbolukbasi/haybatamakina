@@ -1,0 +1,16 @@
+; DNS Zone Dosyası - haybatamakina.com
+; Cloudflare DNS > Records > Import and Export > Import bölümünden yükleyebilirsiniz.
+$ORIGIN haybatamakina.com.
+$TTL 300
+
+; GitHub Pages A Kayıtları
+haybatamakina.com.    300    IN    A    185.199.108.153
+haybatamakina.com.    300    IN    A    185.199.109.153
+haybatamakina.com.    300    IN    A    185.199.110.153
+haybatamakina.com.    300    IN    A    185.199.111.153
+
+; WWW CNAME Kaydı (GitHub Pages)
+www.haybatamakina.com.    300    IN    CNAME    sahinbolukbasi.github.io.
+
+; Google Search Console Doğrulama Kaydı
+haybatamakina.com.    300    IN    TXT    "google-site-verification=arYtIhe7Gn6HJLAhb-0cgH6cVvs8dwWkmW0cPDOdrYU"
