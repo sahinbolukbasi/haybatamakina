@@ -104,7 +104,6 @@ collections:
           - { label: "Faks Numarası", name: "fax", widget: "string", required: false }
           - { label: "WhatsApp Numarası (Örn: 905521817077)", name: "whatsapp", widget: "string" }
           - { label: "Satış & Teklif E-Posta", name: "emailSales", widget: "string" }
-          - { label: "Genel Bilgi E-Posta", name: "emailInfo", widget: "string" }
           - { label: "Fabrika / Ofis Adresi", name: "address", widget: "text" }
           - { label: "Google Harita Yerleştirme (Embed) URL", name: "mapEmbed", widget: "string", required: false, hint: "Google Maps harita iframe src linki" }
           - { label: "Çalışma Saatleri", name: "hours", widget: "string" }

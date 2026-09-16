@@ -725,7 +725,6 @@ const CONTACT_INFO = {
     fax: '0212 671 25 78',
     whatsapp: '905521817077',
     emailSales: 'satis@haybatamakina.com',
-    emailInfo: 'bilgi@haybatamakina.com',
     hours: 'Hafta içi: 08:00 - 18:00<br>Cumartesi: 09:00 - 14:00',
     mapEmbed: 'https://maps.google.com/maps?q=%C4%B0kitelli+Organize+Sanayi+B%C3%B6lgesi,+Ba%C4%9Fc%C4%B1lar+G%C3%BCng%C3%B6ren+Sanayi+B%C3%B6lgesi+Blok:11+No:19,+Ba%C5%9fak%C5%9Fehir+/+%C4%B0STANBUL&t=&z=16&ie=UTF8&iwloc=&output=embed',
     social: {

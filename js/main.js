@@ -1206,6 +1206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Tarih": new Date().toLocaleString('tr-TR'),
                     "_subject": `Haybata Makina Web: Yeni ${formType} Formu`,
                     "_template": "table",
+                    "_url": "https://www.haybatamakina.com/iletisim.html",
                     "_captcha": "false"
                 };
                 for (const [key, val] of formData.entries()) {
@@ -1236,25 +1237,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: formData,
                     headers: { 'Accept': 'application/json' }
                 };
+            } else {
+                throw new Error('Desteklenmeyen e-posta servisi');
             }
 
             const response = await fetch(endpoint, requestOptions);
-            const resData = await response.json().catch(() => ({}));
+            const resData = await response.json();
 
-            if (resData.message && resData.message.toLowerCase().includes('activation')) {
-                showToast(`FormSubmit Onay Linki ${targetEmail} adresinize gönderildi! Lütfen gelen kutunuzdaki (veya Spam'daki) bağlantıya tıklayarak onaylayın.`);
-                formEl.reset();
-            } else if (resData.success === 'true' || resData.success === true || (response.ok && resData.success !== 'false' && resData.success !== false)) {
-                showToast(`Teşekkürler! ${formType} formunuz başarıyla alındı ve şirket mailimize (${targetEmail}) iletildi.`);
+            if (typeof resData.message === 'string' && /activation|activate form/i.test(resData.message)) {
+                showToast('E-posta formu henüz etkinleştirilmedi. Talebinizi WhatsApp ile iletebilirsiniz. Yazdığınız bilgiler korunuyor.');
+            } else if (response.ok && (resData.success === 'true' || resData.success === true || (service === 'formspree' && resData.ok === true))) {
+                showToast(`Teşekkürler! ${formType} formunuz e-posta servisi tarafından kabul edildi.`);
                 formEl.reset();
             } else {
-                showToast(`Mesajınız alındı! Yetkililerimiz en kısa sürede sizinle iletişime geçecektir.`);
-                formEl.reset();
+                throw new Error('E-posta servisi gönderimi onaylamadı');
             }
         } catch (error) {
             console.warn('Form gönderim notu:', error);
-            showToast(`Mesajınız başarıyla iletildi! Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.`);
-            formEl.reset();
+            showToast('Mesajınız gönderilemedi. Lütfen tekrar deneyin veya WhatsApp ile iletin. Yazdığınız bilgiler korunuyor.');
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
