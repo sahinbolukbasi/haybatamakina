@@ -493,6 +493,26 @@
     "_slug": "paslanmaz-mil-altıköşe-çubuk"
   },
   {
+    "name": "PASLANMAZ OVAL MENHOL (İÇE AÇILIR)",
+    "showOnHome": true,
+    "category": "PASLANMAZ MENHOL KAPAĞI",
+    "subCategory": "MENHOL",
+    "image": "images/uploads/WhatsApp Image 2026-09-15 at 12.20.05 PM.jpeg",
+    "description": "İÇE AÇILIR OVAL MENHOL KAPAĞI  FİRMAMIZ BÜNYESİNDE AISI 304 VE AISI 316 KALİTE PASALNMAZ ÇELİK DEN 330X430 EBATLARINDA ÜRETİLMEKTEDİR.",
+    "specs": [
+      {
+        "key": "MALZEME",
+        "value": "AISI 304- AISI 316"
+      },
+      {
+        "key": "ÖZELİK",
+        "value": "İÇE AÇILIR"
+      }
+    ],
+    "_file": "paslanmaz-oval-menhol-içe-açılır.json",
+    "_slug": "paslanmaz-oval-menhol-içe-açılır"
+  },
+  {
     "name": "Paslanmaz Patent Dirsek (90° / 45°)",
     "categoryGroup": "Paslanmaz Boru Bağlantı & Fittings Elemanları",
     "subCategory": "Paslanmaz Kaynaklı Fittings Grubu",
