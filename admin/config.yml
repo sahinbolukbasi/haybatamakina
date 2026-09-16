@@ -49,8 +49,32 @@ collections:
     fields:
       - { label: "Ürün Adı", name: "name", widget: "string" }
       - { label: "Anasayfada Göster (Öne Çıkar)", name: "showOnHome", widget: "boolean", default: false, hint: "İşaretlerseniz ürün ana sayfadaki vitrinde öne çıkarılır" }
-      - { label: "Kategori Başlığı", name: "category", widget: "relation", collection: "categories", search_fields: ["name"], value_field: "name", display_fields: ["name"], hint: "Açtığınız kategorilerden birini seçin" }
-      - { label: "Alt Kategori / Model Grubu", name: "subCategory", widget: "string", required: false, hint: "Örn: Dişli Dirsek, Kaynaklı Redüksiyon, Basınçlı Menhol vb." }
+      - label: "1. Kategori Başlığı (Ana Kategori)"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        search_fields: ["name"]
+        value_field: "name"
+        display_fields: ["name"]
+        hint: "Ürünün ait olduğu ana kategoriyi seçin"
+
+      - label: "2. Alt Başlık / Alt Kategori (Çoktan Seçmeli)"
+        name: "subCategory"
+        widget: "select"
+        required: true
+        hint: "Ürünün listeleneceği alt başlığı listeden seçin"
+        options:
+          - { label: "Kaynaklı Fittings Grubu [FİTTİNGS]", value: "Kaynaklı Fittings Grubu" }
+          - { label: "Dişli Fittings Grubu [FİTTİNGS]", value: "Dişli Fittings Grubu" }
+          - { label: "Kelepçe & Bağlantı Elemanları [FİTTİNGS]", value: "Kelepçe & Bağlantı Elemanları" }
+          - { label: "Endüstriyel Flanşlar [FİTTİNGS]", value: "Endüstriyel Flanşlar" }
+          - { label: "Paslanmaz Vana & Akış Ekipmanları [FİTTİNGS]", value: "Paslanmaz Vana & Akış Ekipmanları" }
+          - { label: "Kazan & Tank Menhol Kapakları [MENHOL]", value: "Kazan & Tank Menhol Kapakları" }
+          - { label: "Özel İmalat Proses Ekipmanları [ÖZEL İMALAT]", value: "Özel İmalat Proses Ekipmanları" }
+          - { label: "Tank Havalandırma & CIP Yıkama Başlıkları [ÖZEL İMALAT]", value: "Tank Havalandırma & CIP Yıkama Başlıkları" }
+          - { label: "Paslanmaz Bağlantı Elemanları & Civatalar [SARF MALZEME]", value: "Paslanmaz Bağlantı Elemanları & Civatalar" }
+          - { label: "Kaynak & Yüzey İşlem Sarfları [SARF MALZEME]", value: "Kaynak & Yüzey İşlem Sarfları" }
+          - { label: "Paslanmaz Çelik Hammaddeler [SARF MALZEME]", value: "Paslanmaz Çelik Hammaddeler" }
       - { label: "Ürün Fotoğrafı", name: "image", widget: "image" }
       - { label: "Ürün Açıklaması", name: "description", widget: "text" }
       - label: "Teknik Özellikler Tablosu"

@@ -607,6 +607,49 @@ document.addEventListener('DOMContentLoaded', () => {
                         .replace(/[^a-z0-9]/g, '');
                 }
 
+                function findTargetSub(catName, subCatName) {
+                    const cNorm = norm(catName || '');
+                    const sNorm = norm(subCatName || '');
+
+                    // 1. Önce kategori grubunu bul
+                    let targetGrp = null;
+                    if (cNorm) {
+                        targetGrp = PRODUCT_TREE.find(g => 
+                            norm(g.name).includes(cNorm) || cNorm.includes(norm(g.name)) ||
+                            norm(g.id).includes(cNorm) || cNorm.includes(norm(g.id))
+                        );
+                    }
+
+                    // 2. Kategori grubu bulunduysa, altındaki subcategories içinde ara
+                    if (targetGrp && targetGrp.subcategories && targetGrp.subcategories.length > 0) {
+                        if (sNorm) {
+                            const matchedSub = targetGrp.subcategories.find(s =>
+                                norm(s.name).includes(sNorm) || sNorm.includes(norm(s.name)) ||
+                                norm(s.slug || '').includes(sNorm) || sNorm.includes(norm(s.slug || '')) ||
+                                norm(s.id || '').includes(sNorm) || sNorm.includes(norm(s.id || ''))
+                            );
+                            if (matchedSub) return { group: targetGrp, sub: matchedSub };
+                        }
+                        return { group: targetGrp, sub: targetGrp.subcategories[0] };
+                    }
+
+                    // 3. Kategori grubu boşsa veya bulunamadıysa, tüm ağaçtaki alt kategorilerde ara
+                    if (sNorm) {
+                        for (const g of PRODUCT_TREE) {
+                            for (const s of g.subcategories) {
+                                if (norm(s.name).includes(sNorm) || sNorm.includes(norm(s.name)) ||
+                                    norm(s.slug || '').includes(sNorm) || sNorm.includes(norm(s.slug || '')) ||
+                                    norm(s.id || '').includes(sNorm) || sNorm.includes(norm(s.id || ''))) {
+                                    return { group: g, sub: s };
+                                }
+                            }
+                        }
+                    }
+
+                    // 4. Varsayılan ilk grup ve ilk alt başlık
+                    return { group: PRODUCT_TREE[0], sub: PRODUCT_TREE[0]?.subcategories[0] };
+                }
+
                 cmsProducts.forEach(cmsProd => {
                     if (!cmsProd || !cmsProd.name) return;
                     const cmsNorm = norm(cmsProd.name);
@@ -662,37 +705,21 @@ document.addEventListener('DOMContentLoaded', () => {
                             changesApplied = true;
                         }
 
-                        // Kategori değişmişse doğru kategoriye taşı
-                        if (cmsProd.category) {
-                            const targetCatNorm = norm(cmsProd.category);
-                            const currentGrpNorm = norm(foundGroup.name);
-                            if (!currentGrpNorm.includes(targetCatNorm) && !targetCatNorm.includes(currentGrpNorm)) {
-                                const targetGrp = PRODUCT_TREE.find(g => norm(g.name).includes(targetCatNorm) || targetCatNorm.includes(norm(g.name)));
-                                if (targetGrp && targetGrp.subcategories.length > 0) {
-                                    foundSub.products = foundSub.products.filter(p => p !== foundProduct);
-                                    targetGrp.subcategories[0].products.push(foundProduct);
-                                    changesApplied = true;
-                                }
-                            }
+                        // Kategori veya Alt Kategori değişmişse doğru alt başlığa taşı
+                        const targetDest = findTargetSub(cmsProd.category, cmsProd.subCategory);
+                        if (targetDest && targetDest.sub && targetDest.sub !== foundSub) {
+                            foundSub.products = foundSub.products.filter(p => p !== foundProduct);
+                            targetDest.sub.products.push(foundProduct);
+                            changesApplied = true;
                         }
                     } else if (PRODUCT_TREE.length > 0) {
-                        // Yeni ürün: Uygun kategoriye ekle
-                        const catTarget = norm(cmsProd.category || cmsProd.categoryGroup || '');
-                        let targetSub = null;
-                        for (const grp of PRODUCT_TREE) {
-                            if (norm(grp.name).includes(catTarget) || catTarget.includes(norm(grp.name))) {
-                                targetSub = grp.subcategories[0];
-                                break;
-                            }
-                        }
-                        if (!targetSub) {
-                            targetSub = PRODUCT_TREE[0].subcategories[0];
-                        }
-                        if (targetSub) {
-                            targetSub.products.push({
+                        // Yeni ürün: Seçilen Kategori ve Alt Kategoriye ekle
+                        const targetDest = findTargetSub(cmsProd.category, cmsProd.subCategory);
+                        if (targetDest && targetDest.sub) {
+                            targetDest.sub.products.push({
                                 name: cmsProd.name,
                                 _slug: cmsSlug,
-                                image: cleanImg || targetSub.image,
+                                image: cleanImg || targetDest.sub.image,
                                 description: cmsProd.description || '',
                                 specs: cleanSpecs
                             });
