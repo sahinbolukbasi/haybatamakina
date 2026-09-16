@@ -836,13 +836,9 @@ img {
 
 /* --- Products Section --- */
 .products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
 }
 
 .product-card {
@@ -854,6 +850,20 @@ img {
     border: 1px solid var(--gray-200);
     cursor: pointer;
     position: relative;
+}
+
+/* YALNIZCA Ana Sayfa Vitrinini Ortala (Ürünler sayfasını etkilemez) */
+#homeProducts.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#homeProducts .product-card {
     flex: 0 1 320px;
     max-width: 360px;
     width: 100%;
@@ -1502,7 +1512,11 @@ img {
         padding: 4rem 1rem;
     }
 
-    .products-grid .product-card {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #homeProducts .product-card {
         flex: 1 1 100%;
         max-width: 100%;
     }
