@@ -470,6 +470,22 @@
     "_slug": "paslanmaz-kaynak-ağızlı-rekor-din-11851"
   },
   {
+    "name": "PASLANMAZ KOLEKTÖR",
+    "showOnHome": true,
+    "category": "PASLANMAZ ÖZEL İMALATLAR",
+    "subCategory": "KOLEKTÖR",
+    "image": "images/uploads/WhatsApp Image 2026-09-16 at 11.41.26 AM.jpeg",
+    "description": "PASLANMAZ KOLEKTÖR İMALATLARIMIZ NUMUNE VE ÖZEL TALEBE GÖRE ÜRETİLEMKTEDİR",
+    "specs": [
+      {
+        "key": "MALZEME",
+        "value": "AISI 304 - AISI 316"
+      }
+    ],
+    "_file": "paslanmaz-kolektör.json",
+    "_slug": "paslanmaz-kolektör"
+  },
+  {
     "name": "Paslanmaz Kruva (Dört Yollu Dağıtıcı)",
     "subCategory": "Dişli Fittings Grubu",
     "image": "images/urunler/resim105.jpg",
