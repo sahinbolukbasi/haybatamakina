@@ -1044,12 +1044,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const settings = await res.json();
 
             // Sosyal Medya Linkleri
-            if (settings.facebook) {
-                document.querySelectorAll('.footer-social a[aria-label="Facebook"]').forEach(a => a.href = settings.facebook);
-            }
-            if (settings.instagram) {
-                document.querySelectorAll('.footer-social a[aria-label="Instagram"]').forEach(a => a.href = settings.instagram);
-            }
+            [
+                { key: 'facebook', label: 'Facebook', icon: 'fa-facebook-f' },
+                { key: 'instagram', label: 'Instagram', icon: 'fa-instagram' }
+            ].forEach(({ key, label, icon }) => {
+                let url;
+                try {
+                    url = new URL(settings[key]);
+                    if (!['https:', 'http:'].includes(url.protocol)) url = null;
+                } catch {
+                    url = null;
+                }
+                document.querySelectorAll('.footer-social').forEach(container => {
+                    let link = container.querySelector(`a[aria-label="${label}"]`);
+                    if (!url) {
+                        if (link) link.remove();
+                        return;
+                    }
+                    if (!link) {
+                        link = document.createElement('a');
+                        link.setAttribute('aria-label', label);
+                        const iconEl = document.createElement('i');
+                        iconEl.className = `fab ${icon}`;
+                        iconEl.setAttribute('aria-hidden', 'true');
+                        link.appendChild(iconEl);
+                        container.appendChild(link);
+                    }
+                    link.href = url.href;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                });
+            });
             if (settings.linkedin) {
                 document.querySelectorAll('.footer-social a[aria-label="LinkedIn"]').forEach(a => a.href = settings.linkedin);
             }
