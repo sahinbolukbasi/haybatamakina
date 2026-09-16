@@ -1,13 +1,29 @@
 {
   "heroTitle": "Sanayi Tipi Kazan İmalatı & Paslanmaz Çelik Çözümleri",
-  "heroSubtitle": "30 yılı aşkın tecrübemizle endüstriyel buhar kazanları, kızgın yağ sistemleri, proses tankları ve hijyenik paslanmaz bağlantı elemanları imalatında Türkiye'nin öncü sanayi kuruluşlarına mühendislik kalitesiyle hizmet veriyoruz.",
+  "heroSubtitle": "30 yılı aşkın tecrübemizle menhol kapağı, fittings gurubu, endüstriyel proses tankları ve hijyenik paslanmaz bağlantı elemanları imalatında Türkiye'nin öncü sanayi kuruluşlarına mühendislik kalitesiyle hizmet veriyoruz.",
   "heroBadge": "30 Yıllık Ağır Sanayi Tecrübesi",
-  "stats": [
-    { "number": "30+", "label": "Yıllık Tecrübe", "desc": "Sektörde güven ve kalite" },
-    { "number": "500+", "label": "Tamamlanan Proje", "desc": "Endüstriyel tesis & kazan" },
-    { "number": "50+", "label": "Uzman Kadro", "desc": "Mühendis ve teknik ekip" },
-    { "number": "%99", "label": "Müşteri Memnuniyeti", "desc": "Kesintisiz servis desteği" }
-  ],
   "featuredProductsTitle": "Öne Çıkan İmalatlarımız & Ürün Grupları",
-  "featuredProductsSubtitle": "En yüksek mühendislik normlarında tasarlanan sanayi tipi kazanlar ve paslanmaz tesis ekipmanları."
+  "featuredProductsSubtitle": "En yüksek mühendislik normlarında tasarlanan sanayi tipi kazanlar ve paslanmaz tesis ekipmanları.",
+  "stats": [
+    {
+      "desc": "Sektörde güven ve kalite",
+      "label": "Yıllık Tecrübe",
+      "number": "30+"
+    },
+    {
+      "desc": "Endüstriyel tesis & kazan",
+      "label": "Tamamlanan Proje",
+      "number": "500+"
+    },
+    {
+      "desc": "Mühendis ve teknik ekip",
+      "label": "Uzman Kadro",
+      "number": "50+"
+    },
+    {
+      "desc": "Kesintisiz servis desteği",
+      "label": "Müşteri Memnuniyeti",
+      "number": "%99"
+    }
+  ]
 }
