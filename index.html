@@ -283,34 +283,34 @@
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <div class="contact-text">
                         <h4>Fabrika & İletişim Adresi</h4>
-                        <p>İkitelli Organize Sanayi Bölgesi<br>Bağcılar Güngören Sanayi Bölgesi Blok:11 No:19<br>Başakşehir / İSTANBUL</p>
+                        <p data-contact="address">İkitelli Organize Sanayi Bölgesi<br>Bağcılar Güngören Sanayi Bölgesi Blok:11 No:19<br>Başakşehir / İSTANBUL</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-phone"></i></div>
                     <div class="contact-text">
                         <h4>Telefon</h4>
-                        <p><a href="tel:02126712577" style="color: inherit; text-decoration: none;">0212 671 25 77</a></p>
+                        <p><a data-contact-link="phone" href="tel:02126712577" style="color: inherit; text-decoration: none;"><span data-contact="phone">0212 671 25 77</span></a></p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fab fa-whatsapp" style="color: #25D366;"></i></div>
                     <div class="contact-text">
                         <h4>WhatsApp Danışma Hattı</h4>
-                        <p><a href="https://wa.me/905521817077" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">+90 552 181 70 77 (WhatsApp Hızlı İletişim)</a></p>
+                        <p><a href="https://wa.me/905521817077" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><span data-contact="whatsapp">+90 552 181 70 77</span> (WhatsApp Hızlı İletişim)</a></p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <div class="contact-text">
                         <h4>E-posta</h4>
-                        <p><a href="mailto:satis@haybatamakina.com" style="color: inherit; text-decoration: none;">satis@haybatamakina.com</a></p>
+                        <p><a data-contact-link="emailSales" href="mailto:satis@haybatamakina.com" style="color: inherit; text-decoration: none;"><span data-contact="emailSales">satis@haybatamakina.com</span></a></p>
                     </div>
                 </div>
             </div>
             <form class="contact-form fade-in-right" id="contactForm">
                 <h3 style="font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Hızlı Teklif & İletişim Formu</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Talebiniz anında satis@haybatamakina.com adresine e-posta olarak iletilir.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Talebinizi <span data-contact="emailSales">satis@haybatamakina.com</span> adresine göndermek için formu doldurun.</p>
                 <div class="form-group">
                     <label for="name">Adınız Soyadınız *</label>
                     <input type="text" id="name" name="name" required placeholder="Örn: Ahmet Yılmaz">
@@ -355,8 +355,8 @@
             <p>Sanayi tipi buhar ve kızgın yağ kazanları imalatı, paslanmaz çelik tesis ekipmanlarında 30 yılı aşkın tecrübe ile kaliteli üretim ve müşteri memnuniyeti.</p>
             <div class="footer-social">
                 <a href="https://wa.me/905521817077" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="tel:02126712577" aria-label="Telefon"><i class="fas fa-phone"></i></a>
-                <a href="mailto:satis@haybatamakina.com" aria-label="E-Posta"><i class="fas fa-envelope"></i></a>
+                <a data-contact-link="phone" href="tel:02126712577" aria-label="Telefon"><i class="fas fa-phone"></i></a>
+                <a data-contact-link="emailSales" href="mailto:satis@haybatamakina.com" aria-label="E-Posta"><i class="fas fa-envelope"></i></a>
                 <a href="https://www.facebook.com/ozdemirsanikitelli/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/ozdemirsanmakina/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
             </div>
@@ -382,10 +382,10 @@
         <div>
             <h4>İletişim & Konum</h4>
             <div class="footer-links">
-                <a href="tel:02126712577"><i class="fas fa-phone" style="margin-right: 8px;"></i>0212 671 25 77</a>
-                <a href="mailto:satis@haybatamakina.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>satis@haybatamakina.com</a>
+                <a data-contact-link="phone" href="tel:02126712577"><i class="fas fa-phone" style="margin-right: 8px;"></i><span data-contact="phone">0212 671 25 77</span></a>
+                <a data-contact-link="emailSales" href="mailto:satis@haybatamakina.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i><span data-contact="emailSales">satis@haybatamakina.com</span></a>
                 <a href="https://wa.me/905521817077" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i>WhatsApp Destek</a>
-                <a href="iletisim.html"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>İkitelli OSB, Başakşehir / İstanbul</a>
+                <a href="iletisim.html"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i><span data-contact="address">İkitelli OSB, Başakşehir / İstanbul</span></a>
             </div>
         </div>
     </div>
@@ -420,6 +420,6 @@
 </div>
 
 <script src="js/data.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=contact-settings-20260916"></script>
 </body>
 </html>

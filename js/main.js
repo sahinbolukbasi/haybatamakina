@@ -1037,11 +1037,48 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        10. SOSYAL MEDYA & İLETİŞİM DİNAMİK AYARLARI (contact.json)
        ========================================= */
+    function applyContactSettings(settings) {
+        const values = { ...settings };
+        const waPhone = String(settings.whatsapp || '').replace(/[^0-9]/g, '');
+        values.whatsapp = waPhone ? `+${waPhone}` : '';
+        document.querySelectorAll('[data-contact]').forEach(el => {
+            const key = el.getAttribute('data-contact');
+            if (typeof values[key] === 'string') el.textContent = values[key];
+        });
+        document.querySelectorAll('[data-contact-link]').forEach(link => {
+            const key = link.getAttribute('data-contact-link');
+            if (key === 'phone' && typeof settings.phone === 'string') {
+                link.href = `tel:${settings.phone.replace(/[^+0-9]/g, '')}`;
+            } else if (key === 'emailSales' && typeof settings.emailSales === 'string') {
+                link.href = `mailto:${settings.emailSales.trim()}`;
+            }
+        });
+        if (waPhone) {
+            if (typeof WHATSAPP_CONFIG !== 'undefined') WHATSAPP_CONFIG.phone = waPhone;
+            document.querySelectorAll('a[href^="https://wa.me/"], .whatsapp-float-btn').forEach(link => {
+                const url = new URL(link.href);
+                url.pathname = `/${waPhone}`;
+                link.href = url.href;
+            });
+        }
+        if (typeof settings.emailSales === 'string' && settings.emailSales.trim()) {
+            if (typeof MAIL_CONFIG !== 'undefined') MAIL_CONFIG.targetEmail = settings.emailSales.trim();
+        }
+        if (typeof CONTACT_INFO !== 'undefined') Object.assign(CONTACT_INFO, settings);
+        const map = document.getElementById('contactMapIframe');
+        if (map && typeof settings.mapEmbed === 'string') {
+            if (settings.mapEmbed.trim()) map.src = settings.mapEmbed;
+            else map.removeAttribute('src');
+            map.hidden = !settings.mapEmbed.trim();
+        }
+    }
+
     async function loadSiteSettingsAndSocial() {
         try {
-            const res = await fetch(`data/contact.json?_t=${Date.now()}`).catch(() => null);
+            const res = await fetch(`data/contact.json?_t=${Date.now()}`, { cache: 'no-store' }).catch(() => null);
             if (!res || !res.ok) return;
             const settings = await res.json();
+            applyContactSettings(settings);
 
             // Sosyal Medya Linkleri
             [
@@ -1084,22 +1121,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (settings.youtube) {
                 document.querySelectorAll('.footer-social a[aria-label="YouTube"]').forEach(a => a.href = settings.youtube);
             }
-            if (settings.whatsapp) {
-                const cleanWa = settings.whatsapp.replace(/[^0-9]/g, '');
-                document.querySelectorAll('.footer-social a[aria-label="WhatsApp"], .whatsapp-float-btn').forEach(a => {
-                    a.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent('Merhaba Haybata Makina, bilgi almak istiyorum.')}`;
-                });
-            }
-            if (settings.address) {
-                const addrEl = document.getElementById('contactAddressText');
-                if (addrEl) addrEl.innerText = settings.address;
-                document.querySelectorAll('.footer-address-text').forEach(el => el.innerText = settings.address);
-            }
-            if (settings.mapEmbed) {
-                const mapIframe = document.getElementById('contactMapIframe');
-                if (mapIframe) mapIframe.src = settings.mapEmbed;
-            }
-
             // Ana Sayfa Vitrin & Sloganlar (home.json)
             const homeRes = await fetch(`data/home.json?_t=${Date.now()}`).catch(() => null);
             if (homeRes && homeRes.ok) {
@@ -1176,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('Site içerikleri ve ayarlar yüklenirken:', err);
         }
     }
-    loadSiteSettingsAndSocial();
+    const contactSettingsReady = loadSiteSettingsAndSocial();
 
     /* =========================================
        10. DOĞRUDAN E-POSTA VE FORM SİSTEMİ (FormSubmit.co / Web3Forms)
@@ -1217,6 +1238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
             }
 
+            await contactSettingsReady;
             const formData = new FormData(formEl);
             const mailCfg = (typeof MAIL_CONFIG !== 'undefined') ? MAIL_CONFIG : {};
             const service = mailCfg.service || 'formsubmit';
