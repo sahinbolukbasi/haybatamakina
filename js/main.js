@@ -1343,4 +1343,141 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* =========================================
+       15. KULLANICI VERİLERİ & ÇEREZ POLİTİKASI (COOKIE CONSENT)
+       ========================================= */
+    initCookieConsent();
+
+    function initCookieConsent() {
+        const consentKey = 'haybata_cookie_consent';
+        const savedConsent = localStorage.getItem(consentKey);
+
+        if (savedConsent) {
+            applyGtagConsent(savedConsent === 'accepted');
+            return;
+        }
+
+        const banner = document.createElement('div');
+        banner.className = 'cookie-consent-banner';
+        banner.id = 'cookieConsentBanner';
+        banner.innerHTML = `
+            <div class="cookie-consent-content">
+                <div class="cookie-consent-icon">
+                    <i class="fas fa-cookie-bite"></i>
+                </div>
+                <div class="cookie-consent-body">
+                    <div class="cookie-consent-title">
+                        <span>Çerez ve Gizlilik Bildirimi</span>
+                    </div>
+                    <div class="cookie-consent-text">
+                        Sizlere daha iyi bir deneyim sunmak, site trafiğini analiz etmek ve kullanıcı deneyimini iyileştirmek için sitemizde analitik ve zorunlu çerezler kullanılmaktadır. Detaylı bilgi için <a href="javascript:void(0)" id="cookiePolicyBtn">Çerez Politikası</a> sayfamızı inceleyebilirsiniz.
+                    </div>
+                    <div class="cookie-consent-actions">
+                        <button type="button" class="cookie-btn cookie-btn-accept" id="cookieAcceptBtn">
+                            <i class="fas fa-check" style="margin-right: 6px;"></i>Tümünü Kabul Et
+                        </button>
+                        <button type="button" class="cookie-btn cookie-btn-decline" id="cookieDeclineBtn">
+                            Sadece Zorunlu Çerezler
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(banner);
+
+        setTimeout(() => {
+            banner.classList.add('show');
+        }, 1200);
+
+        const acceptBtn = document.getElementById('cookieAcceptBtn');
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem(consentKey, 'accepted');
+                applyGtagConsent(true);
+                hideBanner();
+            });
+        }
+
+        const declineBtn = document.getElementById('cookieDeclineBtn');
+        if (declineBtn) {
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem(consentKey, 'declined');
+                applyGtagConsent(false);
+                hideBanner();
+            });
+        }
+
+        const policyBtn = document.getElementById('cookiePolicyBtn');
+        if (policyBtn) {
+            policyBtn.addEventListener('click', () => {
+                showCookieModal();
+            });
+        }
+
+        function hideBanner() {
+            banner.classList.remove('show');
+            setTimeout(() => banner.remove(), 500);
+        }
+
+        function applyGtagConsent(granted) {
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'analytics_storage': granted ? 'granted' : 'denied',
+                    'ad_storage': granted ? 'granted' : 'denied',
+                    'ad_user_data': granted ? 'granted' : 'denied',
+                    'ad_personalization': granted ? 'granted' : 'denied'
+                });
+            }
+        }
+
+        function showCookieModal() {
+            const existingModal = document.getElementById('cookiePolicyModal');
+            if (existingModal) existingModal.remove();
+
+            const modal = document.createElement('div');
+            modal.className = 'cookie-modal-overlay';
+            modal.id = 'cookiePolicyModal';
+            modal.innerHTML = `
+                <div class="cookie-modal-card">
+                    <div class="cookie-modal-header">
+                        <h3><i class="fas fa-shield-halved" style="color:var(--accent);margin-right:8px;"></i>Gizlilik & Çerez Politikası</h3>
+                        <button type="button" class="cookie-modal-close" id="closeCookieModal">&times;</button>
+                    </div>
+                    <div class="cookie-modal-body">
+                        <h4>1. Çerezler (Cookies) Nedir?</h4>
+                        <p>Çerezler, web sitemizi ziyaret ettiğinizde tarayıcınız aracılığıyla cihazınıza kaydedilen küçük metin dosyalarıdır.</p>
+                        <h4>2. Hangi Çerezleri Kullanıyoruz?</h4>
+                        <ul>
+                            <li><strong>Zorunlu Çerezler:</strong> Web sitesinin temel fonksiyonlarının çalışması, güvenliğiniz ve tercihlerinizin hatırlanması için gereklidir.</li>
+                            <li><strong>Analitik Çerezler (Google Analytics):</strong> Sitemizi kaç kişinin ziyaret ettiği, en çok incelenen sayfalar gibi anonim istatistiki verileri toplamamıza ve hizmet kalitemizi artırmamıza yarar.</li>
+                        </ul>
+                        <h4>3. Veri Güvenliği & KVKK</h4>
+                        <p>Toplanan analitik veriler kişisel kimlik bilgilerinizle eşleştirilmez, üçüncü şahıslara ticari veya reklam amaçlı satılmaz ya da devredilmez.</p>
+                    </div>
+                    <div class="cookie-modal-footer">
+                        <button type="button" class="btn btn-primary" id="acceptFromModal">Anladım & Kabul Et</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 50);
+
+            const closeModal = () => {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
+            };
+
+            document.getElementById('closeCookieModal').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.getElementById('acceptFromModal').addEventListener('click', () => {
+                localStorage.setItem(consentKey, 'accepted');
+                applyGtagConsent(true);
+                closeModal();
+                hideBanner();
+            });
+        }
+    }
+
 });
