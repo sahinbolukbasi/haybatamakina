@@ -381,6 +381,22 @@
     "_slug": "paslanmaz-eşit-i-negal-tee"
   },
   {
+    "name": "PASLANMAZ FİLTRE",
+    "showOnHome": false,
+    "category": "PASLANMAZ ÖZEL İMALATLAR",
+    "subCategory": "PASLANMAZ FİLTRE",
+    "image": "images/uploads/WhatsApp Image 2026-09-16 at 11.57.54 AM.jpeg",
+    "description": "PASLANMAZ FİLTRE  AISI 304 VE AISI  316 OLARAK ÜRETİLMEKTEDİR.  NUMUNE VE PROJEYE UYGUN ÖZEL FİLTRELER İÇİN LÜTFEN TEKLİF ALINIZ.",
+    "specs": [
+      {
+        "key": "MALZEME",
+        "value": "AISI 316 VE AISI 304"
+      }
+    ],
+    "_file": "paslanmaz-filtre.json",
+    "_slug": "paslanmaz-filtre"
+  },
+  {
     "name": "Paslanmaz Hortum Kelepçesi (Sonsuz Vida)",
     "subCategory": "Kelepçe & Bağlantı Elemanları",
     "image": "images/urunler/resim57.jpg",
