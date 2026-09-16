@@ -1136,16 +1136,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const seoRes = await fetch(`data/seo.json?_t=${Date.now()}`).catch(() => null);
             if (seoRes && seoRes.ok) {
                 const seoData = await seoRes.json();
-                if (seoData.googleAnalyticsId && !window._gaLoaded) {
-                    window._gaLoaded = true;
-                    const gaScript = document.createElement('script');
-                    gaScript.async = true;
-                    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(seoData.googleAnalyticsId)}`;
-                    document.head.appendChild(gaScript);
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', seoData.googleAnalyticsId);
+                if (seoData.googleAnalyticsId) {
+                    const existingScript = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+                    if (!existingScript && !window._gaLoaded) {
+                        window._gaLoaded = true;
+                        const gaScript = document.createElement('script');
+                        gaScript.async = true;
+                        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(seoData.googleAnalyticsId)}`;
+                        document.head.appendChild(gaScript);
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', seoData.googleAnalyticsId);
+                    }
                 }
                 if (seoData.googleSiteVerification) {
                     let meta = document.querySelector('meta[name="google-site-verification"]');
