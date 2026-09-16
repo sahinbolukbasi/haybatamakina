@@ -1,0 +1,12 @@
+# 404 Hatalarını Ana Sayfaya Yönlendirme
+ErrorDocument 404 /index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Dosya veya klasör mevcut değilse ana sayfaya yönlendir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /index.html [L,R=301]
+</IfModule>
