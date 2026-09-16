@@ -1,0 +1,18 @@
+{
+  "name": "PASLANMAZ STOK TANKI",
+  "showOnHome": true,
+  "category": "PASLANMAZ ÖZEL İMALATLAR",
+  "subCategory": "PASLANMAZ TANK",
+  "image": "/images/uploads/WhatsApp Image 2026-09-15 at 12.14.24 PM.jpeg",
+  "description": "FİRMAMIZ BÜNYESİNDE AISI  304 VE AISI  316 KALİTE DE  20 LT DEN 30.000 LT KADAR STOK TANKI İMALATLARI YAPILMAKTADIR.",
+  "specs": [
+    {
+      "key": "MALZEME",
+      "value": "AISI 304 AISI 316"
+    },
+    {
+      "key": "KAPASİTE",
+      "value": "20 LT - 30.000 LT"
+    }
+  ]
+}
