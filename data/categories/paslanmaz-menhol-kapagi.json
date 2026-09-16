@@ -3,13 +3,5 @@
   "slug": "paslanmaz-menhol-kapagi",
   "icon": "fa-door-open",
   "order": 2,
-  "description": "Sanayi tankları, proses kapları ve kazanlar için yüksek basınç dayanımlı, hijyenik dairesel, oval ve dikdörtgen menhol kapakları.",
-  "subcategories": [
-    {
-      "name": "Kazan & Tank Menhol Kapakları",
-      "slug": "menhol-kapaklari",
-      "icon": "fa-door-closed",
-      "description": "Basınçlı ve atmosferik tanklara insan ve bakım erişimi sağlayan standart ve özel menholler."
-    }
-  ]
+  "description": "Sanayi tankları, proses kapları ve kazanlar için yüksek basınç dayanımlı, hijyenik dairesel, oval ve dikdörtgen menhol kapakları."
 }

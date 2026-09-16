@@ -1995,6 +1995,13 @@ img {
     border-left: 3px solid var(--accent);
 }
 
+.tree-group-header.selected {
+    background: rgba(192, 160, 96, 0.18);
+    color: var(--primary-dark);
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(192, 160, 96, 0.15);
+}
+
 .tree-group-title {
     display: flex;
     align-items: center;
@@ -2168,6 +2175,112 @@ img {
 
 .tree-active-filter-badge .clear-filter:hover {
     color: #e74c3c;
+}
+
+/* Alt Kategori Seçim & Filtreleme Şeridi (Ürünler Sayfasında) */
+.tree-subcategories-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.tree-sub-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.tree-sub-header-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.tree-sub-header-title i {
+    color: var(--accent);
+    font-size: 1.15rem;
+}
+
+.tree-sub-header-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.tree-sub-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.tree-sub-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 50px;
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    color: var(--text-color);
+    font-size: 0.86rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.tree-sub-pill i {
+    color: var(--accent);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.tree-sub-pill:hover {
+    background: #ffffff;
+    border-color: var(--accent);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.tree-sub-pill.active {
+    background: linear-gradient(135deg, #0d1f33 0%, #1e3a5f 100%);
+    border-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(13, 31, 51, 0.25);
+    transform: translateY(-1px);
+}
+
+.tree-sub-pill.active i {
+    color: #ffd700;
+}
+
+.tree-sub-pill-badge {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    background: var(--gray-200);
+    color: var(--primary-dark);
+    line-height: 1;
+}
+
+.tree-sub-pill.active .tree-sub-pill-badge {
+    background: var(--accent);
+    color: #0f172a;
 }
 
 /* Kazan İmalatı Özel Vurgu Kartı */

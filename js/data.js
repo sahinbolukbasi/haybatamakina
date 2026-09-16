@@ -65,83 +65,6 @@ const PRODUCT_TREE = [
         "description": "Tüm boru tesisatlarında sızdırmaz ve güvenli yön değişimi, birleştirme ve akış kontrolü sağlayan kaynaklı, dişli fittingsler, flanşlar ve vanalar.",
         "subcategories": [
             {
-                "id": "kaynakli-fittings",
-                "name": "Kaynaklı Fittings Grubu",
-                "slug": "kaynakli-fittings",
-                "icon": "fa-hammer",
-                "image": "images/urunler/resim80.jpg",
-                "description": "Yüksek basınç ve sıcaklık hatlarında kaynaklı bağlantı elemanları.",
-                "products": [
-                    {
-                        "name": "Paslanmaz Bombe Kep (Boru Sonu Kapağı)",
-                        "_slug": "paslanmaz-bombe-kep-boru-sonu-kapağı",
-                        "image": "images/urunler/resim91.jpg",
-                        "description": "Boru hatlarının uçlarını kaynakla körleme için bombeli kep.",
-                        "specs": {
-                            "Malzeme": "AISI 316",
-                            "Form": "Bombeli / Torisferik"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Eşit & İnegal Tee",
-                        "_slug": "paslanmaz-eşit-i-negal-tee",
-                        "image": "images/urunler/resim88.jpg",
-                        "description": "Boru hatlarından yan branşman almak için kaynaklı bağlantı elemanı.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316",
-                            "Tip": "Kaynaklı Dikişsiz"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Kaynak Ağızlı Rekor (DIN 11851)",
-                        "_slug": "paslanmaz-kaynak-ağızlı-rekor-din-11851",
-                        "image": "images/urunler/resim93.jpg",
-                        "description": "Gıda normunda hijyenik sökülebilir kaynaklı rekor bağlantı seti.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316L + EPDM Conta",
-                            "Standart": "DIN 11851 / SMS"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Patent Dirsek (90° / 45°)",
-                        "_slug": "paslanmaz-patent-dirsek-90-45",
-                        "image": "images/urunler/resim87.jpg",
-                        "description": "Akış yönünü değiştirmek için kullanılan kaynaklı dirsek parçaları.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316L",
-                            "Açı": "90° / 45° / 180°",
-                            "Et Kalınlığı": "SCH 10 / SCH 40"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Redüksiyon (Konsantrik / Eksantrik)",
-                        "_slug": "paslanmaz-redüksiyon-konsantrik-eksantrik",
-                        "image": "images/urunler/resim89.jpg",
-                        "description": "Farklı çaplardaki boruların eksenel birleşimini sağlayan redüksiyon.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316L",
-                            "Tip": "Konsantrik / Eksantrik"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Yaka (Stub End)",
-                        "_slug": "paslanmaz-yaka-stub-end",
-                        "image": "images/urunler/resim90.jpg",
-                        "description": "Serbest flanşlarla boru birleşiminde sızdırmaz yüzey oluşturan kaynaklı yaka.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316",
-                            "Tip": "Kaynaklı Boyunlu"
-                        },
-                        "showOnHome": false
-                    }
-                ]
-            },
-            {
                 "id": "disli-fittings",
                 "name": "Dişli Fittings Grubu",
                 "slug": "disli-fittings",
@@ -219,59 +142,6 @@ const PRODUCT_TREE = [
                 ]
             },
             {
-                "id": "kelepce-grubu",
-                "name": "Kelepçe & Bağlantı Elemanları",
-                "slug": "kelepce-grubu",
-                "icon": "fa-link",
-                "image": "images/urunler/resim80.jpg",
-                "description": "Boru ve hortumların tavana, duvara ve profile titreşimsiz sabitlenmesi.",
-                "products": [
-                    {
-                        "name": "Düz & Saplı Boru Kelepçesi",
-                        "_slug": "düz-saplı-boru-kelepçesi",
-                        "image": "images/urunler/resim53.jpg",
-                        "description": "Tesisat borularının rijit ve güvenli montajı için paslanmaz kelepçe.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316",
-                            "Çap": "DN15 - DN300"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Hortum Kelepçesi (Sonsuz Vida)",
-                        "_slug": "paslanmaz-hortum-kelepçesi-sonsuz-vida",
-                        "image": "images/urunler/resim57.jpg",
-                        "description": "Hortum bağlantılarında yüksek sıkma torku sağlayan paslanmaz kelepçe.",
-                        "specs": {
-                            "Bant & Gövde": "AISI 304 Tamamı Paslanmaz"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Somonlu Lastikli Titreşim Kelepçesi",
-                        "_slug": "somonlu-lastikli-titreşim-kelepçesi",
-                        "image": "images/urunler/resim56.jpg",
-                        "description": "Pompa ve kazan çıkışı boru hatlarında titreşim ve gürültüyü emen EPDM lastikli kelepçe.",
-                        "specs": {
-                            "Malzeme": "AISI 304 + EPDM Fitil",
-                            "Özellik": "Titreşim Sönümleyici"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Trifonlu Kelepçe & Ağır Hizmet U-Bolt",
-                        "_slug": "trifonlu-kelepçe-ağır-hizmet-u-bolt",
-                        "image": "images/urunler/resim58.jpg",
-                        "description": "Duvar ve çelik konstrüksiyon sabitlemeleri için trifon vidalı ve U-bolt kelepçe.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316",
-                            "Tip": "Trifonlu / U-Bolt"
-                        },
-                        "showOnHome": false
-                    }
-                ]
-            },
-            {
                 "id": "endustriyel-flanslar",
                 "name": "Endüstriyel Flanşlar",
                 "slug": "endustriyel-flanslar",
@@ -321,6 +191,136 @@ const PRODUCT_TREE = [
                         "specs": {
                             "Malzeme": "AISI 304 / 316L",
                             "Çap": "DN15 - DN600"
+                        },
+                        "showOnHome": false
+                    }
+                ]
+            },
+            {
+                "id": "kaynakli-fittings",
+                "name": "Kaynaklı Fittings Grubu",
+                "slug": "kaynakli-fittings",
+                "icon": "fa-hammer",
+                "image": "images/urunler/resim80.jpg",
+                "description": "Yüksek basınç ve sıcaklık hatlarında kaynaklı bağlantı elemanları.",
+                "products": [
+                    {
+                        "name": "Paslanmaz Bombe Kep (Boru Sonu Kapağı)",
+                        "_slug": "paslanmaz-bombe-kep-boru-sonu-kapağı",
+                        "image": "images/urunler/resim91.jpg",
+                        "description": "Boru hatlarının uçlarını kaynakla körleme için bombeli kep.",
+                        "specs": {
+                            "Malzeme": "AISI 316",
+                            "Form": "Bombeli / Torisferik"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Eşit & İnegal Tee",
+                        "_slug": "paslanmaz-eşit-i-negal-tee",
+                        "image": "images/urunler/resim88.jpg",
+                        "description": "Boru hatlarından yan branşman almak için kaynaklı bağlantı elemanı.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316",
+                            "Tip": "Kaynaklı Dikişsiz"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Kaynak Ağızlı Rekor (DIN 11851)",
+                        "_slug": "paslanmaz-kaynak-ağızlı-rekor-din-11851",
+                        "image": "images/urunler/resim93.jpg",
+                        "description": "Gıda normunda hijyenik sökülebilir kaynaklı rekor bağlantı seti.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316L + EPDM Conta",
+                            "Standart": "DIN 11851 / SMS"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Patent Dirsek (90° / 45°)",
+                        "_slug": "paslanmaz-patent-dirsek-90-45",
+                        "image": "images/urunler/resim87.jpg",
+                        "description": "Akış yönünü değiştirmek için kullanılan kaynaklı dirsek parçaları.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316L",
+                            "Açı": "90° / 45° / 180°",
+                            "Et Kalınlığı": "SCH 10 / SCH 40"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Redüksiyon (Konsantrik / Eksantrik)",
+                        "_slug": "paslanmaz-redüksiyon-konsantrik-eksantrik",
+                        "image": "images/urunler/resim89.jpg",
+                        "description": "Farklı çaplardaki boruların eksenel birleşimini sağlayan redüksiyon.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316L",
+                            "Tip": "Konsantrik / Eksantrik"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Yaka (Stub End)",
+                        "_slug": "paslanmaz-yaka-stub-end",
+                        "image": "images/urunler/resim90.jpg",
+                        "description": "Serbest flanşlarla boru birleşiminde sızdırmaz yüzey oluşturan kaynaklı yaka.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316",
+                            "Tip": "Kaynaklı Boyunlu"
+                        },
+                        "showOnHome": false
+                    }
+                ]
+            },
+            {
+                "id": "kelepce-grubu",
+                "name": "Kelepçe & Bağlantı Elemanları",
+                "slug": "kelepce-grubu",
+                "icon": "fa-link",
+                "image": "images/urunler/resim80.jpg",
+                "description": "Boru ve hortumların tavana, duvara ve profile titreşimsiz sabitlenmesi.",
+                "products": [
+                    {
+                        "name": "Düz & Saplı Boru Kelepçesi",
+                        "_slug": "düz-saplı-boru-kelepçesi",
+                        "image": "images/urunler/resim53.jpg",
+                        "description": "Tesisat borularının rijit ve güvenli montajı için paslanmaz kelepçe.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316",
+                            "Çap": "DN15 - DN300"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Hortum Kelepçesi (Sonsuz Vida)",
+                        "_slug": "paslanmaz-hortum-kelepçesi-sonsuz-vida",
+                        "image": "images/urunler/resim57.jpg",
+                        "description": "Hortum bağlantılarında yüksek sıkma torku sağlayan paslanmaz kelepçe.",
+                        "specs": {
+                            "Bant & Gövde": "AISI 304 Tamamı Paslanmaz"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Somonlu Lastikli Titreşim Kelepçesi",
+                        "_slug": "somonlu-lastikli-titreşim-kelepçesi",
+                        "image": "images/urunler/resim56.jpg",
+                        "description": "Pompa ve kazan çıkışı boru hatlarında titreşim ve gürültüyü emen EPDM lastikli kelepçe.",
+                        "specs": {
+                            "Malzeme": "AISI 304 + EPDM Fitil",
+                            "Özellik": "Titreşim Sönümleyici"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Trifonlu Kelepçe & Ağır Hizmet U-Bolt",
+                        "_slug": "trifonlu-kelepçe-ağır-hizmet-u-bolt",
+                        "image": "images/urunler/resim58.jpg",
+                        "description": "Duvar ve çelik konstrüksiyon sabitlemeleri için trifon vidalı ve U-bolt kelepçe.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316",
+                            "Tip": "Trifonlu / U-Bolt"
                         },
                         "showOnHome": false
                     }
@@ -489,6 +489,17 @@ const PRODUCT_TREE = [
                         "showOnHome": true
                     },
                     {
+                        "name": "PASLANMAZ ÇOK SIKMALI  MENHOL KAPAĞI",
+                        "_slug": "paslanmaz-çok-sıkmalı-menhol-kapağı",
+                        "image": "images/uploads/WhatsApp Image 2026-09-15 at 12.21.51 PM.jpeg",
+                        "description": "BASINÇSIZ TİP PASLANMAZ MENHOL İMALATLARIMIZDA EXSTRA GÜVENLİK AMACIYLA BİRDEN FAZLA SIKMA TOPUZU TALEBE GÖRE EKLENEREK İMALAT GERÇEKLEŞTİRLEBİLİR.",
+                        "specs": {
+                            "MALZEME": "AISI 304 AISI316",
+                            "ÇAP": "200 MM - 600 MM"
+                        },
+                        "showOnHome": false
+                    },
+                    {
                         "name": "Yuvarlak & Oval İçe-Dışa Açılır Menhol",
                         "_slug": "yuvarlak-oval-i-çe-dışa-açılır-menhol",
                         "image": "images/urunler/resim66.jpg",
@@ -510,6 +521,38 @@ const PRODUCT_TREE = [
         "badge": "Özel Proje",
         "description": "Tesisinizin özel gereksinimlerine göre projelendirilen ve imal edilen paslanmaz borulama spolları, CIP başlıkları, mikserler ve özel platformlar.",
         "subcategories": [
+            {
+                "id": "havalandirma-cip",
+                "name": "Tank Havalandırma & CIP Yıkama Başlıkları",
+                "slug": "havalandirma-cip",
+                "icon": "fa-fan",
+                "image": "images/urunler/resim80.jpg",
+                "description": "Vakum ve aşırı basınç koruma başlıkları ve otomatik CIP tank yıkama topları.",
+                "products": [
+                    {
+                        "name": "360° Döner CIP Tank Yıkama Topu",
+                        "_slug": "360-döner-cip-tank-yıkama-topu",
+                        "image": "images/urunler/resim77.jpg",
+                        "description": "Kazan ve proses tanklarının içini kimyasal solüsyonla otomatik temizleyen döner püskürtme topu.",
+                        "specs": {
+                            "Malzeme": "PTFE / AISI 316L",
+                            "Püskürtme": "360 Derece Döner Küre"
+                        },
+                        "showOnHome": false
+                    },
+                    {
+                        "name": "Paslanmaz Tank Havalandırma Başlığı (Aeratör)",
+                        "_slug": "paslanmaz-tank-havalandırma-başlığı-aeratör",
+                        "image": "images/urunler/resim112.jpg",
+                        "description": "Tank dolum ve boşaltımında vakum oluşmasını önleyen paslanmaz filtreli başlık.",
+                        "specs": {
+                            "Malzeme": "AISI 304 / 316L",
+                            "Filtre": "Paslanmaz Sineklik & Toz Filtresi"
+                        },
+                        "showOnHome": false
+                    }
+                ]
+            },
             {
                 "id": "ozel-imalat-tank-ekipman",
                 "name": "Özel İmalat Proses Ekipmanları",
@@ -572,38 +615,6 @@ const PRODUCT_TREE = [
                         "showOnHome": false
                     }
                 ]
-            },
-            {
-                "id": "havalandirma-cip",
-                "name": "Tank Havalandırma & CIP Yıkama Başlıkları",
-                "slug": "havalandirma-cip",
-                "icon": "fa-fan",
-                "image": "images/urunler/resim80.jpg",
-                "description": "Vakum ve aşırı basınç koruma başlıkları ve otomatik CIP tank yıkama topları.",
-                "products": [
-                    {
-                        "name": "360° Döner CIP Tank Yıkama Topu",
-                        "_slug": "360-döner-cip-tank-yıkama-topu",
-                        "image": "images/urunler/resim77.jpg",
-                        "description": "Kazan ve proses tanklarının içini kimyasal solüsyonla otomatik temizleyen döner püskürtme topu.",
-                        "specs": {
-                            "Malzeme": "PTFE / AISI 316L",
-                            "Püskürtme": "360 Derece Döner Küre"
-                        },
-                        "showOnHome": false
-                    },
-                    {
-                        "name": "Paslanmaz Tank Havalandırma Başlığı (Aeratör)",
-                        "_slug": "paslanmaz-tank-havalandırma-başlığı-aeratör",
-                        "image": "images/urunler/resim112.jpg",
-                        "description": "Tank dolum ve boşaltımında vakum oluşmasını önleyen paslanmaz filtreli başlık.",
-                        "specs": {
-                            "Malzeme": "AISI 304 / 316L",
-                            "Filtre": "Paslanmaz Sineklik & Toz Filtresi"
-                        },
-                        "showOnHome": false
-                    }
-                ]
             }
         ]
     },
@@ -634,15 +645,6 @@ const PRODUCT_TREE = [
                         "showOnHome": false
                     }
                 ]
-            },
-            {
-                "id": "paslanmaz-sarf-kaynak",
-                "name": "Kaynak & Yüzey İşlem Sarfları",
-                "slug": "paslanmaz-sarf-kaynak",
-                "icon": "fa-fire-flame-curved",
-                "image": "images/urunler/resim80.jpg",
-                "description": "TIG/MIG paslanmaz kaynak telleri, kesme taşları ve leke giderici pasivasyon kimyasalları.",
-                "products": []
             },
             {
                 "id": "paslanmaz-hammadde",
@@ -697,6 +699,15 @@ const PRODUCT_TREE = [
                         "showOnHome": false
                     }
                 ]
+            },
+            {
+                "id": "paslanmaz-sarf-kaynak",
+                "name": "Kaynak & Yüzey İşlem Sarfları",
+                "slug": "paslanmaz-sarf-kaynak",
+                "icon": "fa-fire-flame-curved",
+                "image": "images/urunler/resim80.jpg",
+                "description": "TIG/MIG paslanmaz kaynak telleri, kesme taşları ve leke giderici pasivasyon kimyasalları.",
+                "products": []
             }
         ]
     }

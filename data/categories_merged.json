@@ -5,38 +5,6 @@
     "icon": "fa-wrench",
     "order": 1,
     "description": "Tüm boru tesisatlarında sızdırmaz ve güvenli yön değişimi, birleştirme ve akış kontrolü sağlayan kaynaklı, dişli fittingsler, flanşlar ve vanalar.",
-    "subcategories": [
-      {
-        "name": "Kaynaklı Fittings Grubu",
-        "slug": "kaynakli-fittings",
-        "icon": "fa-hammer",
-        "description": "Yüksek basınç ve sıcaklık hatlarında kaynaklı bağlantı elemanları."
-      },
-      {
-        "name": "Dişli Fittings Grubu",
-        "slug": "disli-fittings",
-        "icon": "fa-plug",
-        "description": "Dişli boru tesisatlarında sökülebilir ve hızlı montaj parçaları."
-      },
-      {
-        "name": "Kelepçe & Bağlantı Elemanları",
-        "slug": "kelepce-grubu",
-        "icon": "fa-link",
-        "description": "Boru ve hortumların tavana, duvara ve profile titreşimsiz sabitlenmesi."
-      },
-      {
-        "name": "Endüstriyel Flanşlar",
-        "slug": "endustriyel-flanslar",
-        "icon": "fa-circle-notch",
-        "description": "Kazan, tank ve boru hatları için standart ve yüksek basınçlı paslanmaz flanşlar."
-      },
-      {
-        "name": "Paslanmaz Vana & Akış Ekipmanları",
-        "slug": "vana-akisi",
-        "icon": "fa-sliders",
-        "description": "Endüstriyel ve hijyenik küresel, kelebek ve yönlendirici vanalar."
-      }
-    ],
     "_file": "paslanmaz-fittings.json",
     "_slug": "paslanmaz-fittings"
   },
@@ -46,14 +14,6 @@
     "icon": "fa-door-open",
     "order": 2,
     "description": "Sanayi tankları, proses kapları ve kazanlar için yüksek basınç dayanımlı, hijyenik dairesel, oval ve dikdörtgen menhol kapakları.",
-    "subcategories": [
-      {
-        "name": "Kazan & Tank Menhol Kapakları",
-        "slug": "menhol-kapaklari",
-        "icon": "fa-door-closed",
-        "description": "Basınçlı ve atmosferik tanklara insan ve bakım erişimi sağlayan standart ve özel menholler."
-      }
-    ],
     "_file": "paslanmaz-menhol-kapagi.json",
     "_slug": "paslanmaz-menhol-kapagi"
   },
@@ -63,20 +23,6 @@
     "icon": "fa-cogs",
     "order": 3,
     "description": "Tesisinizin özel gereksinimlerine göre projelendirilen ve imal edilen paslanmaz borulama spolları, CIP başlıkları, mikserler ve özel platformlar.",
-    "subcategories": [
-      {
-        "name": "Özel İmalat Proses Ekipmanları",
-        "slug": "ozel-imalat-tank-ekipman",
-        "icon": "fa-industry",
-        "description": "Gıda, kimya ve ilaç sanayisine özel paslanmaz ekipman ve aparat imalatları."
-      },
-      {
-        "name": "Tank Havalandırma & CIP Yıkama Başlıkları",
-        "slug": "havalandirma-cip",
-        "icon": "fa-fan",
-        "description": "Vakum ve aşırı basınç koruma başlıkları ve otomatik CIP tank yıkama topları."
-      }
-    ],
     "_file": "paslanmaz-ozel-imalatlar.json",
     "_slug": "paslanmaz-ozel-imalatlar"
   },
@@ -86,26 +32,6 @@
     "icon": "fa-boxes-stacked",
     "order": 4,
     "description": "A2/A4 paslanmaz civata, somun, pul takımları, TIG/MIG kaynak telleri, taşlama/polisaj malzemeleri ve hammadde tedariği.",
-    "subcategories": [
-      {
-        "name": "Paslanmaz Bağlantı Elemanları & Civatalar",
-        "slug": "paslanmaz-civata-baglanti",
-        "icon": "fa-screwdriver-wrench",
-        "description": "A2-70 ve A4-80 normlarında paslanmaz cıvata, somun, imbus, saplama ve pul çeşitleri."
-      },
-      {
-        "name": "Kaynak & Yüzey İşlem Sarfları",
-        "slug": "paslanmaz-sarf-kaynak",
-        "icon": "fa-fire-flame-curved",
-        "description": "TIG/MIG paslanmaz kaynak telleri, kesme taşları ve leke giderici pasivasyon kimyasalları."
-      },
-      {
-        "name": "Paslanmaz Çelik Hammaddeler",
-        "slug": "paslanmaz-hammadde",
-        "icon": "fa-layer-group",
-        "description": "AISI 304, 304L, 316, 316L sertifikalı paslanmaz sac, dikişsiz boru, profil ve mil tedariği."
-      }
-    ],
     "_file": "paslanmaz-sarf-malzemeler.json",
     "_slug": "paslanmaz-sarf-malzemeler"
   }

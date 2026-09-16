@@ -313,13 +313,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     </ul>
                 `;
 
-                // Accordion aç/kapa tıkı
+                // Accordion aç/kapa tıkı - ana kategoriye tıklayınca o grubun tüm ürünlerini göster
                 const header = groupLi.querySelector('.tree-group-header');
                 const subList = groupLi.querySelector('.tree-sub-list');
                 header.addEventListener('click', (e) => {
+                    // Tüm Ürünler butonundan aktifi kaldır
+                    if (treeAllItem) treeAllItem.classList.remove('active');
+                    document.querySelectorAll('.tree-sub-item').forEach(i => i.classList.remove('active'));
+
+                    const groupName = header.querySelector('.tree-group-title span')?.textContent || '';
                     const isOpen = header.classList.contains('open');
+
+                    // Accordion toggle
                     header.classList.toggle('open', !isOpen);
                     subList.style.display = isOpen ? 'none' : 'block';
+
+                    // Bu kategorinin tüm ürünlerini göster (alt kategoriler dahil)
+                    currentSelectedSub = null;
+                    if (breadcrumbCategory) breadcrumbCategory.textContent = `${groupName} (Tümü)`;
+                    if (treeSearchInput) treeSearchInput.value = '';
+                    renderTreeProductsGroup(groupName);
                 });
 
                 // Alt kategori tıkı
@@ -493,6 +506,94 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTreeProducts(null, '');
         }
 
+        // Ana kategoriye göre tüm ürünleri filtrele (alt kategoriler dahil)
+        function renderTreeProductsGroup(groupName) {
+            treeProductsGrid.innerHTML = '';
+            if (treeSearchInput) treeSearchInput.value = '';
+
+            let productList = [];
+            PRODUCT_TREE.forEach(group => {
+                if (group.name === groupName) {
+                    group.subcategories.forEach(sub => {
+                        sub.products.forEach((p, pIdx) => {
+                            productList.push({
+                                ...p,
+                                subId: sub.id,
+                                subName: sub.name,
+                                subSlug: sub.slug,
+                                groupId: group.id,
+                                groupName: group.name,
+                                productIndex: pIdx
+                            });
+                        });
+                    });
+                }
+            });
+
+            // Sayı etiketi
+            if (productCountBadge) {
+                productCountBadge.textContent = `${productList.length} ürün listeleniyor`;
+            }
+
+            // Aktif Filtre Rozetini Güncelle
+            if (activeFilterBadge) {
+                activeFilterBadge.innerHTML = `<span>Kategori: <strong>${groupName}</strong> (Tüm Alt Gruplar)</span> <span class="clear-filter" title="Tüm Ürünleri Göster"><i class="fas fa-times"></i></span>`;
+                activeFilterBadge.querySelector('.clear-filter')?.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    resetTreeFilter();
+                });
+            }
+
+            if (productList.length === 0) {
+                treeProductsGrid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1/-1;">
+                        <div class="icon"><i class="fas fa-search-minus"></i></div>
+                        <h3>Bu kategoride ürün bulunamadı</h3>
+                        <button class="btn btn-outline" style="margin-top:1.5rem;" id="emptyResetBtn">Tüm Ürünleri Göster</button>
+                    </div>
+                `;
+                document.getElementById('emptyResetBtn')?.addEventListener('click', resetTreeFilter);
+                return;
+            }
+
+            // Kartları bas
+            productList.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'tree-product-card fade-in visible';
+
+                const specsEntries = item.specs ? Object.entries(item.specs).slice(0, 2) : [];
+                const specsChipsHtml = specsEntries.map(([k, v]) => `<span class="spec-chip"><strong>${k}:</strong> ${v}</span>`).join('');
+
+                const slugVal = item._slug || item.slug || (item.name ? item.name.toLowerCase().replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]/g, '-') : '');
+                const detailUrl = `urun-detay.html?slug=${encodeURIComponent(slugVal)}&sub=${item.subId}&prod=${item.productIndex}`;
+                const cardImg = (item.image || '').replace(/^\/+/, '');
+
+                card.style.cursor = 'pointer';
+                card.innerHTML = `
+                    <div class="tree-product-img-wrap">
+                        <img src="${cardImg}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-bg\\'><i class=\\'fas fa-industry\\'></i></div>'">
+                        <span class="tree-product-badge">${item.groupName}</span>
+                    </div>
+                    <div class="tree-product-body">
+                        <div class="tree-product-category">${item.subName}</div>
+                        <h3 class="tree-product-title"><a href="${detailUrl}" style="color:inherit;text-decoration:none;">${item.name}</a></h3>
+                        <p class="tree-product-desc">${item.description || ''}</p>
+                        <div class="tree-product-specs-chips">${specsChipsHtml}</div>
+                        <a href="${detailUrl}" class="tree-product-btn">
+                            <span>Teknik Detay & Fiyat İncele</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                `;
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('a')) {
+                        window.location.href = detailUrl;
+                    }
+                });
+                treeProductsGrid.appendChild(card);
+            });
+        }
+
         if (treeResetBtn) {
             treeResetBtn.addEventListener('click', resetTreeFilter);
         }
@@ -507,10 +608,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Başlat
         buildTreeNavigation();
 
-        // URL Parametre Kontrolü (?sub=buhar-kazanlari vb.)
+        // URL Parametre Kontrolü (?sub=paslanmaz-fittings veya ?sub=kaynakli-fittings)
         const urlParams = new URLSearchParams(window.location.search);
         const subParam = urlParams.get('sub');
         if (subParam) {
+            // 1. Önce alt kategori olarak ara (sub-item)
             const targetSubEl = document.querySelector(`.tree-sub-item[data-sub-id="${subParam}"]`);
             if (targetSubEl) {
                 // Ebeveyn grubu aç
@@ -522,7 +624,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 targetSubEl.click();
             } else {
-                renderTreeProducts(null, '');
+                // 2. Ana kategori olarak ara (group-header)
+                const targetGroupHeader = document.querySelector(`.tree-group-header[data-group-id="${subParam}"]`);
+                if (targetGroupHeader) {
+                    // Tüm Ürünler butonundan aktifi kaldır
+                    if (treeAllItem) treeAllItem.classList.remove('active');
+                    document.querySelectorAll('.tree-sub-item').forEach(i => i.classList.remove('active'));
+
+                    // Ebeveyn grubu aç ve breadcrumb güncelle
+                    const groupLi = targetGroupHeader.closest('.tree-group-item');
+                    const subList = groupLi?.querySelector('.tree-sub-list');
+                    if (targetGroupHeader && subList) {
+                        targetGroupHeader.classList.add('open');
+                        subList.style.display = 'block';
+                    }
+
+                    // Ana kategorinin tüm ürünlerini göster (alt kategoriler dahil)
+                    const groupName = targetGroupHeader.querySelector('.tree-group-title span')?.textContent || '';
+                    if (breadcrumbCategory) breadcrumbCategory.textContent = `${groupName} (Tümü)`;
+                    if (treeSearchInput) treeSearchInput.value = '';
+
+                    // Ana kategori adına göre filtrele (groupName ile)
+                    renderTreeProductsGroup(groupName);
+
+                    if (treeSidebar) treeSidebar.classList.remove('show-mobile');
+                } else {
+                    renderTreeProducts(null, '');
+                }
             }
         } else {
             renderTreeProducts(null, '');

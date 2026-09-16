@@ -3,37 +3,5 @@
   "slug": "paslanmaz-fittings",
   "icon": "fa-wrench",
   "order": 1,
-  "description": "Tüm boru tesisatlarında sızdırmaz ve güvenli yön değişimi, birleştirme ve akış kontrolü sağlayan kaynaklı, dişli fittingsler, flanşlar ve vanalar.",
-  "subcategories": [
-    {
-      "name": "Kaynaklı Fittings Grubu",
-      "slug": "kaynakli-fittings",
-      "icon": "fa-hammer",
-      "description": "Yüksek basınç ve sıcaklık hatlarında kaynaklı bağlantı elemanları."
-    },
-    {
-      "name": "Dişli Fittings Grubu",
-      "slug": "disli-fittings",
-      "icon": "fa-plug",
-      "description": "Dişli boru tesisatlarında sökülebilir ve hızlı montaj parçaları."
-    },
-    {
-      "name": "Kelepçe & Bağlantı Elemanları",
-      "slug": "kelepce-grubu",
-      "icon": "fa-link",
-      "description": "Boru ve hortumların tavana, duvara ve profile titreşimsiz sabitlenmesi."
-    },
-    {
-      "name": "Endüstriyel Flanşlar",
-      "slug": "endustriyel-flanslar",
-      "icon": "fa-circle-notch",
-      "description": "Kazan, tank ve boru hatları için standart ve yüksek basınçlı paslanmaz flanşlar."
-    },
-    {
-      "name": "Paslanmaz Vana & Akış Ekipmanları",
-      "slug": "vana-akisi",
-      "icon": "fa-sliders",
-      "description": "Endüstriyel ve hijyenik küresel, kelebek ve yönlendirici vanalar."
-    }
-  ]
+  "description": "Tüm boru tesisatlarında sızdırmaz ve güvenli yön değişimi, birleştirme ve akış kontrolü sağlayan kaynaklı, dişli fittingsler, flanşlar ve vanalar."
 }

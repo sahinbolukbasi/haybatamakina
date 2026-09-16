@@ -60,23 +60,53 @@ fs.writeFileSync(path.join(dataDir, 'products_index.json'), JSON.stringify(produ
 fs.writeFileSync(path.join(dataDir, 'products_merged.json'), JSON.stringify(products, null, 2), 'utf8');
 console.log(`Merged ${products.length} products.`);
 
+// 2B. Read Subcategories from separate folder
+const subDir = path.join(dataDir, 'subcategories');
+const subFiles = fs.existsSync(subDir)
+    ? fs.readdirSync(subDir).filter(f => f.endsWith('.json')).sort()
+    : [];
+
+const allSubcategories = [];
+for (const file of subFiles) {
+    try {
+        const content = JSON.parse(fs.readFileSync(path.join(subDir, file), 'utf8'));
+        content._file = file;
+        content._slug = file.replace(/\.json$/, '');
+        allSubcategories.push(content);
+    } catch (e) {
+        console.error(`Error reading subcategory ${file}:`, e);
+    }
+}
+
+fs.writeFileSync(path.join(dataDir, 'subcategories_index.json'), JSON.stringify(subFiles, null, 2), 'utf8');
+console.log(`Read ${allSubcategories.length} subcategories.`);
+
 // 3. Build Synchronized PRODUCT_TREE (Only containing products that exist in the admin panel)
-const productTree = categories.map(cat => ({
-    id: cat.slug || norm(cat.name),
-    name: cat.name,
-    icon: cat.icon || 'fa-cubes',
-    badge: cat.name.includes('FİTTİNGS') ? 'Yüksek Basınç' : (cat.name.includes('MENHOL') ? 'Kazan & Tank' : (cat.name.includes('ÖZEL') ? 'Özel Proje' : 'Hammadde & Sarf')),
-    description: cat.description || '',
-    subcategories: (cat.subcategories || []).map(sub => ({
-        id: sub.slug || norm(sub.name),
-        name: sub.name,
-        slug: sub.slug || norm(sub.name),
-        icon: sub.icon || 'fa-angle-right',
-        image: sub.image || 'images/urunler/resim80.jpg',
-        description: sub.description || '',
-        products: []
-    }))
-}));
+const productTree = categories.map(cat => {
+    // Find subcategories that belong to this category via parentCategory
+    const catSubs = allSubcategories.filter(s => {
+        const sParent = norm(s.parentCategory || '');
+        const catName = norm(cat.name);
+        return sParent.includes(catName) || catName.includes(sParent);
+    });
+
+    return {
+        id: cat.slug || norm(cat.name),
+        name: cat.name,
+        icon: cat.icon || 'fa-cubes',
+        badge: cat.name.includes('FİTTİNGS') ? 'Yüksek Basınç' : (cat.name.includes('MENHOL') ? 'Kazan & Tank' : (cat.name.includes('ÖZEL') ? 'Özel Proje' : 'Hammadde & Sarf')),
+        description: cat.description || '',
+        subcategories: catSubs.map(sub => ({
+            id: sub.slug || norm(sub.name),
+            name: sub.name,
+            slug: sub.slug || norm(sub.name),
+            icon: sub.icon || 'fa-angle-right',
+            image: sub.image || 'images/urunler/resim80.jpg',
+            description: sub.description || '',
+            products: []
+        }))
+    };
+});
 
 // Distribute products into tree
 products.forEach(p => {

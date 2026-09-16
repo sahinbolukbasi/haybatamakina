@@ -8,10 +8,10 @@ public_folder: "images/uploads"
 
 collections:
   # =========================================================
-  # 1. ÜRÜN KATEGORİLERİ & ALT BAŞLIKLAR
+  # 1. ÜRÜN KATEGORİLERİ
   # =========================================================
   - name: "categories"
-    label: "Ürün Kategorileri & Alt Başlıklar"
+    label: "Ürün Kategorileri (Ana Başlıklar)"
     label_singular: "Kategori"
     folder: "data/categories"
     create: true
@@ -25,14 +25,34 @@ collections:
       - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-cubes", hint: "Örn: fa-wrench, fa-door-open, fa-cogs, fa-boxes-stacked" }
       - { label: "Sıralama No", name: "order", widget: "number", default: 1, value_type: "int" }
       - { label: "Kategori Açıklaması", name: "description", widget: "text", required: false }
-      - label: "Alt Başlıklar (Bu Kategorinin Alt Grupları)"
-        name: "subcategories"
-        widget: "list"
-        fields:
-          - { label: "Alt Başlık Adı", name: "name", widget: "string", hint: "Örn: Kaynaklı Fittings, Dişli Fittings, Kelepçeler" }
-          - { label: "Link / Slug", name: "slug", widget: "string", hint: "Örn: kaynakli-fittings" }
-          - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-angle-right" }
-          - { label: "Kısa Açıklama", name: "description", widget: "string", required: false }
+
+  # =========================================================
+  # 1B. ALT KATEGORİLER (Ana kategoriye bağlı alt başlıklar)
+  # =========================================================
+  - name: "subcategories"
+    label: "Alt Kategoriler (Alt Başlıklar)"
+    label_singular: "Alt Kategori"
+    folder: "data/subcategories"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Alt Kategori Adı", name: "name", widget: "string", hint: "Örn: Kaynaklı Fittings Grubu" }
+      - { label: "Link / Slug", name: "slug", widget: "string", hint: "Örn: kaynakli-fittings" }
+      - { label: "İkon (FontAwesome)", name: "icon", widget: "string", default: "fa-angle-right" }
+      - { label: "Kısa Açıklama", name: "description", widget: "string", required: false }
+      - label: "Bağlı Olduğu Ana Kategori"
+        name: "parentCategory"
+        widget: "select"
+        required: true
+        hint: "Bu alt başlık hangi ana kategoriye ait?"
+        options:
+          - "PASLANMAZ FİTTİNGS"
+          - "PASLANMAZ MENHOL KAPAĞI"
+          - "PASLANMAZ ÖZEL İMALATLAR"
+          - "PASLANMAZ SARF MALZEMELER"
 
   # =========================================================
   # 2. ÜRÜN KATALOĞU (YENİ ÜRÜN EKLE / DÜZENLE / FOTOĞRAF YÜKLE)
@@ -49,32 +69,29 @@ collections:
     fields:
       - { label: "Ürün Adı", name: "name", widget: "string" }
       - { label: "Anasayfada Göster (Öne Çıkar)", name: "showOnHome", widget: "boolean", default: false, hint: "İşaretlerseniz ürün ana sayfadaki vitrinde öne çıkarılır" }
-      - label: "1. Kategori Başlığı (Ana Kategori)"
+      - label: "1. Ana Kategori"
         name: "category"
-        widget: "relation"
-        collection: "categories"
-        search_fields: ["name"]
-        value_field: "name"
-        display_fields: ["name"]
-        hint: "Ürünün ait olduğu ana kategoriyi seçin"
-
-      - label: "2. Alt Başlık / Alt Kategori (Çoktan Seçmeli)"
-        name: "subCategory"
         widget: "select"
         required: true
-        hint: "Ürünün listeleneceği alt başlığı listeden seçin"
+        hint: "Ürünün ait olduğu ana kategoriyi seçin. Alt kategoriler buna göre filtrelenir."
         options:
-          - { label: "Kaynaklı Fittings Grubu [FİTTİNGS]", value: "Kaynaklı Fittings Grubu" }
-          - { label: "Dişli Fittings Grubu [FİTTİNGS]", value: "Dişli Fittings Grubu" }
-          - { label: "Kelepçe & Bağlantı Elemanları [FİTTİNGS]", value: "Kelepçe & Bağlantı Elemanları" }
-          - { label: "Endüstriyel Flanşlar [FİTTİNGS]", value: "Endüstriyel Flanşlar" }
-          - { label: "Paslanmaz Vana & Akış Ekipmanları [FİTTİNGS]", value: "Paslanmaz Vana & Akış Ekipmanları" }
-          - { label: "Kazan & Tank Menhol Kapakları [MENHOL]", value: "Kazan & Tank Menhol Kapakları" }
-          - { label: "Özel İmalat Proses Ekipmanları [ÖZEL İMALAT]", value: "Özel İmalat Proses Ekipmanları" }
-          - { label: "Tank Havalandırma & CIP Yıkama Başlıkları [ÖZEL İMALAT]", value: "Tank Havalandırma & CIP Yıkama Başlıkları" }
-          - { label: "Paslanmaz Bağlantı Elemanları & Civatalar [SARF MALZEME]", value: "Paslanmaz Bağlantı Elemanları & Civatalar" }
-          - { label: "Kaynak & Yüzey İşlem Sarfları [SARF MALZEME]", value: "Kaynak & Yüzey İşlem Sarfları" }
-          - { label: "Paslanmaz Çelik Hammaddeler [SARF MALZEME]", value: "Paslanmaz Çelik Hammaddeler" }
+          - "PASLANMAZ FİTTİNGS"
+          - "PASLANMAZ MENHOL KAPAĞI"
+          - "PASLANMAZ ÖZEL İMALATLAR"
+          - "PASLANMAZ SARF MALZEMELER"
+
+      - label: "2. Alt Kategori"
+        name: "subCategory"
+        widget: "relation"
+        required: true
+        hint: "Ana kategori seçildikten sonra burada sadece o kategoriye ait alt başlıklar listelenir."
+        collection: "subcategories"
+        value_field: "name"
+        search_fields: ["name"]
+        display_fields: ["name"]
+        filter:
+          field: "parentCategory"
+          value: "{{category}}"
       - { label: "Ürün Fotoğrafı", name: "image", widget: "image" }
       - { label: "Ürün Açıklaması", name: "description", widget: "text" }
       - label: "Teknik Özellikler Tablosu"

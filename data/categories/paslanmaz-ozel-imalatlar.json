@@ -3,19 +3,5 @@
   "slug": "paslanmaz-ozel-imalatlar",
   "icon": "fa-cogs",
   "order": 3,
-  "description": "Tesisinizin özel gereksinimlerine göre projelendirilen ve imal edilen paslanmaz borulama spolları, CIP başlıkları, mikserler ve özel platformlar.",
-  "subcategories": [
-    {
-      "name": "Özel İmalat Proses Ekipmanları",
-      "slug": "ozel-imalat-tank-ekipman",
-      "icon": "fa-industry",
-      "description": "Gıda, kimya ve ilaç sanayisine özel paslanmaz ekipman ve aparat imalatları."
-    },
-    {
-      "name": "Tank Havalandırma & CIP Yıkama Başlıkları",
-      "slug": "havalandirma-cip",
-      "icon": "fa-fan",
-      "description": "Vakum ve aşırı basınç koruma başlıkları ve otomatik CIP tank yıkama topları."
-    }
-  ]
+  "description": "Tesisinizin özel gereksinimlerine göre projelendirilen ve imal edilen paslanmaz borulama spolları, CIP başlıkları, mikserler ve özel platformlar."
 }
