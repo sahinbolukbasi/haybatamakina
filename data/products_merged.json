@@ -544,6 +544,22 @@
     "_slug": "paslanmaz-oval-menhol-içe-açılır"
   },
   {
+    "name": "PASLANMAZ PANO",
+    "showOnHome": false,
+    "category": "PASLANMAZ ÖZEL İMALATLAR",
+    "subCategory": "PASLANMAZ PANO",
+    "image": "images/uploads/WhatsApp Image 2026-09-16 at 11.54.13 AM.jpeg",
+    "description": "PASLANMAZ PANO  İMALATLARIMIZ ÖLÇÜ,İSTEK,PROJE TABALI İSTENİLEN KALİTE DE ÜRETİLMEKTEDİR.",
+    "specs": [
+      {
+        "key": "MALZEME",
+        "value": "AISI 304 AISI 316"
+      }
+    ],
+    "_file": "paslanmaz-pano.json",
+    "_slug": "paslanmaz-pano"
+  },
+  {
     "name": "Paslanmaz Patent Dirsek (90° / 45°)",
     "subCategory": "Kaynaklı Fittings Grubu",
     "image": "images/urunler/resim87.jpg",
